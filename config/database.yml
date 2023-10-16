@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: Flixs_production
-  username: Flixs
-  password: <%= ENV["FLIXS_DATABASE_PASSWORD"] %>
+  # username: Flixs
+  # password: <%= ENV["FLIXS_DATABASE_PASSWORD"] %>
