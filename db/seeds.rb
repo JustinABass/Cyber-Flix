@@ -1,4 +1,4 @@
-puts 'Seeding Users...💦'
+# puts 'Seeding Users...💦'
 User.create!(username: 'KayleeSunShine16', user_avatar: 'https://variety.com/wp-content/uploads/2022/12/MCDBIOF_WB023-e1670425121649.jpg?w=1000&h=563&crop=1', password_digest: '$2a$10$1Dz/251TJFnPrNJg6/r5DuBR4L.ElGhX7ykI6zl3G7PZjftjHcGsC')#sun
 User.create!(username: 'JBass6036', user_avatar: 'https://www.giantfreakinrobot.com/wp-content/uploads/2022/06/jack-sparrow-johnny-depp.jpg', password_digest: '$2a$10$E.GJwq/huOR0QnSsY.Fybe1PjMrsp5Y8tR.gnDEnMfdlHrDkViVnS')#pirate
 User.create!(username: 'WonderGal6789', user_avatar: 'https://static.independent.co.uk/2023/08/11/16/newFile-4.jpg?width=1200&height=1200&fit=crop', password_digest: '$2a$10$3KbGD/m5mNlECPzFcMcjb.mjSWdEitxRoyOnA1GDbbaCY38TxYAb.')#wonder
@@ -6,7 +6,7 @@ User.create!(username: 'Doom6036', user_avatar: 'https://media.wired.com/photos/
 
 
 
-puts 'Seeding Movies...💦'
+# puts 'Seeding Movies...💦'
 movie1 = Movie.create!(title: 'Fight Club', poster: 'https://i.etsystatic.com/18242346/r/il/c9908e/2412674268/il_fullxfull.2412674268_1sgm.jpg', trailer: 'https://www.youtube.com/embed/O1nDozs-LxI?vq=hd1080&autoplay=1&loop=1&rel=0&playlist=O1nDozs-LxI', year: '1999', genre: 'Action', new_release: true, trending_now: false, popular: false)
 movie2 = Movie.create!(title:'Once Upon A Time In... Hollywood', poster: 'https://media1.popsugar-assets.com/files/thumbor/4mdS39OwGWL-9Xe9lnrAZADfDVQ=/fit-in/792x1173/filters:format_auto():upscale()/2019/07/25/698/n/1922283/ccc67b4e608a49f7_MCDONUP_EC193.jpg', trailer: 'https://www.youtube.com/embed/ELeMaP8EPAA?vq=hd1080&autoplay=1&loop=1&rel=0&playlist=ELeMaP8EPAA', year: '2019', genre: 'Comedy', new_release: false, trending_now: true, popular: false)
 movie3 = Movie.create!(title: 'Bullet Train', poster: 'https://myhotposters.com/cdn/shop/products/mL6269_1024x1024.jpg?v=1662723620', trailer: 'https://www.youtube.com/embed/EGeJczJvWns?vq=hd1080&autoplay=1&loop=1&rel=0&playlist=EGeJczJvWns', year: '2022', genre: 'Action', new_release: false, trending_now: false, popular: true)
@@ -78,7 +78,7 @@ movie58 = Movie.create!(title: 'Mother', poster: 'https://m.media-amazon.com/ima
 movie59 = Movie.create!(title: 'American Hustle', poster: 'https://flxt.tmsimg.com/assets/p10016553_p_v10_al.jpg', trailer: 'https://www.youtube.com/embed/NqgjPRNRDSY?vq=hd1080&autoplay=1&loop=1&rel=0&playlist=NqgjPRNRDSY', year: '2013', genre: 'Crime', new_release: false, trending_now: true, popular: false)
 movie60 = Movie.create!(title: 'JOY', poster: 'https://i.ebayimg.com/images/g/UgIAAOSwegljDJ~u/s-l1600.jpg', trailer: 'https://www.youtube.com/embed/uR-2TiQVY-k?vq=hd1080&autoplay=1&loop=1&rel=0&playlist=uR-2TiQVY-k', year: '2015', genre: 'Drama', new_release: false, trending_now: false, popular: true)
 
-puts 'Seeding Actors...💦'
+# puts 'Seeding Actors...💦'
 #brad fight
 actor1 = Actor.create!(actor: 'Brad Pitt', image: 'https://e00-marca.uecdn.es/assets/multimedia/imagenes/2023/05/01/16829651070526.jpg')
 actor2 = Actor.create!(actor: 'Edward Norton', image: 'https://www.indiewire.com/wp-content/uploads/2016/10/edward-norton.jpg')
@@ -546,4 +546,4 @@ Connection.create!(movie_id: movie60.id, actor_id: actor107.id)
 
 
 
-puts 'Done Seeding...🌷'
+# puts 'Done Seeding...🌷'
