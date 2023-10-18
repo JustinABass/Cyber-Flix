@@ -48,6 +48,16 @@ group :development do
 end
 
 
+group :development, :test do
+  gem 'rspec-rails', '~> 5.0.0'
+end
+
+group :test do
+  gem 'rspec-json_expectations'
+  gem 'shoulda-matchers', '~> 4.0'
+end
+
+
 
 # gem 'active_model_serializers', '~> 0.10.2'
 # gem 'rack-cors', '~> 1.1', '>= 1.1.1'
