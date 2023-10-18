@@ -5,6 +5,10 @@ class CreateMovies < ActiveRecord::Migration[7.0]
       t.string :poster
       t.string :trailer
       t.string :year
+      t.string :genre
+      t.boolean :new_release
+      t.boolean :trending_now
+      t.boolean :popular
 
       t.timestamps
     end
