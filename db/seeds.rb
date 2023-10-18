@@ -1,8 +1,8 @@
 puts 'Seeding Users...💦'
-User.create!(username: 'KayleeSunShine16', avatar: 'https://variety.com/wp-content/uploads/2022/12/MCDBIOF_WB023-e1670425121649.jpg?w=1000&h=563&crop=1', password_digest: '$2a$10$1Dz/251TJFnPrNJg6/r5DuBR4L.ElGhX7ykI6zl3G7PZjftjHcGsC')#sun
-User.create!(username: 'JBass6036', avatar: 'https://www.giantfreakinrobot.com/wp-content/uploads/2022/06/jack-sparrow-johnny-depp.jpg', password_digest: '$2a$10$E.GJwq/huOR0QnSsY.Fybe1PjMrsp5Y8tR.gnDEnMfdlHrDkViVnS')#pirate
-User.create!(username: 'WonderGal6789', avatar: 'https://static.independent.co.uk/2023/08/11/16/newFile-4.jpg?width=1200&height=1200&fit=crop', password_digest: '$2a$10$3KbGD/m5mNlECPzFcMcjb.mjSWdEitxRoyOnA1GDbbaCY38TxYAb.')#wonder
-User.create!(username: 'Doom6036', avatar: 'https://media.wired.com/photos/599dd02bf2c93452115817e9/16:9/w_2207,h_1241,c_limit/joker-FA.jpg', password_digest: '$2a$10$ZFjFesh0XsF4YtxchGWPs.vT.JASfCGYLWoK29oZ/3ylViaMirisy')#joke
+User.create!(username: 'KayleeSunShine16', user_avatar: 'https://variety.com/wp-content/uploads/2022/12/MCDBIOF_WB023-e1670425121649.jpg?w=1000&h=563&crop=1', password_digest: '$2a$10$1Dz/251TJFnPrNJg6/r5DuBR4L.ElGhX7ykI6zl3G7PZjftjHcGsC')#sun
+User.create!(username: 'JBass6036', user_avatar: 'https://www.giantfreakinrobot.com/wp-content/uploads/2022/06/jack-sparrow-johnny-depp.jpg', password_digest: '$2a$10$E.GJwq/huOR0QnSsY.Fybe1PjMrsp5Y8tR.gnDEnMfdlHrDkViVnS')#pirate
+User.create!(username: 'WonderGal6789', user_avatar: 'https://static.independent.co.uk/2023/08/11/16/newFile-4.jpg?width=1200&height=1200&fit=crop', password_digest: '$2a$10$3KbGD/m5mNlECPzFcMcjb.mjSWdEitxRoyOnA1GDbbaCY38TxYAb.')#wonder
+User.create!(username: 'Doom6036', user_avatar: 'https://media.wired.com/photos/599dd02bf2c93452115817e9/16:9/w_2207,h_1241,c_limit/joker-FA.jpg', password_digest: '$2a$10$ZFjFesh0XsF4YtxchGWPs.vT.JASfCGYLWoK29oZ/3ylViaMirisy')#joke
 
 puts 'Seeding Actors...💦'
 #brad fight
