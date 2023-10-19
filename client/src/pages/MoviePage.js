@@ -5,9 +5,9 @@ import MovieCast from '../components/MovieCast';
 
 export default function MoviePage() {
     const { movies } = useContext( MovieContext )
-    const { id } = useParams()
+    const { movie_id } = useParams()
 
-    const selectedMovie = movies.find((movie) => movie.id == id)
+    const selectedMovie = movies.find((movie) => movie.id == movie_id)
     if( !selectedMovie ){
         return <h1><b>LOADING...</b></h1>
     }

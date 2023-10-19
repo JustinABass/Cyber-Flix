@@ -85,6 +85,19 @@ body::-webkit-scrollbar-thumb {
   margin: 0;
   padding: 0;
 }
+.checkOutLinkh1{
+  color: rgb(255, 0, 0);
+}
+.checkOutLink2{
+  margin-left: 15px;
+  color: rgb(255, 0, 0);
+}
+.checkOutLinkh1:hover{
+  text-decoration: none;
+}
+.checkOutLink2:hover{
+  color: white;
+}
 .homepageSlideContainer{
   width: 50%;
   position: relative;
@@ -106,9 +119,11 @@ body::-webkit-scrollbar-thumb {
 }
 #left-arrow{
   left: calc(17% - 120px);
+
 }
 #right-arrow{
   right: calc(-83% - 120px);
+  scroll-snap-type: x proximity;
 }
 .slider{
   width: 1428px;
@@ -171,6 +186,11 @@ body::-webkit-scrollbar-thumb {
   align-items:flex-start;
   height: 25px;
   margin-left: 1%;
+}
+.selectedMovieInfoChildTextDiv img{
+  height: 280px;
+  width: 200px;
+  border-radius: 5%;
 }
 .selectedMovieInfoChildTextDivTwo{
   display:flex;
@@ -246,7 +266,8 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
 }
 .actorGridImgs .actorGridImgsFadeBox {
-  background-color: rgb(255, 0, 0);
+  background-color: rgba(86, 86, 81, 0.951);
+  opacity: 5;
   position: absolute;
   top: 0;
   left: 0;
@@ -293,4 +314,34 @@ body::-webkit-scrollbar-thumb {
   height: 280px;
   width:240px;
   border-radius: 5%;
+}
+.actorPageParentDiv{
+  height: 450px;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(0, 0, 0) 10%,
+    rgb(255, 0, 0) 80%,
+    rgba(255, 255, 255, 0) 100%
+  )
+}
+.actorPageParentDiv{
+  display: flex;
+  width: auto;
+}
+.actorPageChildDiv{
+  flex: 1;
+}
+.actorPageChildImgDiv{
+  display:flex;
+  justify-content:flex-start;
+  align-items:flex-start;
+  height: 500px;
+  margin-left: 1%;
+}
+.actorPageChildImgDiv img{
+  height: 480px;
+  width: 440px;
+  border-radius: 5%;
+
 }

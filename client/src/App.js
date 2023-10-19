@@ -4,6 +4,7 @@ import { MovieProvider } from "./context/movie";
 import { ActorProvider } from "./context/actor";
 import Home from "./pages/Home";
 import MoviePage from "./pages/MoviePage";
+import ActorPage from "./pages/ActorPage";
 import ActorsPage from "./pages/ActorsPage";
 import './App.css';
 
@@ -15,8 +16,11 @@ function App() {
           <BrowserRouter>
             <div className="App">
               <Switch>
-              <Route path="/movies/:id">
+              <Route path="/movies/:movie_id">
                   <MoviePage/>
+                </Route>
+                <Route path="/actors/:id">
+                  <ActorPage/>
                 </Route>
                 <Route path="/actors">
                   <ActorsPage/>

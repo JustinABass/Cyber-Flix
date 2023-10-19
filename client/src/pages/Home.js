@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { MovieContext } from '../context/movie'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 
 export default function Home() {
@@ -30,7 +31,9 @@ export default function Home() {
         <br/>
         <div>
             <div className='homepageHeaders'>
-                <h1> Check out <b>{ movies[randomMovieTrailer]?.title.toUpperCase() }</b></h1>
+                <h1> Check Out<Link className='checkOutLinkh1' to={ `/movies/${movies[randomMovieTrailer]?.id}`}>
+                    <b className='checkOutLink2'>{ movies[randomMovieTrailer]?.title.toUpperCase() }</b></Link>
+                </h1>
             </div>
         </div>
         <hr/>
