@@ -1,7 +1,10 @@
 import React from 'react'
 
-export default function ActorsCard() {
+export default function ActorsCard( {actor} ) {
   return (
-    <div>ActorsCard</div>
+    <div>
+      <img src={ actor.image } alt='actorImage' height='250' width='200'/>
+      <h3>{ actor.actor }</h3>
+    </div>
   )
 }

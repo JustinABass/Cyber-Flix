@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ActorContext } from '../context/actor'
 
 export default function ActorsPage() {
+
+  const { actors, renderActors } = useContext( ActorContext )
   return (
-    <div>ActorsPage</div>
+    <div>
+      { renderActors }
+    </div>
   )
 }
