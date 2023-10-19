@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { MovieProvider } from "./context/movie";
 import { ActorProvider } from "./context/actor";
 import Home from "./pages/Home";
+import MoviePage from "./pages/MoviePage";
 import ActorsPage from "./pages/ActorsPage";
 import './App.css';
 
@@ -14,6 +15,9 @@ function App() {
           <BrowserRouter>
             <div className="App">
               <Switch>
+              <Route path="/movies/:id">
+                  <MoviePage/>
+                </Route>
                 <Route path="/actors">
                   <ActorsPage/>
                 </Route>
