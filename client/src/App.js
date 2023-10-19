@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { UserProvider } from "./context/movie";
 import Home from "./pages/Home";
+import ActorsPage from "./pages/ActorsPage";
 import './App.css';
 
 function App() {
@@ -11,7 +12,8 @@ function App() {
       <BrowserRouter>
       <div className="App">
       <Switch>
-        <Route path="/testing">
+        <Route path="/actors">
+          <ActorsPage/>
         </Route>
         <Route path="/">
           <Home/>
