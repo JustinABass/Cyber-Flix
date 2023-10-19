@@ -5,6 +5,7 @@ export default function Movies( { movie } ) {
     <div className='homepageSlideImg'>
         <br/>
         <img src={movie.poster} alt='moviePoster' height='350' width='300'/>
+        <h1>{movie.title}</h1>
     </div>
   )
 }

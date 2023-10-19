@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <>
     <div className='homepageTrailerDiv'>
-        <iframe src={ movies[randomMovieTrailer]?.trailer } width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameborder="0" allowfullscreen></iframe>
+        <iframe src={ movies[randomMovieTrailer]?.trailer } width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen></iframe>
     </div>
 
         <div className='homepageParentDiv'>
@@ -41,9 +41,9 @@ export default function Home() {
                 <h1>Popular On CyberFlix</h1>
             </div>
             <section className='homepageSlideContainer'>
-                <span id="left-arrow" class="arrow">‹</span>
-                <span id="right-arrow" class="arrow">›</span>
-                    <div class="slider" id="slider">
+                <span id="left-arrow" className="arrow">‹</span>
+                <span id="right-arrow" className="arrow">›</span>
+                    <div className="slider" id="slider">
                         { renderPopularMovies }
                     </div>
             </section>
@@ -53,9 +53,9 @@ export default function Home() {
                     <h1>New Releases On CyberFlix</h1>
                 </div>
                 <section className='homepageSlideContainer'>
-                    <span id="left-arrow" class="arrow">‹</span>
-                    <span id="right-arrow" class="arrow">›</span>
-                        <div class="slider" id="slider">
+                    <span id="left-arrow" className="arrow">‹</span>
+                    <span id="right-arrow" className="arrow">›</span>
+                        <div className="slider" id="slider">
                             { renderNewMovies }
                         </div>
                 </section>
@@ -65,9 +65,9 @@ export default function Home() {
                     <h1>Trending Now On CyberFlix</h1>
                 </div>
                 <section className='homepageSlideContainer'>
-                    <span id="left-arrow" class="arrow">‹</span>
-                    <span id="right-arrow" class="arrow">›</span>
-                        <div class="slider" id="slider">
+                    <span id="left-arrow" className="arrow">‹</span>
+                    <span id="right-arrow" className="arrow">›</span>
+                        <div className="slider" id="slider">
                             { renderTrendingMovies }
                         </div>
                 </section>
@@ -77,9 +77,9 @@ export default function Home() {
                         <h1>Action</h1>
                     </div>
                     <section className='homepageSlideContainer'>
-                        <span id="left-arrow" class="arrow">‹</span>
-                        <span id="right-arrow" class="arrow">›</span>
-                            <div class="slider" id="slider">
+                        <span id="left-arrow" className="arrow">‹</span>
+                        <span id="right-arrow" className="arrow">›</span>
+                            <div className="slider" id="slider">
                                 { renderActionMovies }
                             </div>
                     </section>
@@ -89,9 +89,9 @@ export default function Home() {
                         <h1>Comedy</h1>
                     </div>
                     <section className='homepageSlideContainer'>
-                        <span id="left-arrow" class="arrow">‹</span>
-                        <span id="right-arrow" class="arrow">›</span>
-                            <div class="slider" id="slider">
+                        <span id="left-arrow" className="arrow">‹</span>
+                        <span id="right-arrow" className="arrow">›</span>
+                            <div className="slider" id="slider">
                                 { renderComedyMovies }
                             </div>
                     </section>
@@ -101,9 +101,9 @@ export default function Home() {
                         <h1>Romance</h1>
                     </div>
                     <section className='homepageSlideContainer'>
-                        <span id="left-arrow" class="arrow">‹</span>
-                        <span id="right-arrow" class="arrow">›</span>
-                            <div class="slider" id="slider">
+                        <span id="left-arrow" className="arrow">‹</span>
+                        <span id="right-arrow" className="arrow">›</span>
+                            <div className="slider" id="slider">
                                 { renderRomanceMovies }
                             </div>
                     </section>
@@ -113,9 +113,9 @@ export default function Home() {
                         <h1>Drama</h1>
                     </div>
                     <section className='homepageSlideContainer'>
-                        <span id="left-arrow" class="arrow">‹</span>
-                        <span id="right-arrow" class="arrow">›</span>
-                            <div class="slider" id="slider">
+                        <span id="left-arrow" className="arrow">‹</span>
+                        <span id="right-arrow" className="arrow">›</span>
+                            <div className="slider" id="slider">
                                 { renderDramaMovies }
                             </div>
                     </section>
@@ -125,9 +125,9 @@ export default function Home() {
                         <h1>Adventure</h1>
                     </div>
                     <section className='homepageSlideContainer'>
-                        <span id="left-arrow" class="arrow">‹</span>
-                        <span id="right-arrow" class="arrow">›</span>
-                            <div class="slider" id="slider">
+                        <span id="left-arrow" className="arrow">‹</span>
+                        <span id="right-arrow" className="arrow">›</span>
+                            <div className="slider" id="slider">
                                 { renderAdventureMovies }
                             </div>
                     </section>
@@ -137,9 +137,9 @@ export default function Home() {
                         <h1>Thriller</h1>
                     </div>
                     <section className='homepageSlideContainer'>
-                        <span id="left-arrow" class="arrow">‹</span>
-                        <span id="right-arrow" class="arrow">›</span>
-                            <div class="slider" id="slider">
+                        <span id="left-arrow" className="arrow">‹</span>
+                        <span id="right-arrow" className="arrow">›</span>
+                            <div className="slider" id="slider">
                                 { renderThrillerMovies }
                             </div>
                     </section>
@@ -149,9 +149,9 @@ export default function Home() {
                         <h1>Crime</h1>
                     </div>
                     <section className='homepageSlideContainer'>
-                        <span id="left-arrow" class="arrow">‹</span>
-                        <span id="right-arrow" class="arrow">›</span>
-                            <div class="slider" id="slider">
+                        <span id="left-arrow" className="arrow">‹</span>
+                        <span id="right-arrow" className="arrow">›</span>
+                            <div className="slider" id="slider">
                                 { renderCrimeMovies }
                             </div>
                     </section>
@@ -161,13 +161,15 @@ export default function Home() {
                         <h1>Horror</h1>
                     </div>
                     <section className='homepageSlideContainer'>
-                        <span id="left-arrow" class="arrow">‹</span>
-                        <span id="right-arrow" class="arrow">›</span>
-                            <div class="slider" id="slider">
+                        <span id="left-arrow" className="arrow">‹</span>
+                        <span id="right-arrow" className="arrow">›</span>
+                            <div className="slider" id="slider">
                                 { renderHorrorMovies }
                             </div>
                     </section>
                     <br/>
+
+
         </div>
     </>
   )
