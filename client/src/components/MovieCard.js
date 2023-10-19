@@ -1,10 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 export default function MovieCard( { movie } ) {
   return (
     <div className='homepageSlideImg'>
         <br/>
-        <img src={movie.poster} alt='moviePoster' height='350' width='300'/>
+        <Link to={`/movies/${ movie.id }`}>
+        <img src={movie.poster} alt='moviePoster'/>
+        </Link>
     </div>
   )
 }
