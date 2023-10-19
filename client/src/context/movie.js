@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import Movies from "../components/Movies";
 
 //this gives me global state
-const UserContext = React.createContext()
+const MovieContext = React.createContext()
 
-function UserProvider({ children }) {
+function MovieProvider({ children }) {
     const [ movies, setMovies ] = useState( [] )
 
     useEffect(() => {
@@ -109,7 +109,7 @@ function UserProvider({ children }) {
 
 
     return(
-        <UserContext.Provider
+        <MovieContext.Provider
         value={{
             movies,
             randomMovieTrailer,
@@ -125,8 +125,8 @@ function UserProvider({ children }) {
             renderCrimeMovies,
             renderHorrorMovies}}>
             {children}
-        </UserContext.Provider>
+        </MovieContext.Provider>
     )
 }
 
-export { UserContext, UserProvider}
+export { MovieContext, MovieProvider}

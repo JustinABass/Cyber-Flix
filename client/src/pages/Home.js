@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import { UserContext } from '../context/movie'
-import Movies from '../components/Movies'
+import { MovieContext } from '../context/movie'
+
 
 export default function Home() {
     const {
@@ -16,7 +16,7 @@ export default function Home() {
         renderThrillerMovies,
         renderAdventureMovies,
         renderCrimeMovies,
-        renderHorrorMovies } = useContext( UserContext )
+        renderHorrorMovies } = useContext( MovieContext )
 
 
   return (

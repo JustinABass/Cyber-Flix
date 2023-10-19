@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { UserProvider } from "./context/movie";
+import { MovieProvider } from "./context/movie";
 import { ActorProvider } from "./context/actor";
 import Home from "./pages/Home";
 import ActorsPage from "./pages/ActorsPage";
@@ -9,7 +9,7 @@ import './App.css';
 function App() {
 
   return (
-    <UserProvider>
+    <MovieProvider>
       <ActorProvider>
           <BrowserRouter>
             <div className="App">
@@ -24,7 +24,7 @@ function App() {
           </div>
         </BrowserRouter>
       </ActorProvider>
-    </UserProvider>
+    </MovieProvider>
   );
 }
 

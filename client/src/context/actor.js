@@ -6,10 +6,10 @@ const ActorContext = React.createContext()
 function ActorProvider({ children }) {
 
     return(
-        <UserContext.Provider
+        <ActorContext.Provider
         value={{}}>
             {children}
-        </UserContext.Provider>
+        </ActorContext.Provider>
     )
 }
 
