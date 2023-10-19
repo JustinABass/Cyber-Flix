@@ -22,7 +22,7 @@ function App() {
                 <Route path="/actors/:id">
                   <ActorPage/>
                 </Route>
-                <Route path="/actors">
+                <Route path="/actors_page">
                   <ActorsPage/>
                 </Route>
                 <Route path="/">

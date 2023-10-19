@@ -340,8 +340,8 @@ body::-webkit-scrollbar-thumb {
   margin-left: 1%;
 }
 .actorPageChildImgDiv img{
-  height: 480px;
-  width: 440px;
+  height: 880px;
+  width: 940px;
   border-radius: 5%;
 
 }
