@@ -3,10 +3,14 @@ import { ActorContext } from '../context/actor'
 
 export default function ActorsPage() {
 
-  const { actors, renderActors } = useContext( ActorContext )
+  const { renderActors } = useContext( ActorContext )
   return (
-    <div>
-      { renderActors }
+    <div className='actorsPageParentDiv'>
+      <br/>
+       <div className='actorGridContainer'>
+        { renderActors }
+      </div>
+      <br/>
     </div>
   )
 }

@@ -112,7 +112,7 @@ body::-webkit-scrollbar-thumb {
 }
 .slider{
   width: 1428px;
-  height: auto;
+  height: 325px;
   /* padding-left: 40%; */
   display: flex;
   flex-direction: row;
@@ -138,4 +138,82 @@ body::-webkit-scrollbar-thumb {
   color: #111;
   background: rgb(255, 255, 255);
   box-shadow: 0 0 20px rgb(255, 255, 255);
+}
+
+
+
+
+.actorsPageParentDiv{
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(0, 0, 0) 10%,
+    rgb(255, 0, 0) 80%,
+    rgba(255, 255, 255, 0) 100%
+  )
+}
+.actorGridContainer{
+  margin-left: 35px;
+  display: grid;
+  grid-template-columns: repeat(5, 0fr);
+  /* grid-template-rows: repeat(8, 5vw); */
+  grid-gap: 40px
+}
+
+.actorGridImgs{
+  cursor: pointer;
+  height: 280px;
+  width: 240px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.actorGridImgs .actorGridImgsFadeBox {
+  background-color: rgb(255, 0, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  opacity: 0;
+  height: 280px;
+  width: 240px;
+  border-radius: 5%;
+  /* padding: 0px 0px; */
+}
+.actorGridImgs:hover .actorGridImgsFadeBox {
+  opacity: 0.8;
+}
+.actorGridImgs .text {
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  transform: translateY(30px);
+  -webkit-transform: translateY(30px);
+  font-size: xx-large;
+  margin-top: 65px;
+}
+.actorGridImgs .title {
+  text-shadow: 5px 5px rgba(101, 100, 82, 0.349);
+  text-transform: uppercase;
+  opacity: 0;
+  transition-delay: 0.2s;
+  transition-duration: 0.3s;
+}
+.actorGridImgs:hover .title,
+.actorGridImgs .title {
+  opacity: 1;
+  transform: translateY(0px);
+  -webkit-transform: translateY(0px);
+}
+.actorGridImgs img{
+  height: 280px;
+  width:240px;
+  border-radius: 5%;
 }

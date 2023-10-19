@@ -47,7 +47,6 @@ export default function Home() {
                         { renderPopularMovies }
                     </div>
             </section>
-            <br/>
 
                 <div className='homepageHeaders'>
                     <h1>New Releases On CyberFlix</h1>
@@ -59,7 +58,6 @@ export default function Home() {
                             { renderNewMovies }
                         </div>
                 </section>
-                <br/>
 
                 <div className='homepageHeaders'>
                     <h1>Trending Now On CyberFlix</h1>
@@ -71,7 +69,6 @@ export default function Home() {
                             { renderTrendingMovies }
                         </div>
                 </section>
-                <br/>
 
                 <div className='homepageHeaders'>
                         <h1>Action</h1>
@@ -83,7 +80,6 @@ export default function Home() {
                                 { renderActionMovies }
                             </div>
                     </section>
-                    <br/>
 
                 <div className='homepageHeaders'>
                         <h1>Comedy</h1>
@@ -95,7 +91,6 @@ export default function Home() {
                                 { renderComedyMovies }
                             </div>
                     </section>
-                    <br/>
 
                     <div className='homepageHeaders'>
                         <h1>Romance</h1>
@@ -107,7 +102,6 @@ export default function Home() {
                                 { renderRomanceMovies }
                             </div>
                     </section>
-                    <br/>
 
                     <div className='homepageHeaders'>
                         <h1>Drama</h1>
@@ -119,7 +113,6 @@ export default function Home() {
                                 { renderDramaMovies }
                             </div>
                     </section>
-                    <br/>
 
                     <div className='homepageHeaders'>
                         <h1>Adventure</h1>
@@ -131,7 +124,6 @@ export default function Home() {
                                 { renderAdventureMovies }
                             </div>
                     </section>
-                    <br/>
 
                     <div className='homepageHeaders'>
                         <h1>Thriller</h1>
@@ -143,7 +135,6 @@ export default function Home() {
                                 { renderThrillerMovies }
                             </div>
                     </section>
-                    <br/>
 
                     <div className='homepageHeaders'>
                         <h1>Crime</h1>
@@ -155,7 +146,6 @@ export default function Home() {
                                 { renderCrimeMovies }
                             </div>
                     </section>
-                    <br/>
 
                     <div className='homepageHeaders'>
                         <h1>Horror</h1>
@@ -167,9 +157,6 @@ export default function Home() {
                                 { renderHorrorMovies }
                             </div>
                     </section>
-                    <br/>
-
-
         </div>
     </>
   )
