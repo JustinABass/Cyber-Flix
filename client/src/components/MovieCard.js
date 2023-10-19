@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Movies( { movie } ) {
+export default function MovieCard( { movie } ) {
   return (
     <div className='homepageSlideImg'>
         <br/>

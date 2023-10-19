@@ -30,7 +30,7 @@ export default function Home() {
         <br/>
         <div>
             <div className='homepageHeaders'>
-                <h1> Check Out <b>{ movies[randomMovieTrailer]?.title }</b></h1>
+                <h1> Check out <b>{ movies[randomMovieTrailer]?.title.toUpperCase() }</b></h1>
             </div>
         </div>
         <hr/>
@@ -70,7 +70,7 @@ export default function Home() {
                         </div>
                 </section>
 
-                <div className='homepageHeaders'>
+                {/* <div className='homepageHeaders'>
                         <h1>Action</h1>
                     </div>
                     <section className='homepageSlideContainer'>
@@ -156,7 +156,7 @@ export default function Home() {
                             <div className="slider" id="slider">
                                 { renderHorrorMovies }
                             </div>
-                    </section>
+                    </section> */}
         </div>
     </>
   )

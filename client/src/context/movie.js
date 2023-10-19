@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Movies from "../components/Movies";
+import MovieCard from "../components/MovieCard";
 
 //this gives me global state
 const MovieContext = React.createContext()
@@ -19,7 +19,7 @@ function MovieProvider({ children }) {
 
     const popularMovies = movies.filter((movie) => movie.popular ? true : false)
     const renderPopularMovies = popularMovies.map((movie) => (
-        <Movies
+        <MovieCard
         key={ movie.id }
         movie={ movie }
         />
@@ -27,7 +27,7 @@ function MovieProvider({ children }) {
 
     const newMovies = movies.filter((movie) => movie.new_release? true : false)
     const renderNewMovies = newMovies.map((movie) => (
-        <Movies
+        <MovieCard
         key={ movie.id }
         movie={ movie }
         />
@@ -35,7 +35,7 @@ function MovieProvider({ children }) {
 
     const trendingMovies = movies.filter((movie) => movie.trending_now ? true : false)
     const renderTrendingMovies = trendingMovies.map((movie) => (
-        <Movies
+        <MovieCard
         key={ movie.id }
         movie={ movie }
         />
@@ -43,7 +43,7 @@ function MovieProvider({ children }) {
 
     const actionMovies = movies.filter((movie) => movie.genre === 'Action')
     const renderActionMovies = actionMovies.map((movie) => (
-        <Movies
+        <MovieCard
         key={ movie.id }
         movie={ movie }
         />
@@ -51,7 +51,7 @@ function MovieProvider({ children }) {
 
     const comedyMovies = movies.filter((movie) => movie.genre === 'Comedy')
     const renderComedyMovies = comedyMovies.map((movie) => (
-        <Movies
+        <MovieCard
         key={ movie.id }
         movie={ movie }
         />
@@ -59,7 +59,7 @@ function MovieProvider({ children }) {
 
     const romanceMovies = movies.filter((movie) => movie.genre === 'Romance')
     const renderRomanceMovies = romanceMovies.map((movie) => (
-        <Movies
+        <MovieCard
         key={ movie.id }
         movie={ movie }
         />
@@ -67,7 +67,7 @@ function MovieProvider({ children }) {
 
     const dramaMovies = movies.filter((movie) => movie.genre === 'Drama')
     const renderDramaMovies = dramaMovies.map((movie) => (
-        <Movies
+        <MovieCard
         key={ movie.id }
         movie={ movie }
         />
@@ -75,7 +75,7 @@ function MovieProvider({ children }) {
 
     const thrillerMovies = movies.filter((movie) => movie.genre === 'Thriller')
     const renderThrillerMovies = thrillerMovies.map((movie) => (
-        <Movies
+        <MovieCard
         key={ movie.id }
         movie={ movie }
         />
@@ -83,7 +83,7 @@ function MovieProvider({ children }) {
 
     const adventureMovies = movies.filter((movie) => movie.genre === 'Adventure')
     const renderAdventureMovies = adventureMovies.map((movie) => (
-        <Movies
+        <MovieCard
         key={ movie.id }
         movie={ movie }
         />
@@ -91,7 +91,7 @@ function MovieProvider({ children }) {
 
     const crimeMovies = movies.filter((movie) => movie.genre === 'Crime')
     const renderCrimeMovies = crimeMovies.map((movie) => (
-        <Movies
+        <MovieCard
         key={ movie.id }
         movie={ movie }
         />
@@ -99,7 +99,7 @@ function MovieProvider({ children }) {
 
     const horrorMovies = movies.filter((movie) => movie.genre === 'Horror')
     const renderHorrorMovies = horrorMovies.map((movie) => (
-        <Movies
+        <MovieCard
         key={ movie.id }
         movie={ movie }
         />

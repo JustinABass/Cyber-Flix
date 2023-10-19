@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ActorsCard( {actor} ) {
+export default function ActorCard( {actor} ) {
   return (
     <div className='actorGridImgs'>
       <img src={ actor.image } alt='actorImage'/>
