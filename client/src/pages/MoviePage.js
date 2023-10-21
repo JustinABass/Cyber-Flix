@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { MovieContext } from '../context/movie'
 import { useParams } from "react-router-dom";
 import MovieCast from '../components/MovieCast';
+import MovieCard from '../components/MovieCard';
 
 export default function MoviePage() {
     const { movies } = useContext( MovieContext )
@@ -18,6 +19,16 @@ export default function MoviePage() {
         cast={ cast }
         />
     ))
+
+    const movieGenreMatch = movies.filter((movie) => movie.genre === selectedMovie.genre)
+    const setMovieGenreMatch = movieGenreMatch.filter((movie) => movie.id !== selectedMovie.id)
+    const renderMovieGenreMatch = setMovieGenreMatch.map((movie) => (
+        <MovieCard
+        key={ movie.id }
+        movie={ movie }
+        />
+    ))
+
 
   return (
     <>
@@ -45,6 +56,15 @@ export default function MoviePage() {
             </div>
         </div>
     </div>
+    <br/>
+
+    <div className='selectedMovieInfoChildTextDiv'>
+                <h1> More Like This </h1>
+    </div>
+        <div className='moviePageGridContainer'>
+                { renderMovieGenreMatch }
+        </div>
+        <br/>
     </>
   )
 }

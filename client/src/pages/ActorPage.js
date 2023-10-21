@@ -19,19 +19,34 @@ export default function ActorPage() {
         />
     ))
   return (
+    <>
     <div className='actorPageParentDiv'>
         <div className='actorPageChildDiv'>
             <br/>
             <div className='actorPageChildImgDiv'>
-                <img src={ selectedActor.image } alt='actorImage'/>
-            </div>
-            <br/>
-            <div className='selectedMovieInfoChildTextDiv'>
-                <h1>{ selectedActor.actor }</h1>
+                <img src={ selectedActor.image } alt='actorImage' height='480' width='440'/>
             </div>
         </div>
 
-        {selectedActorMovies}
+        <div className='actorPageChildDiv'>
+            <br/>
+            <div className='actorPageNameDiv'>
+                <h1> Movies Starring </h1>
+            </div>
+            <div className='actorPageNameDivTwo'>
+                <h1> { selectedActor.actor }</h1>
+            </div>
+        </div>
     </div>
+
+    <div className='actorPageParentDivTwo'>
+        <div className='actorPageChildDivTwo'>
+            <div className='actorsPagePostersDiv'>
+                { selectedActorMovies}
+            </div>
+            <br/>
+        </div>
+    </div>
+    </>
   )
 }

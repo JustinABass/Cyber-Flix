@@ -222,6 +222,7 @@ body::-webkit-scrollbar-thumb {
   font-size: xx-large;
 }
 .movieCastImgChildDiv:hover .movieCastImgTextDiv{
+  cursor: pointer;
   width:100%;
   height:100%;
   border-radius: 50%;
@@ -236,6 +237,17 @@ body::-webkit-scrollbar-thumb {
 }
 .movieCastImgTextDiv h6{
   margin-top: 40%;
+}
+.moviePageGridContainer{
+  margin-left: 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 0fr);
+  /* grid-template-rows: repeat(8, 5vw); */
+  grid-gap: 70px
+
+}
+.castLink{
+  color: #fff;
 }
 
 
@@ -256,7 +268,6 @@ body::-webkit-scrollbar-thumb {
   /* grid-template-rows: repeat(8, 5vw); */
   grid-gap: 40px
 }
-
 .actorGridImgs{
   cursor: pointer;
   height: 280px;
@@ -316,6 +327,8 @@ body::-webkit-scrollbar-thumb {
   border-radius: 5%;
 }
 .actorPageParentDiv{
+  display: flex;
+  width: auto;
   height: 450px;
   background: linear-gradient(
     to top,
@@ -325,10 +338,6 @@ body::-webkit-scrollbar-thumb {
     rgba(255, 255, 255, 0) 100%
   )
 }
-.actorPageParentDiv{
-  display: flex;
-  width: auto;
-}
 .actorPageChildDiv{
   flex: 1;
 }
@@ -336,12 +345,55 @@ body::-webkit-scrollbar-thumb {
   display:flex;
   justify-content:flex-start;
   align-items:flex-start;
-  height: 500px;
-  margin-left: 1%;
+  margin-left: 100px;
 }
 .actorPageChildImgDiv img{
-  height: 880px;
-  width: 940px;
+  height: 520px;
+  width: 390px;
   border-radius: 5%;
 
 }
+.actorPageNameDiv{
+  /* display:flex; */
+  /* justify-content:flex-start;
+  align-items:flex-start; */
+  height: 25px;
+  width: 900px;
+  /* margin-right: 160px; */
+  margin-top: 10%;
+  font-size: 50px;
+}
+.actorPageNameDivTwo{
+  height: 25px;
+  width: 900px;
+  /* margin-right: 150px; */
+  margin-top: 12%;
+  font-size: 50px;
+}
+.actorPageParentDivTwo{
+  display: flex;
+  /* width: auto; */
+  margin-top: 10%;
+
+}
+.actorPageChildDivTwo{
+  margin-left: 100px;
+}
+.actorsPagePostersDiv{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 60px;
+  /* margin-left: 105px; */
+}
+.actorsPagePostersDiv img{
+  border-radius: 5%;
+  width: 390px;
+  height: 520px;
+}
+.actorsPagePostersDiv img:hover{
+  color: #111;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 0 30px rgb(255, 255, 255);
+}
+
+
