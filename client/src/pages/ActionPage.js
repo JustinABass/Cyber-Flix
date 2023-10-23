@@ -5,7 +5,7 @@ export default function ActionPage() {
     const { renderActionMovies } = useContext( MovieContext )
   return (
     <div>
-        
+        { renderActionMovies }
     </div>
   )
 }

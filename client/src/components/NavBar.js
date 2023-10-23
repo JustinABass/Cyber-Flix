@@ -8,6 +8,10 @@ export default function NavBar() {
             <button className='navButtons'> HOME </button>
         </NavLink>
 
+        <NavLink to='/action_movies'>
+            <button className='navButtons'> ACTION </button>
+        </NavLink>
+
         <NavLink to='/actors_page'>
             <button className='navButtons'> ACTORS </button>
         </NavLink>
