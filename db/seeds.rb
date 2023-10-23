@@ -24,7 +24,7 @@ movie12 = Movie.create!(title: 'Brothers', poster: 'https://flxt.tmsimg.com/asse
 
 movie13 = Movie.create!(title: 'Prince of Persia: The Sands of Time', poster: 'https://cdn.europosters.eu/image/750/posters/prince-of-persia-sands-of-time-i7259.jpg', trailer: 'https://www.youtube.com/embed/bZ7Li5w2I-k?vq=hd1080&autoplay=1&loop=1&rel=0&playlist=bZ7Li5w2I-k', year: '2010', genre: 'Action', new_release: true, trending_now: false, popular: false)
 movie14 = Movie.create!(title: 'Love & Other Drugs', poster: 'https://images-na.ssl-images-amazon.com/images/S/pv-target-images/a59e9af66c46ac0c1090792d226049a84429e52c8e269268d532040c67bf71dc._RI_TTW_.jpg', trailer: 'https://www.youtube.com/embed/h6w7Dh-QxzY?vq=hd1080&autoplay=1&loop=1&rel=0&playlist=h6w7Dh-QxzY', year: '2010', genre: 'Romance', new_release: false, trending_now: true, popular: false)
-movie15 = Movie.create!(title: 'Stronger', poster: 'https://static.wikia.nocookie.net/whumpapedia/images/9/96/Stronger.jpg/revision/latest?cb=20210413214657', trailer: 'https://www.youtube.com/embed/I6MN0QfQx7I?vq=hd1080&autoplay=1&loop=1&rel=0&playlist=I6MN0QfQx7I', year: '2017', genre: 'Drama', new_release: false, trending_now: false, popular: true)
+movie15 = Movie.create!(title: 'Stronger', poster: 'https://i.pinimg.com/1200x/db/a1/6d/dba16d98e11313f3e9142b85b4e144e8.jpg', trailer: 'https://www.youtube.com/embed/I6MN0QfQx7I?vq=hd1080&autoplay=1&loop=1&rel=0&playlist=I6MN0QfQx7I', year: '2017', genre: 'Drama', new_release: false, trending_now: false, popular: true)
 movie16 = Movie.create!(title: 'Brokeback Mountain', poster: 'https://assets.scriptslug.com/live/img/posters/brokeback-mountain-2005.jpg', trailer: 'https://www.youtube.com/embed/z89xU8l5wn8?vq=hd1080&autoplay=1&loop=1&rel=0&playlist=z89xU8l5wn8', year: '2005', genre: 'Romance', new_release: true, trending_now: false, popular: false)
 movie17 = Movie.create!(title: 'Donnie Darko', poster: 'https://www.santamonica.com/wp-content/uploads/2017/04/Donnie-Darko.jpg', trailer: 'https://www.youtube.com/embed/bzLn8sYeM9o?vq=hd1080&autoplay=1&loop=1&rel=0&playlist=bzLn8sYeM9o', year: '2001', genre: 'Drama', new_release: false, trending_now: true, popular: false)
 movie18 = Movie.create!(title: 'NIGHTCRAWLER', poster: 'https://m.media-amazon.com/images/I/612SNEBDltL._AC_UF894,1000_QL80_.jpg', trailer: 'https://www.youtube.com/embed/u1uP_8VJkDQ?vq=hd1080&autoplay=1&loop=1&rel=0&playlist=u1uP_8VJkDQ', year: '2014', genre: 'Drama', new_release: false, trending_now: false, popular: true)
@@ -89,11 +89,11 @@ actor4 = Actor.create!(actor: 'Leonardo DiCaprio', image: 'https://phantom-marca
 actor5 = Actor.create!(actor: 'Margot Robbie', image: 'https://assets.vogue.com/photos/5cf7ed4504f90a017a26d60f/1:1/w_2291,h_2291,c_limit/5-things-to-know-about-margot-robbie.jpg')
 
 #brad bullet
-actor6 = Actor.create!(actor: 'Aaron Taylor-Johnson', image: 'https://facts.net/wp-content/uploads/2023/08/38-facts-about-aaron-taylor-johnson-1692552208.jpg')
+actor6 = Actor.create!(actor: 'Aaron Taylor-Johnson', image: 'https://labande-annonce.fr//www-site/uploads/2015/01/aaron-t-johnson-640x960.jpg')
 actor7 = Actor.create!(actor: 'Joey King', image: 'https://media.glamourmagazine.co.uk/photos/62c3fdc20b16f0c12c6fc864/4:3/w_1920,h_1440,c_limit/JOEY%20KING%20050722%20default-sq-GettyImages-1403365386.jpg')
 
 #brad by the sea
-actor8 = Actor.create!(actor: 'Angelina Jolie', image: 'https://static.wikia.nocookie.net/disney/images/9/90/Angelina_Jolie.jpg/revision/latest?cb=20180604002246')
+actor8 = Actor.create!(actor: 'Angelina Jolie', image: 'https://people.com/thmb/NyxzD8BxHDk0hekBM4hvLgvykWg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(771x0:773x2)/angelina-jolie1-2d2e5526559a485588cbf8873af5f2af.jpg')
 actor9 = Actor.create!(actor: 'Melanie Laurent', image: 'https://fr.web.img6.acsta.net/pictures/18/09/06/16/40/1315675.jpg')
 
 #brad Babylon
@@ -101,42 +101,42 @@ actor10 = Actor.create!(actor: 'Tobey Maguire', image: 'https://upload.wikimedia
 
 #brad fury
 actor11 = Actor.create!(actor: 'Alicia Von Rittberg', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/2018-01-26-DFP_2018-7082.jpg/640px-2018-01-26-DFP_2018-7082.jpg')
-actor12 = Actor.create!(actor: 'Jon Bernthal', image: 'https://www.hollywoodreporter.com/wp-content/uploads/2023/03/GettyImages-1392848633-H-2023.jpg')
+actor12 = Actor.create!(actor: 'Jon Bernthal', image: 'https://fwcdn.pl/ppo/01/14/290114/450149.3.jpg')
 
 #natalie black swan
-actor13 = Actor.create!(actor: 'Natalie Portman', image: 'https://media.allure.com/photos/6480d6ea4ba1258bcf29d2e2/3:2/w_3721,h_2480,c_limit/natalie%20portman%20summer%20hair%20hat%20hero.jpg')
+actor13 = Actor.create!(actor: 'Natalie Portman', image: 'https://i.imgur.com/VneHMRq.jpg')
 actor14 = Actor.create!(actor: 'Mila Kunis', image: 'https://hips.hearstapps.com/hmg-prod/images/mila-kunis-attends-the-premiere-of-netflixs-luckiest-girl-news-photo-1669826911.jpg?crop=0.66667xw:1xh;center,top&resize=1200:*')
 actor15 = Actor.create!(actor: 'Vincent Cassel', image: 'https://m.media-amazon.com/images/M/MV5BMTc1NDUzMzM5MV5BMl5BanBnXkFtZTcwNzY1OTYyOQ@@._V1_.jpg')
 
 #natalie v for ven
-actor16 = Actor.create!(actor: 'Hugo Weaving', image: 'https://static.wikia.nocookie.net/michaelbaystransformers/images/7/7b/Hugo_Weaving.jpg/revision/latest/scale-to-width-down/331?cb=20201006071654')
+actor16 = Actor.create!(actor: 'Hugo Weaving', image: 'https://ntvb.tmsimg.com/assets/assets/27163_v9_bb.jpg')
 actor17 = Actor.create!(actor: 'Stephen Fry', image: 'https://people.com/thmb/Z8Cqu9IgMeV_vrL_rvnR2vdM6Fk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(749x0:751x2)/Stephen-Fry-hospital-092023-tout-71ef3b5495414caaa01e57a4beecc6d0.jpg')
 
 #natalie jackie
 actor18 = Actor.create!(actor: 'Greta Gerwig', image: 'https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2022-12/Greta-Gerwig-today-inline-221201-4225be.jpg')
-actor19 = Actor.create!(actor: 'Peter Sarsgaard', image: 'https://static.wikia.nocookie.net/dcmovies/images/1/10/Peter_Sarsgaard.jpg/revision/latest?cb=20190705212853')
+actor19 = Actor.create!(actor: 'Peter Sarsgaard', image: 'https://es.web.img3.acsta.net/pictures/15/12/23/14/20/157530.jpg')
 
 #natalie thor
 actor20 = Actor.create!(actor: 'Chris Hemsworth', image: 'https://www.refinery29.com/images/8981405.jpg')
 actor21 = Actor.create!(actor: 'Christian Bale', image: 'https://media.vanityfair.com/photos/54cace39b8f23e3a0315bf42/master/w_2560%2Cc_limit/image.jpg')
 
 #natalie boelyn
-actor22 = Actor.create!(actor: 'Scarlett Johansson', image: 'https://variety.com/wp-content/uploads/2020/10/Scarlett-Johansson.jpg')
+actor22 = Actor.create!(actor: 'Scarlett Johansson', image: 'https://hips.hearstapps.com/hmg-prod/images/scarlett-johansson-attends-the-premiere-of-illuminations-news-photo-1639390369.jpg')
 actor23 = Actor.create!(actor: 'Eric Bana', image: 'https://www.hairfinder.com/celebrityhair/eric-bana-hair.jpg')
 
 #natalie brothers
-actor24 = Actor.create!(actor: 'Jake Gyllenhaal', image: 'https://variety.com/wp-content/uploads/2022/01/jake-gyllenhaal.jpg')
+actor24 = Actor.create!(actor: 'Jake Gyllenhaal', image: 'https://magarticles.magzter.com/articles/14274/768722/61690fe3d68fb/Jake-Gyllenhaal-I-want-to-be-A-FAMILY-MAN.jpg')
 
 #jake prince
-actor25 = Actor.create!(actor: 'Gemma Arterton', image: 'https://static.wikia.nocookie.net/darians-dc-extended-universe/images/a/a8/Gemma.jpg/revision/latest?cb=20230424031046')
+actor25 = Actor.create!(actor: 'Gemma Arterton', image: 'https://image.tmdb.org/t/p/original/qGyGAds4FmONHNLoAcJTRALZAC6.jpg')
 actor26 = Actor.create!(actor: 'Ben Kingsley', image: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/06/10/10/ben-kingsley.jpg')
 
 #jake love & other drugs
-actor27 = Actor.create!(actor: 'Anne Hathaway', image: 'https://media.distractify.com/brand-img/jxMQnVVsb/0x0/gettyimages-1199105590-1610730036138.jpg')
+actor27 = Actor.create!(actor: 'Anne Hathaway', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Anne_Hathaway-68408_%28cropped%29.jpg/640px-Anne_Hathaway-68408_%28cropped%29.jpg')
 actor28 = Actor.create!(actor: 'Oliver Platt', image: 'https://ntvb.tmsimg.com/assets/assets/49113_v9_bb.jpg')
 
 #jake stronger
-actor29 = Actor.create!(actor: 'Tatiana Maslany', image: 'https://static.wikia.nocookie.net/blank-check-with-griffin-and-david/images/5/52/Maslany.jpg/revision/latest?cb=20230903203034')
+actor29 = Actor.create!(actor: 'Tatiana Maslany', image: 'https://cdn.gracza.pl/galeria/mdb/o/11223765.jpg')
 actor30 = Actor.create!(actor: 'John Pollono', image: 'https://media.broadway.com/photos/original/4.192095.jpg')
 
 #jake brokeback
@@ -144,8 +144,8 @@ actor31 = Actor.create!(actor: 'Heath Ledger', image: 'https://cdn.britannica.co
 actor32 = Actor.create!(actor: 'Michelle Williams', image: 'https://hips.hearstapps.com/hmg-prod/images/michelle-williams-critics-choice-awards-1673866278.jpg')
 
 #jake donnie
-actor33 = Actor.create!(actor: 'Maggie Gyllenhaal', image: 'https://www.aclu.org/wp-content/uploads/2023/06/maggie-gyllenhaal-bio.jpg')
-actor34 = Actor.create!(actor: 'Drew Barrymore', image: 'https://people.com/thmb/szxIVc6JbT1UR_PsDGPTKhcE2Z8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(691x263:693x265)/drew-barrymore-attendees-kicked-out-for-supporting-wga-091123-tout-4b1199067ac1479f99573bb18b07a0f6.jpg')
+actor33 = Actor.create!(actor: 'Maggie Gyllenhaal', image: 'https://fr.web.img4.acsta.net/pictures/15/10/21/10/48/401053.jpg')
+actor34 = Actor.create!(actor: 'Drew Barrymore', image: 'https://media.vanityfair.com/photos/647f55a245ff6fb6fdb109a1/1:1/w_1428,h_1428,c_limit/Drew-Barrymore.jpg')
 
 #jake night
 actor35 = Actor.create!(actor: 'Rene Russo', image: 'https://vz.cnwimg.com/wp-content/uploads/2011/03/Rene-Russo.jpg')
@@ -153,7 +153,7 @@ actor36 = Actor.create!(actor: 'Riz Ahmed', image: 'https://hips.hearstapps.com/
 
 #nicole bewitched
 actor37 = Actor.create!(actor: 'Nicole Kidman', image: 'https://media-cldnry.s-nbcnews.com/image/upload/newscms/2021_15/1702367/nicole-kidman-mc-square-210415.jpg')
-actor38 = Actor.create!(actor: 'Will Ferrell', image: 'https://ca-times.brightspotcdn.com/dims4/default/d2e2a76/2147483647/strip/true/crop/6987x4660+0+0/resize/1200x800!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F03%2Fe3%2F5fcd4b0e4a02914c9a749ca31625%2Fbritain-barbie-premiere-86069.jpg')
+actor38 = Actor.create!(actor: 'Will Ferrell', image: 'https://cdn.britannica.com/43/219743-050-DA91906B/American-actor-and-writer-Will-Ferrell-2015.jpg')
 actor39 = Actor.create!(actor: 'Steve Carell', image: 'https://m.media-amazon.com/images/M/MV5BMjMyOTM2OTk1Ml5BMl5BanBnXkFtZTgwMTI3MzkyNjM@._V1_.jpg')
 
 #nicole practical
@@ -162,10 +162,10 @@ actor41 = Actor.create!(actor: 'Alexandra Artrip', image: 'https://static.access
 
 #nicole northman
 actor42 = Actor.create!(actor: 'Alexander Skarsgard', image: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Alexander_Skarsgard_%2829485267411%29_%28cropped%29.jpg')
-actor43 = Actor.create!(actor: 'Anya Taylor-Joy', image: 'https://media.cnn.com/api/v1/images/stellar/prod/221117101638-anya-taylor-joy-0405-restricted.jpg?c=original')
+actor43 = Actor.create!(actor: 'Anya Taylor-Joy', image: 'https://www.denofgeek.com/wp-content/uploads/2020/12/webstory-anya-taylor-crop.GettyImages-1207186878.jpg')
 
 #nicole paperboy
-actor44 = Actor.create!(actor: 'Zac Efron', image: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Zac_Efron_at_the_Baywatch_Red_Carpet_Premiere_Sydney_Australia.jpg')
+actor44 = Actor.create!(actor: 'Zac Efron', image: 'https://www.instyle.com/thmb/dmKmnx2hbikgnpmqdOSbrLIRwD0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/100715-zac-efron-birthday-2000-9ccbd71883a747109c9037904b638d06.jpg')
 actor45 = Actor.create!(actor: 'Mathew McConaughey', image: 'https://m.media-amazon.com/images/M/MV5BMTg0MDc3ODUwOV5BMl5BanBnXkFtZTcwMTk2NjY4Nw@@._V1_FMjpg_UX1000_.jpg')
 
 #nicole golden
@@ -191,7 +191,7 @@ actor56 = Actor.create!(actor: 'Terrance Howard', image: 'https://dailymedia.cas
 
 #robert tropic thunder
 actor57 = Actor.create!(actor: 'Ben Stiller', image: 'https://www.themodestman.com/wp-content/uploads/2019/11/Ben-Stiller.jpg')
-actor58 = Actor.create!(actor: 'Jack Black', image: 'https://static.wikia.nocookie.net/disney/images/4/4d/Jack_Black.jpg/revision/latest?cb=20180610202835')
+actor58 = Actor.create!(actor: 'Jack Black', image: 'https://images.fandango.com/ImageRenderer/300/0/redesign/static/img/default_poster.png/0/images/masterrepository/performer%20images/57633/JackBlack-2019_r.jpg')
 
 #robert advengers
 actor59 = Actor.create!(actor: 'Jeremy Renner', image: 'https://cdn.britannica.com/34/218334-050-759D83D7/American-actor-Jeremy-Renner-2017.jpg')
@@ -208,7 +208,7 @@ actor63 = Actor.create!(actor: 'Seth Rogen', image: 'https://cdn.britannica.com/
 actor64 = Actor.create!(actor: 'June Diane Raphael', image: 'https://flxt.tmsimg.com/assets/532764_v9_bc.jpg')
 
 #charlize atomic blonde
-actor65 = Actor.create!(actor: 'Sofia Boutella', image: 'https://static.wikia.nocookie.net/kingsman-the-secret-service/images/a/aa/Sofia.jpg/revision/latest?cb=20170507181432')
+actor65 = Actor.create!(actor: 'Sofia Boutella', image: 'https://editorial01.shutterstock.com/preview-440/12983036ba/b59249ee/Shutterstock_12983036ba.jpg')
 actor66 = Actor.create!(actor: 'James McAvoy', image: 'https://m.media-amazon.com/images/M/MV5BMTQzNzIxOTYzMl5BMl5BanBnXkFtZTcwNjYxNTk1Nw@@._V1_.jpg')
 
 #charlize flux
@@ -271,7 +271,7 @@ actor94 = Actor.create!(actor: 'Dwayne Johnson', image: 'https://upload.wikimedi
 
 #matt ghosts
 actor95 = Actor.create!(actor: 'Jennifer Garner', image: 'https://flxt.tmsimg.com/assets/69774_v9_bb.jpg')
-actor96 = Actor.create!(actor: 'Emma Stone', image: 'https://m.media-amazon.com/images/M/MV5BMjI4NjM1NDkyN15BMl5BanBnXkFtZTgwODgyNTY1MjE@._V1_FMjpg_UX1000_.jpg')
+actor96 = Actor.create!(actor: 'Emma Stone', image: 'https://media1.popsugar-assets.com/files/thumbor/lcn_wDi1eGsJ5E-sOnR4cfZdKJw/0x68:2312x2380/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2020/03/03/018/n/1922398/03ad07805e5ee78bbd70d3.36131857_/i/Emma-Stone.jpg')
 
 #matt beach bum
 actor97 = Actor.create!(actor: 'Isla Fisher', image: 'https://m.media-amazon.com/images/M/MV5BODY3MDQ4MTQ4Nl5BMl5BanBnXkFtZTgwNDU2NzU1MDE@._V1_FMjpg_UX1000_.jpg')
@@ -284,7 +284,7 @@ actor99 = Actor.create!(actor: 'Kathryn Hahn', image: 'https://deadline.com/wp-c
 actor100 = Actor.create!(actor: 'Colin Farrell', image: 'https://api.time.com/wp-content/uploads/2015/08/colin-ferrell.jpg')
 
 #jennifer red
-actor101 = Actor.create!(actor: 'Jennifer Lawrence', image: 'https://static.wikia.nocookie.net/thehungergames/images/d/dc/Jennifer-lawrence-dior-couture-dress-mockingjay-premiere1.jpg/revision/latest?cb=20150320041643')
+actor101 = Actor.create!(actor: 'Jennifer Lawrence', image: 'https://www.the-sun.com/wp-content/uploads/sites/6/2023/09/9949f785-0d21-4346-96d9-f0772b24c9fa.jpg')
 actor102 = Actor.create!(actor: 'Joel Edgerton', image: 'https://i.guim.co.uk/img/media/f0f8f87bb373fb713f43c32d23e36b901d110ec3/0_0_5184_3110/master/5184.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=0624b2a1fea7b5f78fb241eed4ac2fb6')
 actor103 = Actor.create!(actor: 'Matthias Schoenaerts', image: 'https://m.media-amazon.com/images/M/MV5BMjMyNTQ0MDgwOF5BMl5BanBnXkFtZTcwOTUxNzA3OA@@._V1_FMjpg_UX1000_.jpg')
 

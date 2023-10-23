@@ -21,7 +21,7 @@ export default function Home() {
 
 
   return (
-    <>
+    <div>
     <div className='homepageTrailerDiv'>
         <iframe src={ movies[randomMovieTrailer]?.trailer } width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen></iframe>
     </div>
@@ -36,7 +36,7 @@ export default function Home() {
                 </h1>
             </div>
         </div>
-        <hr/>
+        <hr className='checkOutHr'/>
         <br/>
         <br/>
 
@@ -161,6 +161,6 @@ export default function Home() {
                             </div>
                     </section> */}
         </div>
-    </>
+    </div>
   )
 }

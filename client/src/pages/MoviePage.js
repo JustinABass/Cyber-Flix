@@ -58,8 +58,8 @@ export default function MoviePage() {
     </div>
     <br/>
 
-    <div className='selectedMovieInfoChildTextDiv'>
-                <h1> More Like This </h1>
+    <div className='selectedMovieInfoChildTextDivThree'>
+        <h1> More Like This </h1>
     </div>
         <div className='moviePageGridContainer'>
                 { renderMovieGenreMatch }

@@ -35,6 +35,7 @@ export default function ActorPage() {
             </div>
             <div className='actorPageNameDivTwo'>
                 <h1> { selectedActor.actor }</h1>
+                <hr/>
             </div>
         </div>
     </div>

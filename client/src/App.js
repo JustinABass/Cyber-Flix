@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { MovieProvider } from "./context/movie";
 import { ActorProvider } from "./context/actor";
+import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import MoviePage from "./pages/MoviePage";
 import ActorPage from "./pages/ActorPage";
@@ -14,6 +15,7 @@ function App() {
     <MovieProvider>
       <ActorProvider>
           <BrowserRouter>
+          <NavBar/>
             <div className="App">
               <Switch>
               <Route path="/movies/:movie_id">

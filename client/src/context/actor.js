@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ActorCard from "../components/ActorCard"
+import ActorsCard from "../components/ActorsCard"
 
 //this gives me global state
 const ActorContext = React.createContext()
@@ -17,7 +17,7 @@ function ActorProvider({ children }) {
     }, [])
 
     const renderActors = actors.map((actor) => (
-        <ActorCard
+        <ActorsCard
         key={ actor.id }
         actor={ actor }
         />
