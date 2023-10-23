@@ -5,6 +5,7 @@ import { ActorProvider } from "./context/actor";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import MoviePage from "./pages/MoviePage";
+import ActionPage from "./pages/ActionPage";
 import ActorPage from "./pages/ActorPage";
 import ActorsPage from "./pages/ActorsPage";
 import './App.css';
@@ -20,6 +21,9 @@ function App() {
               <Switch>
               <Route path="/movies/:movie_id">
                   <MoviePage/>
+                </Route>
+                <Route path="/action_movies">
+                  <ActionPage/>
                 </Route>
                 <Route path="/actors/:id">
                   <ActorPage/>
