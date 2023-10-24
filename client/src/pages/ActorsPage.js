@@ -7,7 +7,7 @@ export default function ActorsPage() {
   return (
     <div className='actorsPageParentDiv'>
       <br/>
-       <div className='actorGridContainer'>
+       <div className='actorsGridContainer'>
         { renderActors }
       </div>
       <br/>

@@ -7,23 +7,20 @@ export default function Home() {
     const {
         movies,
         randomMovieTrailer,
+        triggerRandomTrailer,
         renderPopularMovies,
         renderNewMovies,
-        renderTrendingMovies,
-        renderActionMovies,
-        renderComedyMovies,
-        renderRomanceMovies,
-        renderDramaMovies,
-        renderThrillerMovies,
-        renderAdventureMovies,
-        renderCrimeMovies,
-        renderHorrorMovies } = useContext( MovieContext )
+        renderTrendingMovies } = useContext( MovieContext )
 
 
   return (
     <div>
     <div className='homepageTrailerDiv'>
-        <iframe src={ movies[randomMovieTrailer]?.trailer } width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen></iframe>
+        { triggerRandomTrailer ?
+            <iframe src={ movies[randomMovieTrailer]?.trailer } width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen></iframe>
+          :
+            <iframe src={ movies[randomMovieTrailer]?.trailer } width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen></iframe>
+        }
     </div>
 
         <div className='homepageParentDiv'>
@@ -36,7 +33,8 @@ export default function Home() {
                 </h1>
             </div>
         </div>
-        <hr className='checkOutHr'/>
+        <br/>
+        <hr/>
         <br/>
         <br/>
 
@@ -72,94 +70,6 @@ export default function Home() {
                             { renderTrendingMovies }
                         </div>
                 </section>
-
-                {/* <div className='homepageHeaders'>
-                        <h1>Action</h1>
-                    </div>
-                    <section className='homepageSlideContainer'>
-                        <span id="left-arrow" className="arrow">‹</span>
-                        <span id="right-arrow" className="arrow">›</span>
-                            <div className="slider" id="slider">
-                                { renderActionMovies }
-                            </div>
-                    </section>
-
-                <div className='homepageHeaders'>
-                        <h1>Comedy</h1>
-                    </div>
-                    <section className='homepageSlideContainer'>
-                        <span id="left-arrow" className="arrow">‹</span>
-                        <span id="right-arrow" className="arrow">›</span>
-                            <div className="slider" id="slider">
-                                { renderComedyMovies }
-                            </div>
-                    </section>
-
-                    <div className='homepageHeaders'>
-                        <h1>Romance</h1>
-                    </div>
-                    <section className='homepageSlideContainer'>
-                        <span id="left-arrow" className="arrow">‹</span>
-                        <span id="right-arrow" className="arrow">›</span>
-                            <div className="slider" id="slider">
-                                { renderRomanceMovies }
-                            </div>
-                    </section>
-
-                    <div className='homepageHeaders'>
-                        <h1>Drama</h1>
-                    </div>
-                    <section className='homepageSlideContainer'>
-                        <span id="left-arrow" className="arrow">‹</span>
-                        <span id="right-arrow" className="arrow">›</span>
-                            <div className="slider" id="slider">
-                                { renderDramaMovies }
-                            </div>
-                    </section>
-
-                    <div className='homepageHeaders'>
-                        <h1>Adventure</h1>
-                    </div>
-                    <section className='homepageSlideContainer'>
-                        <span id="left-arrow" className="arrow">‹</span>
-                        <span id="right-arrow" className="arrow">›</span>
-                            <div className="slider" id="slider">
-                                { renderAdventureMovies }
-                            </div>
-                    </section>
-
-                    <div className='homepageHeaders'>
-                        <h1>Thriller</h1>
-                    </div>
-                    <section className='homepageSlideContainer'>
-                        <span id="left-arrow" className="arrow">‹</span>
-                        <span id="right-arrow" className="arrow">›</span>
-                            <div className="slider" id="slider">
-                                { renderThrillerMovies }
-                            </div>
-                    </section>
-
-                    <div className='homepageHeaders'>
-                        <h1>Crime</h1>
-                    </div>
-                    <section className='homepageSlideContainer'>
-                        <span id="left-arrow" className="arrow">‹</span>
-                        <span id="right-arrow" className="arrow">›</span>
-                            <div className="slider" id="slider">
-                                { renderCrimeMovies }
-                            </div>
-                    </section>
-
-                    <div className='homepageHeaders'>
-                        <h1>Horror</h1>
-                    </div>
-                    <section className='homepageSlideContainer'>
-                        <span id="left-arrow" className="arrow">‹</span>
-                        <span id="right-arrow" className="arrow">›</span>
-                            <div className="slider" id="slider">
-                                { renderHorrorMovies }
-                            </div>
-                    </section> */}
         </div>
     </div>
   )

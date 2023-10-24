@@ -22,7 +22,7 @@ export default function ActorPage() {
     <>
     <div className='actorPageParentDiv'>
         <div className='actorPageChildDiv'>
-            <br/>
+
             <div className='actorPageChildImgDiv'>
                 <img src={ selectedActor.image } alt='actorImage' height='480' width='440'/>
             </div>
@@ -42,7 +42,7 @@ export default function ActorPage() {
 
     <div className='actorPageParentDivTwo'>
         <div className='actorPageChildDivTwo'>
-            <div className='actorsPagePostersDiv'>
+            <div className='actorPagePostersDiv'>
                 { selectedActorMovies}
             </div>
             <br/>

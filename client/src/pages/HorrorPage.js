@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import { MovieContext } from '../context/movie'
 
-export default function ActionPage() {
-    const { renderActionMovies } = useContext( MovieContext )
+export default function HorrorPage() {
+    const { renderHorrorMovies } = useContext( MovieContext )
   return (
     <div className='genreMovieListParentDiv'>
-       <br/>
+      <br/>
       <div className='genreMovieListGridContainer'>
-        { renderActionMovies }
+        { renderHorrorMovies }
       </div>
     </div>
   )
