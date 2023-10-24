@@ -6,7 +6,8 @@ const MovieContext = React.createContext()
 
 function MovieProvider({ children }) {
     const [ movies, setMovies ] = useState( [] )
-    const [triggerRandomTrailer, setTriggerRandomTrailer ] = useState( true )
+    const [ triggerRandomTrailer, setTriggerRandomTrailer ] = useState( true )
+    const [ showSearchMovies, setShowSearchMovies ] = useState( false )
 
     useEffect(() => {
         fetch('/movies')
@@ -17,7 +18,7 @@ function MovieProvider({ children }) {
     }, []);
 
     const randomMovieTrailer = Math.floor(Math.random() * movies.length)
-    
+
 
     const popularMovies = movies.filter((movie) => movie.popular ? true : false)
     const renderPopularMovies = popularMovies.map((movie) => (
@@ -108,12 +109,12 @@ function MovieProvider({ children }) {
     ))
 
 
-
-
     return(
         <MovieContext.Provider
         value={{
             movies,
+            showSearchMovies,
+            setShowSearchMovies,
             randomMovieTrailer,
             triggerRandomTrailer,
             setTriggerRandomTrailer,

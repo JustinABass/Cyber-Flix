@@ -103,6 +103,51 @@ body::-webkit-scrollbar-thumb {
 .navButtonHover:hover{
   color: red
 }
+.searchBarParentDiv{
+  margin-top: 30px;
+}
+.searchInput[type=text]{
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+   border-radius: 20px;
+   border: 1px solid #000000;
+   color: #000000;
+   background-color: #504d4d95;
+   padding-left: 10px;
+   font-size: larger;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(247, 247, 247);
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 15px rgb(255, 255, 255);
+}
+.searchInput[type=text]:focus{
+  outline: none;
+   border: 1px solid #000000;
+   color: #ffffff;
+}
+.searchInput[type=text]{
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+   border-radius: 20px;
+   border: 1px solid #000000;
+   color: #000000;
+   background-color: #504d4d95;
+   width: 400px;
+   height: 20px;
+   padding-left: 10px;
+   font-size: larger;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(247, 247, 247);
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 15px rgb(255, 255, 255);
+  }
+
+.searchInput[type=text]:focus {
+   outline: none;
+   border: 1px solid #000000;
+   color: #ffffff;
+}
+
+
+
+
+
 .homepageTrailerDiv{
   position: absolute;
   top: 0;

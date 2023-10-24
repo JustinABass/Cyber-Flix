@@ -6,6 +6,7 @@ const ActorContext = React.createContext()
 
 function ActorProvider({ children }) {
     const [ actors, setActors ] = useState( [] )
+    const [ showActorSearch, setShowActorSearch ] = useState( false )
     console.log('actors', actors)
 
     useEffect(() => {
@@ -24,7 +25,7 @@ function ActorProvider({ children }) {
     ))
     return(
         <ActorContext.Provider
-        value={{ actors, renderActors }}>
+        value={{ actors, renderActors, showActorSearch, setShowActorSearch }}>
             {children}
         </ActorContext.Provider>
     )
