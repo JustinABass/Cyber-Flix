@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import { MovieProvider } from "./context/movie";
 import { ActorProvider } from "./context/actor";
 import NavBar from "./components/NavBar";
@@ -20,13 +19,11 @@ import './App.css';
 
 function App() {
 
-  const { actor_id } = useParams()
-
   return (
     <MovieProvider>
       <ActorProvider>
           <BrowserRouter>
-          <NavBar actor_id={ actor_id }/>
+          <NavBar />
             <div className="App">
               <Routes>
                 <Route path="/" element={ <Home /> } />

@@ -7,14 +7,13 @@ import SearchMovies from './SearchMovies'
 import SearchActors from './SearchActors'
 
 
-export default function NavBar({ actor_id }) {
+export default function NavBar() {
     const location = useLocation()
     const { setTriggerRandomTrailer, showSearchMovieInput } = useContext( MovieContext )
     const { showSearchActors } = useContext( ActorContext )
-    const [ highlight, setHighlight ] = useState( true )
 
 
-    const renderHighlight = highlight ? 'navButtonHover' : 'navButtonHoverTwo'
+    // const renderHomeHighlight = homeHighlight ? 'navButtonHover' : 'navButtonHoverTwo'
     console.log('path', location.pathname)
     debugger
     if( location.pathname === '/' ){
@@ -22,49 +21,107 @@ export default function NavBar({ actor_id }) {
             <div className='navBarParentDivTwo'>
                 <img src='https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg' />
 
-                <NavLink to='/'>
-                    <button className='navButtons' onClick={ () => {
-                        setTriggerRandomTrailer((set) => !set)
-                        setHighlight((highlight) => !highlight)
-                         } }>
-                        <b className={ renderHighlight }> HOME </b>
-                    </button>
+                <NavLink to='/'
+                    style={({ isActive }) => ({
+                        color: isActive ? '#ff0000' : '#fff',
+                        background: isActive ? '#0000' : '#0000',
+                        textDecoration: isActive ? 'none' : 'none',
+                        marginTop: isActive ? 30 : 30,
+                        })}
+
+                        onClick={ () => setTriggerRandomTrailer((trigger) => !trigger)}
+                >
+                    <h4> HOME </h4>
                 </NavLink>
 
-                <NavLink to='/action_movies'>
-                    <button className='navButtons'> <b className='navButtonHover' > ACTION </b> </button>
+                <NavLink to='/action_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30,
+                        })}
+                >
+                    <h4> ACTION </h4>
                 </NavLink>
 
-                <NavLink to='/comedy_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> COMEDY </b> </button>
+                <NavLink to='/comedy_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30,
+                        })}
+                >
+                    <h4> COMEDY </h4>
                 </NavLink>
 
-                <NavLink to='/romance_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> ROMANCE </b> </button>
+                <NavLink to='/romance_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30,
+                        })}
+                >
+                    <h4> ROMANCE </h4>
                 </NavLink>
 
-                <NavLink to='/drama_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> DRAMA </b> </button>
+                <NavLink to='/drama_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30,
+                        })}
+                >
+                    <h4> DRAMA </h4>
                 </NavLink>
 
-                <NavLink to='/thriller_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> THRILLER </b> </button>
+                <NavLink to='/thriller_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30,
+                        })}
+                >
+                    <h4> THRILLER </h4>
                 </NavLink>
 
-                <NavLink to='/adventure_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> ADVENTURE </b> </button>
+                <NavLink to='/adventure_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30,
+                        })}
+                >
+                    <h4> ADVENTURE </h4>
                 </NavLink>
 
-                <NavLink to='/crime_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> CRIME </b> </button>
+                <NavLink to='/crime_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> CRIME </h4>
                 </NavLink>
 
-                <NavLink to='/horror_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> HORROR </b> </button>
+                <NavLink to='/horror_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> HORROR </h4>
                 </NavLink>
 
-                <NavLink to='/actors_page'>
-                    <button className='navButtons'> <b className='navButtonHover'> ACTORS </b> </button>
+                <NavLink to='/actors_page'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> ACTORS </h4>
                 </NavLink>
 
                 <div className='navSettings'>
@@ -79,46 +136,105 @@ export default function NavBar({ actor_id }) {
             <div className='navBarParentDivTwo'>
                 <img src='https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg' />
 
-                <NavLink to='/'>
-                    <button className='navButtons' onClick={ () => setTriggerRandomTrailer((set) => !set) }>
-                        <b className='navButtonHover'> HOME </b>
-                    </button>
+                <NavLink to='/'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> HOME </h4>
                 </NavLink>
 
-                <NavLink to='/action_movies'>
-                    <button className='navButtons'> <b className='navButtonHover' > ACTION </b> </button>
+                <NavLink to='/action_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> ACTION </h4>
                 </NavLink>
 
-                <NavLink to='/comedy_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> COMEDY </b> </button>
+                <NavLink to='/comedy_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> COMEDY </h4>
                 </NavLink>
 
-                <NavLink to='/romance_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> ROMANCE </b> </button>
+                <NavLink to='/romance_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> ROMANCE </h4>
                 </NavLink>
 
-                <NavLink to='/drama_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> DRAMA </b> </button>
+                <NavLink to='/drama_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> DRAMA </h4>
                 </NavLink>
 
-                <NavLink to='/thriller_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> THRILLER </b> </button>
+                <NavLink to='/thriller_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> THRILLER </h4>
                 </NavLink>
 
-                <NavLink to='/adventure_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> ADVENTURE </b> </button>
+                <NavLink to='/adventure_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> ADVENTURE </h4>
                 </NavLink>
 
-                <NavLink to='/crime_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> CRIME </b> </button>
+                <NavLink to='/crime_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> CRIME </h4>
                 </NavLink>
 
-                <NavLink to='/horror_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> HORROR </b> </button>
+                <NavLink to='/horror_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> HORROR </h4>
                 </NavLink>
 
-                <NavLink to='/actors_page'>
-                    <button className='navButtons'> <b className='navButtonHover'> ACTORS </b> </button>
+                <NavLink to='/actors_page'
+                    style={({ isActive }) => ({
+                        color: isActive ? '#ff0000' : '#fff',
+                        background: isActive ? '#0000' : '#0000',
+                        textDecoration: isActive ? 'none' : 'none',
+                        marginTop: isActive ? 30 : 30 ,
+                        })}
+                >
+                    <h4> ACTORS </h4>
                 </NavLink>
 
                 { showSearchActors ?
@@ -144,46 +260,114 @@ export default function NavBar({ actor_id }) {
             <div className='navBarParentDivTwo'>
                 <img src='https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg' />
 
-                <NavLink to='/'>
-                    <button className='navButtons' onClick={ () => setTriggerRandomTrailer((set) => !set) }>
-                        <b className='navButtonHover'> HOME </b>
-                    </button>
+                <NavLink to='/'
+                    style={({ isActive }) => ({
+                        color: isActive ? '#ff0000' : '#fff',
+                        textDecoration: isActive ? 'none' : 'none',
+                        marginTop: isActive ? null : 30,
+                        })}
+                >
+                    <h4> HOME </h4>
                 </NavLink>
 
-                <NavLink to='/action_movies'>
-                    <button className='navButtons'> <b className='navButtonHover' > ACTION </b> </button>
+                <NavLink to='/action_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? '#ff0000' : '#fff',
+                        background: isActive ? '#0000' : '#0000',
+                        textDecoration: isActive ? 'none' : 'none',
+                        marginTop: isActive ? 30 : 30,
+                        })}
+                >
+                    <h4> ACTION </h4>
                 </NavLink>
 
-                <NavLink to='/comedy_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> COMEDY </b> </button>
+
+                <NavLink to='/comedy_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? '#ff0000' : '#fff',
+                        background: isActive ? '#0000' : '#0000',
+                        textDecoration: isActive ? 'none' : 'none',
+                        marginTop: isActive ? 30 : 30,
+                        })}
+                >
+                    <h4> COMEDY </h4>
                 </NavLink>
 
-                <NavLink to='/romance_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> ROMANCE </b> </button>
+                <NavLink to='/romance_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? '#ff0000' : '#fff',
+                        background: isActive ? '#0000' : '#0000',
+                        textDecoration: isActive ? 'none' : 'none',
+                        marginTop: isActive ? 30 : 30,
+                        })}
+                >
+                    <h4> ROMANCE </h4>
                 </NavLink>
 
-                <NavLink to='/drama_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> DRAMA </b> </button>
+                <NavLink to='/drama_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? '#ff0000' : '#fff',
+                        background: isActive ? '#0000' : '#0000',
+                        textDecoration: isActive ? 'none' : 'none',
+                        marginTop: isActive ? 30 : 30,
+                        })}
+                >
+                    <h4> DRAMA </h4>
                 </NavLink>
 
-                <NavLink to='/thriller_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> THRILLER </b> </button>
+                <NavLink to='/thriller_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? '#ff0000' : '#fff',
+                        background: isActive ? '#0000' : '#0000',
+                        textDecoration: isActive ? 'none' : 'none',
+                        marginTop: isActive ? 30 : 30,
+                        })}
+                >
+                    <h4> THRILLER </h4>
                 </NavLink>
 
-                <NavLink to='/adventure_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> ADVENTURE </b> </button>
+                <NavLink to='/adventure_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? '#ff0000' : '#fff',
+                        background: isActive ? '#0000' : '#0000',
+                        textDecoration: isActive ? 'none' : 'none',
+                        marginTop: isActive ? 30 : 30,
+                        })}
+                >
+                    <h4> ADVENTURE </h4>
                 </NavLink>
 
-                <NavLink to='/crime_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> CRIME </b> </button>
+                <NavLink to='/crime_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? '#ff0000' : '#fff',
+                        background: isActive ? '#0000' : '#0000',
+                        textDecoration: isActive ? 'none' : 'none',
+                        marginTop: isActive ? 30 : 30,
+                        })}
+                >
+                    <h4> CRIME </h4>
                 </NavLink>
 
-                <NavLink to='/horror_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> HORROR </b> </button>
+                <NavLink to='/horror_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? '#ff0000' : '#fff',
+                        background: isActive ? '#0000' : '#0000',
+                        textDecoration: isActive ? 'none' : 'none',
+                        marginTop: isActive ? 30 : 30,
+                        })}
+                >
+                    <h4> HORROR </h4>
                 </NavLink>
 
-                <NavLink to='/actors_page'>
-                    <button className='navButtons'> <b className='navButtonHover'> ACTORS </b> </button>
+                <NavLink to='/actors_page'
+                    style={({ isActive }) => ({
+                        color: isActive ? '#ff0000' : '#fff',
+                        background: isActive ? '#0000' : '#0000',
+                        textDecoration: isActive ? 'none' : 'none',
+                        marginTop: isActive ? 30 : 30,
+                        })}
+                >
+                    <h4> ACTORS </h4>
                 </NavLink>
 
                 { showSearchMovieInput ?
@@ -200,46 +384,104 @@ export default function NavBar({ actor_id }) {
             <div className='navBarParentDivTwo'>
                 <img src='https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg' />
 
-                <NavLink to='/'>
-                    <button className='navButtons' onClick={ () => setTriggerRandomTrailer((set) => !set) }>
-                        <b className='navButtonHover'> HOME </b>
-                    </button>
+                <NavLink to='/'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> HOME </h4>
                 </NavLink>
 
-                <NavLink to='/action_movies'>
-                    <button className='navButtons'> <b className='navButtonHover' > ACTION </b> </button>
+                <NavLink to='/action_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> ACTION </h4>
                 </NavLink>
 
-                <NavLink to='/comedy_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> COMEDY </b> </button>
+                <NavLink to='/comedy_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> COMEDY </h4>
                 </NavLink>
 
-                <NavLink to='/romance_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> ROMANCE </b> </button>
+                <NavLink to='/romance_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> ROMANCE </h4>
                 </NavLink>
 
-                <NavLink to='/drama_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> DRAMA </b> </button>
+                <NavLink to='/drama_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> DRAMA </h4>
                 </NavLink>
 
-                <NavLink to='/thriller_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> THRILLER </b> </button>
+                <NavLink to='/thriller_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> THRILLER </h4>
                 </NavLink>
 
-                <NavLink to='/adventure_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> ADVENTURE </b> </button>
+                <NavLink to='/adventure_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> ADVENTURE </h4>
                 </NavLink>
 
-                <NavLink to='/crime_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> CRIME </b> </button>
+                <NavLink to='/crime_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> CRIME </h4>
                 </NavLink>
 
-                <NavLink to='/horror_movies'>
-                    <button className='navButtons'> <b className='navButtonHover'> HORROR </b> </button>
+                <NavLink to='/horror_movies'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> HORROR </h4>
                 </NavLink>
 
-                <NavLink to='/actors_page'>
-                    <button className='navButtons'> <b className='navButtonHover'> ACTORS </b> </button>
+                <NavLink to='/actors_page'
+                    style={({ isActive }) => ({
+                        color: isActive ? null : '#fff',
+                        textDecoration: isActive ? null : 'none',
+                        marginTop: isActive ? null : 30 ,
+                        })}
+                >
+                    <h4> ACTORS </h4>
                 </NavLink>
             </div>
         )

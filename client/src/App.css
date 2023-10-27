@@ -93,24 +93,12 @@ body::-webkit-scrollbar-thumb {
   margin-left: 10px;
   margin-top: 5px;
 }
-.navButtons{
-  background-color: #11111100;
-  border: none;
-  color: white;
-  font-size: large;
-  margin-top: 30px;
-}
-.navButtonHover:hover{
-  color: red
-}
-.navButtonHoverTwo{
-  color: red
-}
 .navSettings{
-  margin-left: 370px;
+  margin-left: 525px;
   margin-top: 20px;
 }
 .searchBarParentDiv{
+  margin-left: 50px;
   margin-top: 30px;
 }
 .searchInput[type=text]{
@@ -137,7 +125,7 @@ body::-webkit-scrollbar-thumb {
    border: 1px solid #000000;
    color: #000000;
    background-color: #504d4d95;
-   width: 400px;
+   width: 500px;
    height: 20px;
    padding-left: 10px;
    font-size: larger;
@@ -244,7 +232,6 @@ body::-webkit-scrollbar-thumb {
   height: 280px;
   width:200px;
   border-radius: 5%;
-  /* transition: .90s; */
 }
 .homepageSlideImg img:hover{
   color: #111;
@@ -541,5 +528,4 @@ body::-webkit-scrollbar-thumb {
   background: rgb(255, 255, 255);
   box-shadow: 0 0 30px rgb(255, 255, 255);
 }
-
 
