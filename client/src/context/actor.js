@@ -6,8 +6,9 @@ const ActorContext = React.createContext()
 
 function ActorProvider({ children }) {
     const [ actors, setActors ] = useState( [] )
-    const [ showActorSearch, setShowActorSearch ] = useState( false )
-    console.log('actors', actors)
+    const [ showSearchActors, setShowSearchActors ] = useState( true )
+    const [ searchActors, setSearchActors ] = useState( '' )
+
 
     useEffect(() => {
         fetch('/actors')
@@ -17,15 +18,25 @@ function ActorProvider({ children }) {
         })
     }, [])
 
-    const renderActors = actors.map((actor) => (
+
+
+    const filterActors = actors.filter((actor) => {
+        if( actor.actor.toLowerCase().includes(searchActors.toLowerCase()) ){
+            return true
+        } 
+    })
+
+    const renderActors = filterActors.map((actor) => (
         <ActorsCard
         key={ actor.id }
         actor={ actor }
         />
     ))
+
+
     return(
         <ActorContext.Provider
-        value={{ actors, renderActors, showActorSearch, setShowActorSearch }}>
+        value={{ actors, renderActors, showSearchActors, searchActors, setSearchActors}}>
             {children}
         </ActorContext.Provider>
     )

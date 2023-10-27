@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { MovieProvider } from "./context/movie";
 import { ActorProvider } from "./context/actor";
 import NavBar from "./components/NavBar";
@@ -19,50 +20,28 @@ import './App.css';
 
 function App() {
 
+  const { actor_id } = useParams()
+
   return (
     <MovieProvider>
       <ActorProvider>
           <BrowserRouter>
-          <NavBar/>
+          <NavBar actor_id={ actor_id }/>
             <div className="App">
-              <Switch>
-              <Route path="/movies/:movie_id">
-                  <MoviePage/>
-                </Route>
-                <Route path="/action_movies">
-                  <ActionPage/>
-                </Route>
-                <Route path="/comedy_movies">
-                  <ComedyPage/>
-                </Route>
-                <Route path="/romance_movies">
-                  <RomancePage/>
-                </Route>
-                <Route path="/drama_movies">
-                  <DramaPage/>
-                </Route>
-                <Route path="/thriller_movies">
-                  <ThrillerPage/>
-                </Route>
-                <Route path="/adventure_movies">
-                  <AdventurePage/>
-                </Route>
-                <Route path="/crime_movies">
-                  <CrimePage/>
-                </Route>
-                <Route path="/horror_movies">
-                  <HorrorPage/>
-                </Route>
-                <Route path="/actors/:id">
-                  <ActorPage/>
-                </Route>
-                <Route path="/actors_page">
-                  <ActorsPage/>
-                </Route>
-                <Route path="/">
-                  <Home/>
-                </Route>
-              </Switch>
+              <Routes>
+                <Route path="/" element={ <Home /> } />
+                <Route path="/movies/:movie_id" element={ <MoviePage /> } />
+                <Route path="/action_movies" element={ <ActionPage />} />
+                <Route path="/comedy_movies" element={ <ComedyPage />} />
+                <Route path="/romance_movies" element={ <RomancePage />} />
+                <Route path="/drama_movies" element={ <DramaPage />} />
+                <Route path="/thriller_movies" element={ <ThrillerPage />} />
+                <Route path="/adventure_movies" element={ <AdventurePage />} />
+                <Route path="/crime_movies" element={ <CrimePage />} />
+                <Route path="/horror_movies" element={ <HorrorPage />} />
+                <Route path="/actors/:actor_id" element={ <ActorPage />} />
+                <Route path="/actors_page" element={ <ActorsPage />} />
+              </Routes>
           </div>
         </BrowserRouter>
       </ActorProvider>

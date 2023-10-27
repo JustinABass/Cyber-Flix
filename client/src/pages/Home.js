@@ -1,16 +1,18 @@
 import React, { useContext } from 'react'
 import { MovieContext } from '../context/movie'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { Link } from 'react-router-dom'
+
 
 
 export default function Home() {
     const {
-        movies,
-        randomMovieTrailer,
-        triggerRandomTrailer,
-        renderPopularMovies,
-        renderNewMovies,
-        renderTrendingMovies } = useContext( MovieContext )
+            movies,
+            randomMovieTrailer,
+            triggerRandomTrailer,
+            renderPopularMovies,
+            renderNewMovies,
+            renderTrendingMovies
+         } = useContext( MovieContext )
 
 
   return (
@@ -28,8 +30,10 @@ export default function Home() {
         <br/>
         <div>
             <div className='homepageHeaders'>
-                <h1> Check Out<Link className='checkOutLinkh1' to={ `/movies/${movies[randomMovieTrailer]?.id}`}>
-                    <b className='checkOutLink2'>{ movies[randomMovieTrailer]?.title.toUpperCase() }</b></Link>
+                <h1> Check Out
+                    <Link className='checkOutLinkh1' to={ `/movies/${movies[randomMovieTrailer]?.id}`}>
+                        <b className='checkOutLink2'>{ movies[randomMovieTrailer]?.title.toUpperCase() }</b>
+                    </Link>
                 </h1>
             </div>
         </div>

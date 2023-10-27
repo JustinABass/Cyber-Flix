@@ -5,9 +5,9 @@ import ActorMovies from '../components/ActorMovies';
 
 export default function ActorPage() {
     const { actors } = useContext( ActorContext )
-    const { id } = useParams()
+    const { actor_id } = useParams()
 
-    const selectedActor = actors.find((actor) => actor.id == id)
+    const selectedActor = actors.find((actor) => actor.id == actor_id)
     if(!selectedActor){
         return <h1><b>LOADING...</b></h1>
     }
@@ -35,6 +35,7 @@ export default function ActorPage() {
             </div>
             <div className='actorPageNameDivTwo'>
                 <h1> { selectedActor.actor }</h1>
+                <br/>
                 <hr/>
             </div>
         </div>

@@ -103,6 +103,13 @@ body::-webkit-scrollbar-thumb {
 .navButtonHover:hover{
   color: red
 }
+.navButtonHoverTwo{
+  color: red
+}
+.navSettings{
+  margin-left: 370px;
+  margin-top: 20px;
+}
 .searchBarParentDiv{
   margin-top: 30px;
 }
@@ -372,6 +379,8 @@ body::-webkit-scrollbar-thumb {
 
 
 .actorsPageParentDiv{
+  width: auto;
+  height: 500px;
   background: linear-gradient(
     to top,
     rgba(255, 255, 255, 0) 0%,

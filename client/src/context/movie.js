@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import MovieCard from "../components/MovieCard";
 
 //this gives me global state
@@ -7,7 +7,9 @@ const MovieContext = React.createContext()
 function MovieProvider({ children }) {
     const [ movies, setMovies ] = useState( [] )
     const [ triggerRandomTrailer, setTriggerRandomTrailer ] = useState( true )
-    const [ showSearchMovies, setShowSearchMovies ] = useState( false )
+    const [ showSearchMovieInput, setShowSearchMovieInput ] = useState( true )
+    const [ searchMovieOnChange, setSearchMovieOnChange ] = useState( '' )
+
 
     useEffect(() => {
         fetch('/movies')
@@ -16,6 +18,7 @@ function MovieProvider({ children }) {
             setMovies( movies )
         })
     }, []);
+
 
     const randomMovieTrailer = Math.floor(Math.random() * movies.length)
 
@@ -44,7 +47,13 @@ function MovieProvider({ children }) {
         />
     ))
 
-    const actionMovies = movies.filter((movie) => movie.genre === 'Action')
+    //action movie render
+    const actionMovies = movies.filter((movie) => {
+        if( movie.genre === 'Action' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
+            return true
+        }
+    })
+
     const renderActionMovies = actionMovies.map((movie) => (
         <MovieCard
         key={ movie.id }
@@ -52,7 +61,14 @@ function MovieProvider({ children }) {
         />
     ))
 
-    const comedyMovies = movies.filter((movie) => movie.genre === 'Comedy')
+
+    //comedy movie render
+    const comedyMovies = movies.filter((movie) => {
+        if( movie.genre === 'Comedy' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
+            return true
+        }
+    })
+
     const renderComedyMovies = comedyMovies.map((movie) => (
         <MovieCard
         key={ movie.id }
@@ -60,7 +76,14 @@ function MovieProvider({ children }) {
         />
     ))
 
-    const romanceMovies = movies.filter((movie) => movie.genre === 'Romance')
+
+    //romance movie render
+    const romanceMovies = movies.filter((movie) => {
+        if( movie.genre === 'Romance' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
+            return true
+        }
+    })
+
     const renderRomanceMovies = romanceMovies.map((movie) => (
         <MovieCard
         key={ movie.id }
@@ -68,7 +91,14 @@ function MovieProvider({ children }) {
         />
     ))
 
-    const dramaMovies = movies.filter((movie) => movie.genre === 'Drama')
+
+    //drama movie render
+    const dramaMovies = movies.filter((movie) => {
+        if ( movie.genre === 'Drama' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
+            return true
+        }
+    })
+
     const renderDramaMovies = dramaMovies.map((movie) => (
         <MovieCard
         key={ movie.id }
@@ -76,7 +106,15 @@ function MovieProvider({ children }) {
         />
     ))
 
-    const thrillerMovies = movies.filter((movie) => movie.genre === 'Thriller')
+
+
+    //thriller movie render
+    const thrillerMovies = movies.filter((movie) => {
+        if( movie.genre === 'Thriller' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
+            return true
+        }
+    })
+
     const renderThrillerMovies = thrillerMovies.map((movie) => (
         <MovieCard
         key={ movie.id }
@@ -84,7 +122,16 @@ function MovieProvider({ children }) {
         />
     ))
 
-    const adventureMovies = movies.filter((movie) => movie.genre === 'Adventure')
+
+
+
+    //adventure movie render
+    const adventureMovies = movies.filter((movie) => {
+        if( movie.genre === 'Adventure' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
+            return true
+        }
+    })
+
     const renderAdventureMovies = adventureMovies.map((movie) => (
         <MovieCard
         key={ movie.id }
@@ -92,7 +139,15 @@ function MovieProvider({ children }) {
         />
     ))
 
-    const crimeMovies = movies.filter((movie) => movie.genre === 'Crime')
+
+
+    //crime movie render
+    const crimeMovies = movies.filter((movie) => {
+        if( movie.genre === 'Crime' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
+            return true
+        }
+    })
+
     const renderCrimeMovies = crimeMovies.map((movie) => (
         <MovieCard
         key={ movie.id }
@@ -100,7 +155,15 @@ function MovieProvider({ children }) {
         />
     ))
 
-    const horrorMovies = movies.filter((movie) => movie.genre === 'Horror')
+
+
+    //horror movie render
+    const horrorMovies = movies.filter((movie) => {
+        if( movie.genre === 'Horror' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
+            return true
+        }
+    })
+
     const renderHorrorMovies = horrorMovies.map((movie) => (
         <MovieCard
         key={ movie.id }
@@ -113,8 +176,9 @@ function MovieProvider({ children }) {
         <MovieContext.Provider
         value={{
             movies,
-            showSearchMovies,
-            setShowSearchMovies,
+            showSearchMovieInput,
+            searchMovieOnChange,
+            setSearchMovieOnChange,
             randomMovieTrailer,
             triggerRandomTrailer,
             setTriggerRandomTrailer,
@@ -128,7 +192,8 @@ function MovieProvider({ children }) {
             renderThrillerMovies,
             renderAdventureMovies,
             renderCrimeMovies,
-            renderHorrorMovies}}>
+            renderHorrorMovies
+            }}>
             {children}
         </MovieContext.Provider>
     )
