@@ -142,6 +142,8 @@ export default function NavBar() {
                         textDecoration: isActive ? null : 'none',
                         marginTop: isActive ? null : 30 ,
                         })}
+
+                        onClick={ () => setTriggerRandomTrailer((trigger) => !trigger)}
                 >
                     <h4> HOME </h4>
                 </NavLink>
@@ -266,6 +268,8 @@ export default function NavBar() {
                         textDecoration: isActive ? 'none' : 'none',
                         marginTop: isActive ? null : 30,
                         })}
+
+                        onClick={ () => setTriggerRandomTrailer((trigger) => !trigger)}
                 >
                     <h4> HOME </h4>
                 </NavLink>
@@ -390,6 +394,8 @@ export default function NavBar() {
                         textDecoration: isActive ? null : 'none',
                         marginTop: isActive ? null : 30 ,
                         })}
+
+                        onClick={ () => setTriggerRandomTrailer((trigger) => !trigger)}
                 >
                     <h4> HOME </h4>
                 </NavLink>
