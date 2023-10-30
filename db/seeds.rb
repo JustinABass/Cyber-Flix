@@ -550,6 +550,11 @@ review2 = Review.create!(review: 'I can watch this movie over and over again! It
 review3 = Review.create!(review: 'I can watch this movie over and over again! It\'s a ten out of ten!', user_id: user3.id, movie_id: movie3.id )
 review4 = Review.create!(review: 'I can watch this movie over and over again! It\'s a ten out of ten!', user_id: user4.id, movie_id: movie4.id )
 
+reply1 = Reply.create!( reply: 'Same it will never get old', review_id: review1.id, user_id: user4.id)
+reply2 = Reply.create!( reply: 'Same it will never get old', review_id: review2.id, user_id: user3.id)
+reply3 = Reply.create!( reply: 'Same it will never get old', review_id: review3.id, user_id: user2.id)
+reply4 = Reply.create!( reply: 'Same it will never get old', review_id: review4.id, user_id: user1.id)
+
 
 
 # puts 'Done Seeding...🌷'
