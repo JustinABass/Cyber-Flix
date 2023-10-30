@@ -9,7 +9,7 @@ import SearchActors from './SearchActors'
 
 export default function NavBar() {
     const location = useLocation()
-    const { setTriggerRandomTrailer, showSearchMovieInput } = useContext( MovieContext )
+    const { setTriggerRandomTrailer, showSearchMovieInput, setSearchMovieOnChange } = useContext( MovieContext )
     const { showSearchActors } = useContext( ActorContext )
 
 
@@ -204,6 +204,8 @@ export default function NavBar() {
                         textDecoration: isActive ? null : 'none',
                         marginTop: isActive ? null : 30 ,
                         })}
+
+                        onClick={(e) => setSearchMovieOnChange(e.target.value = null)}
                 >
                     <h4> ADVENTURE </h4>
                 </NavLink>
@@ -269,7 +271,10 @@ export default function NavBar() {
                         marginTop: isActive ? null : 30,
                         })}
 
-                        onClick={ () => setTriggerRandomTrailer((trigger) => !trigger)}
+                        onClick={ () => {
+                            setTriggerRandomTrailer((trigger) => !trigger)
+                            setSearchMovieOnChange('')
+                        } }
                 >
                     <h4> HOME </h4>
                 </NavLink>
@@ -281,6 +286,8 @@ export default function NavBar() {
                         textDecoration: isActive ? 'none' : 'none',
                         marginTop: isActive ? 30 : 30,
                         })}
+
+                        onClick={() => setSearchMovieOnChange('')}
                 >
                     <h4> ACTION </h4>
                 </NavLink>
@@ -293,6 +300,8 @@ export default function NavBar() {
                         textDecoration: isActive ? 'none' : 'none',
                         marginTop: isActive ? 30 : 30,
                         })}
+
+                        onClick={() => setSearchMovieOnChange('')}
                 >
                     <h4> COMEDY </h4>
                 </NavLink>
@@ -304,6 +313,8 @@ export default function NavBar() {
                         textDecoration: isActive ? 'none' : 'none',
                         marginTop: isActive ? 30 : 30,
                         })}
+
+                        onClick={() => setSearchMovieOnChange('')}
                 >
                     <h4> ROMANCE </h4>
                 </NavLink>
@@ -315,6 +326,8 @@ export default function NavBar() {
                         textDecoration: isActive ? 'none' : 'none',
                         marginTop: isActive ? 30 : 30,
                         })}
+
+                        onClick={() => setSearchMovieOnChange('')}
                 >
                     <h4> DRAMA </h4>
                 </NavLink>
@@ -326,6 +339,8 @@ export default function NavBar() {
                         textDecoration: isActive ? 'none' : 'none',
                         marginTop: isActive ? 30 : 30,
                         })}
+
+                        onClick={() => setSearchMovieOnChange('')}
                 >
                     <h4> THRILLER </h4>
                 </NavLink>
@@ -337,6 +352,8 @@ export default function NavBar() {
                         textDecoration: isActive ? 'none' : 'none',
                         marginTop: isActive ? 30 : 30,
                         })}
+
+                        onClick={() => setSearchMovieOnChange('')}
                 >
                     <h4> ADVENTURE </h4>
                 </NavLink>
@@ -348,6 +365,8 @@ export default function NavBar() {
                         textDecoration: isActive ? 'none' : 'none',
                         marginTop: isActive ? 30 : 30,
                         })}
+
+                        onClick={() => setSearchMovieOnChange('')}
                 >
                     <h4> CRIME </h4>
                 </NavLink>
@@ -359,6 +378,8 @@ export default function NavBar() {
                         textDecoration: isActive ? 'none' : 'none',
                         marginTop: isActive ? 30 : 30,
                         })}
+
+                        onClick={() => setSearchMovieOnChange('')}
                 >
                     <h4> HORROR </h4>
                 </NavLink>

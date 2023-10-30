@@ -3,6 +3,7 @@ import { MovieContext } from '../context/movie'
 import { useParams } from "react-router-dom";
 import MovieCast from '../components/MovieCast';
 import MovieCard from '../components/MovieCard';
+import AddReview from '../components/AddReview';
 
 export default function MoviePage() {
     const { movies } = useContext( MovieContext )
@@ -49,11 +50,33 @@ export default function MoviePage() {
 
         <div className='selectedMovieInfoChildDiv'>
             <div className='selectedMovieInfoChildTextDivTwo'>
-                <h1>Cast</h1>
+                <h1> Cast </h1>
             </div>
             <div className='movieCastImgsParentDiv'>
                 { movieCast }
             </div>
+        </div>
+    </div>
+    <br/>
+
+    <div className='reviewParentDiv'>
+        <div className='reviewChildDiv'>
+            <div className='reviewChildTextDiv'>
+                <h1> Reviews </h1>
+            </div>
+
+            <div className='reviewChildScrollDiv'>
+
+            </div>
+
+            <AddReview/>
+        </div>
+
+        <div className='reviewFeaturedMovieChildDiv'>
+            <h1 className='reviewFeaturedMovieH1Text'> Featured Movie</h1>
+            <br/>
+            <br/>
+            <img className='reviewFeaturedMoviePoster' src={ selectedMovie.poster } alt='moviePoster' />
         </div>
     </div>
     <br/>
