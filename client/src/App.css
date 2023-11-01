@@ -372,6 +372,31 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;       /* roundness of the scroll thumb */
   border: 3px solid rgba(74, 74, 74, 0.283);  /* creates padding around scroll thumb */
 }
+
+
+
+
+.reviewCardParentDiv{
+  display: flex;
+}
+.reviewCardParentDiv img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.reviewCardChildTextDiv{
+  margin-left: 10px;
+}
+.reviewCardText{
+  display:flex;
+  justify-content:flex-start;
+  align-items:flex-start;
+}
+
+
+
+
+
 .replyInput[type=text]{
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;

@@ -3,6 +3,7 @@ import { MovieContext } from '../context/movie'
 import { useParams } from "react-router-dom";
 import MovieCast from '../components/MovieCast';
 import MovieCard from '../components/MovieCard';
+import ReviewCard from '../components/ReviewCard';
 import AddReview from '../components/AddReview';
 
 export default function MoviePage() {
@@ -14,10 +15,17 @@ export default function MoviePage() {
         return <h1><b>LOADING...</b></h1>
     }
 
-    const movieCast = selectedMovie.connections.map((cast) => (
+    const selectedMovieCast = selectedMovie.connections.map((cast) => (
         <MovieCast
         key={ cast.id }
         cast={ cast }
+        />
+    ))
+
+    const selectedMovieReviews = selectedMovie.reviews.map((review) => (
+        <ReviewCard
+        key={ review.id }
+        review={ review }
         />
     ))
 
@@ -53,7 +61,7 @@ export default function MoviePage() {
                 <h1> Cast </h1>
             </div>
             <div className='movieCastImgsParentDiv'>
-                { movieCast }
+                { selectedMovieCast }
             </div>
         </div>
     </div>
@@ -66,7 +74,7 @@ export default function MoviePage() {
             </div>
 
             <div className='reviewChildScrollDiv'>
-
+                { selectedMovieReviews }
             </div>
 
             <AddReview/>
