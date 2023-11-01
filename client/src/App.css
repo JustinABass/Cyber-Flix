@@ -397,6 +397,9 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   gap: 10px;
 }
+.noReviewsText{
+  color: red;
+}
 
 
 
@@ -423,9 +426,7 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   gap: 10px;
 }
-.hr{
-  width: 500px;
-}
+
 
 
 

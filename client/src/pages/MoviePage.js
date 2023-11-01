@@ -22,12 +22,18 @@ export default function MoviePage() {
         />
     ))
 
-    const selectedMovieReviews = selectedMovie.reviews.map((review) => (
-        <ReviewCard
-        key={ review.id }
-        review={ review }
-        />
-    ))
+    const selectedMovieReviews = () => {
+        if(selectedMovie.reviews <= 0 ){
+            return <h1 className='noReviewsText'> No reviews. Be the first to leave one. </h1>
+        } else {
+            return selectedMovie.reviews.map((review) => (
+                <ReviewCard
+                key={ review.id }
+                review={ review }
+                />
+            ))
+        }
+    }
 
     const movieGenreMatch = movies.filter((movie) => movie.genre === selectedMovie.genre)
     const setMovieGenreMatch = movieGenreMatch.filter((movie) => movie.id !== selectedMovie.id)
@@ -75,7 +81,7 @@ export default function MoviePage() {
             <br/>
 
             <div className='reviewChildScrollDiv'>
-                { selectedMovieReviews }
+                { selectedMovieReviews() }
             </div>
 
             <AddReview/>
