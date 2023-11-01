@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MovieProvider } from "./context/movie";
 import { ActorProvider } from "./context/actor";
+import { ReviewProvider } from "./context/review";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import MoviePage from "./pages/MoviePage";
@@ -22,6 +23,7 @@ function App() {
   return (
     <MovieProvider>
       <ActorProvider>
+        <ReviewProvider/>
           <BrowserRouter>
           <NavBar />
             <div className="App">
@@ -41,6 +43,7 @@ function App() {
               </Routes>
           </div>
         </BrowserRouter>
+       <ReviewProvider/>
       </ActorProvider>
     </MovieProvider>
   );
