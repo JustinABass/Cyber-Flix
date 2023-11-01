@@ -7,7 +7,7 @@ export default function Signup() {
     const { signup } = useContext( UserContext )
     const navigate = useNavigate()
     const [ username, setUsername ] = useState( '' )
-    const [ userAvatar, setUserAvatar ] = useState( '' )
+    const [ user_avatar, setUser_Avatar ] = useState( '' )
     const [ password, setPassword ] = useState( '' )
     const [ passwordConfirmation, setPasswordConfirmation ] = useState( '' )
     const [ errorsList, setErrorsList ] = useState( [] )
@@ -21,7 +21,7 @@ export default function Signup() {
       headers: { 'Content-Type' : 'application/json'},
       body: JSON.stringify({
         username: username,
-        user_avatar: userAvatar,
+        user_avatar: user_avatar,
         password: password,
         password_confirmation: passwordConfirmation
       })
@@ -62,8 +62,8 @@ export default function Signup() {
           type="text"
           id="avatar"
           placeholder='Avatar url...'
-          value={ userAvatar }
-          onChange={ (e) => setUserAvatar(e.target.value) }
+          value={ user_avatar }
+          onChange={ (e) => setUser_Avatar(e.target.value) }
         />
 
         <div>

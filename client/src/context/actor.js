@@ -20,23 +20,11 @@ function ActorProvider({ children }) {
 
 
 
-    const filterActors = actors.filter((actor) => {
-        if( actor.actor.toLowerCase().includes(searchActors.toLowerCase()) ){
-            return true
-        } 
-    })
-
-    const renderActors = filterActors.map((actor) => (
-        <ActorsCard
-        key={ actor.id }
-        actor={ actor }
-        />
-    ))
 
 
     return(
         <ActorContext.Provider
-        value={{ actors, renderActors, showSearchActors, searchActors, setSearchActors}}>
+        value={{ actors, showSearchActors, searchActors, setSearchActors}}>
             {children}
         </ActorContext.Provider>
     )

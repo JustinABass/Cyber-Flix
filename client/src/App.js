@@ -6,6 +6,7 @@ import { ActorProvider } from "./context/actor";
 import { ReviewProvider } from "./context/review";
 import { ReplyProvider } from "./context/reply";
 import NavBar from "./components/NavBar";
+import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import MoviePage from "./pages/MoviePage";
 import ActionPage from "./pages/ActionPage";
@@ -32,7 +33,7 @@ function App() {
             <NavBar />
               <div className="App">
                 <Routes>
-                  <Route path="/" element={ <Home /> } />
+                  <Route path="/signup" element={ <Signup /> } />
                   <Route path="/movies/:movie_id" element={ <MoviePage /> } />
                   <Route path="/action_movies" element={ <ActionPage />} />
                   <Route path="/comedy_movies" element={ <ComedyPage />} />
@@ -44,6 +45,7 @@ function App() {
                   <Route path="/horror_movies" element={ <HorrorPage />} />
                   <Route path="/actors/:actor_id" element={ <ActorPage />} />
                   <Route path="/actors_page" element={ <ActorsPage />} />
+                  <Route path="/" element={ <Home /> } />
                 </Routes>
             </div>
           </BrowserRouter>

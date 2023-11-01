@@ -262,6 +262,17 @@ body::-webkit-scrollbar-thumb {
     rgba(255, 255, 255, 0) 100%
   );
 }
+.selectedMovieErrorDiv{
+  width: auto;
+  height: 500px;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(0, 0, 0) 10%,
+    red 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
 .selectedMovieInfoChildDiv{
   flex: 1;
 }
@@ -400,7 +411,6 @@ body::-webkit-scrollbar-thumb {
 .noReviewsText{
   color: red;
 }
-
 
 
 
@@ -708,6 +718,17 @@ body::-webkit-scrollbar-thumb {
 }
 .actorPageChildDivTwo{
   margin-left: 100px;
+}
+.actorPageParentDivThree{
+  width: auto;
+  height: 500px;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(0, 0, 0) 10%,
+    red 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 .actorPagePostersDiv{
   display: grid;
