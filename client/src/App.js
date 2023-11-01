@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MovieProvider } from "./context/movie";
 import { ActorProvider } from "./context/actor";
 import { ReviewProvider } from "./context/review";
+import { ReplyProvider } from "./context/reply";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import MoviePage from "./pages/MoviePage";
@@ -23,7 +24,8 @@ function App() {
   return (
     <MovieProvider>
       <ActorProvider>
-        <ReviewProvider/>
+        <ReviewProvider>
+         <ReplyProvider>
           <BrowserRouter>
           <NavBar />
             <div className="App">
@@ -42,8 +44,9 @@ function App() {
                 <Route path="/actors_page" element={ <ActorsPage />} />
               </Routes>
           </div>
-        </BrowserRouter>
-       <ReviewProvider/>
+         </BrowserRouter>
+        </ReplyProvider>
+       </ReviewProvider>
       </ActorProvider>
     </MovieProvider>
   );

@@ -10,7 +10,7 @@ export default function AddReview() {
         />
 
         <br/>
-        <button className='reviewSubmitBtn' type='submit'> Submit </button>
+        <button className='reviewSubmitBtn' type='submit'> <b> Submit </b> </button>
     </form>
   )
 }

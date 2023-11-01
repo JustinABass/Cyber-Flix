@@ -378,6 +378,7 @@ body::-webkit-scrollbar-thumb {
 
 .reviewCardParentDiv{
   display: flex;
+  margin-left: 10px;
 }
 .reviewCardParentDiv img{
   height: 50px;
@@ -392,12 +393,67 @@ body::-webkit-scrollbar-thumb {
   justify-content:flex-start;
   align-items:flex-start;
 }
+.reviewCardChildReplyBtnDiv{
+  display: flex;
+  gap: 10px;
+}
+
+
+
+
+.replyCardParentDiv{
+  display: flex;
+  margin-left: 10px;
+}
+.replyCardParentDiv img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.replyCardChildTextDiv{
+  margin-left: 10px;
+}
+.replyCardText{
+  display:flex;
+  justify-content:flex-start;
+  align-items:flex-start;
+  margin: 0;
+}
+.replyCardChildCommentBtnDiv{
+  display: flex;
+  gap: 10px;
+}
+.hr{
+  width: 500px;
+}
+
+
+
+
+.commentCardParentDiv{
+  display: flex;
+  margin-left: 10px;
+}
+.commentCardParentDiv img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.commentCardChildTextDiv{
+  margin-left: 10px;
+}
+.commentCardText{
+  display:flex;
+  justify-content:flex-start;
+  align-items:flex-start;
+  margin: 0;
+}
 
 
 
 
 
-.replyInput[type=text]{
+.addReplyInput[type=text]{
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
    border-radius: 20px;
@@ -411,11 +467,52 @@ body::-webkit-scrollbar-thumb {
    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(247, 247, 247);
    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 15px rgb(255, 255, 255);
 }
-.replyInput[type=text]:focus{
+.addReplyInput[type=text]:focus{
   outline: none;
    border: 1px solid #000000;
    color: #ffffff;
 }
+.replySubmitBtn{
+  color: rgba(255, 255, 255, 0.463);
+  border: 0px solid;
+  background-color: transparent;
+  font-size: larger;
+  margin-left: 15px;
+}
+
+
+
+
+.addCommentInput[type=text]{
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+   border-radius: 20px;
+   border: 1px solid #000000;
+   color: #000000;
+   background-color: #504d4d95;
+   width: 530px;
+   height: 30px;
+   padding-left: 10px;
+   font-size: larger;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(247, 247, 247);
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 15px rgb(255, 255, 255);
+}
+.addCommentInput[type=text]:focus{
+  outline: none;
+   border: 1px solid #000000;
+   color: #ffffff;
+}
+.commentSubmitBtn{
+  color: rgba(255, 255, 255, 0.463);
+  border: 0px solid;
+  background-color: transparent;
+  font-size: larger;
+  margin-left: 15px;
+}
+
+
+
+
 .reviewInput[type=text]{
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;

@@ -72,6 +72,7 @@ export default function MoviePage() {
             <div className='reviewChildTextDiv'>
                 <h1> Reviews </h1>
             </div>
+            <br/>
 
             <div className='reviewChildScrollDiv'>
                 { selectedMovieReviews }
