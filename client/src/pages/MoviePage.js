@@ -17,13 +17,12 @@ export default function MoviePage() {
         const selectedMovie = movies.find((movie) => movie.id == movie_id)
         if( !selectedMovie ){
             return <h1><b>LOADING...</b></h1>
-        }
+        };
 
         const selectedMovieReviews = () => {
             if( selectedMovie.reviews <= 0 ){
                 return <h1 className='noReviewsText'> No reviews. Be the first to leave one. </h1>
             } else {
-                if( isAuthenticated ){
                     return selectedMovie.reviews.map((review) => (
                         <ReviewCard
                         key={ review.id }
@@ -31,12 +30,11 @@ export default function MoviePage() {
                         />
                     ))
                 }
-            }
-        }
+            };
 
 
-        const movieGenreMatch = movies.filter((movie) => movie.genre === selectedMovie.genre)
-        const setMovieGenreMatch = movieGenreMatch.filter((movie) => movie.id !== selectedMovie.id)
+        const movieGenreMatch = movies.filter((movie) => movie.genre === selectedMovie.genre);
+        const setMovieGenreMatch = movieGenreMatch.filter((movie) => movie.id !== selectedMovie.id);
         return (
             <>
             <div className='selectedMovieTrailerDiv'>
@@ -80,8 +78,9 @@ export default function MoviePage() {
                     <div className='reviewChildScrollDiv'>
                         { selectedMovieReviews() }
                     </div>
+                    <br/>
 
-                    <AddReview/>
+                    <AddReview movie={ selectedMovie }/>
                 </div>
 
                 <div className='reviewFeaturedMovieChildDiv'>

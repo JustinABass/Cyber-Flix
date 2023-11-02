@@ -21,7 +21,7 @@ function MovieProvider({ children }) {
 
 
 
-    const randomMovieTrailer = Math.floor(Math.random() * movies.length)
+
 
 
 
@@ -30,10 +30,11 @@ function MovieProvider({ children }) {
         <MovieContext.Provider
         value={{
             movies,
+            setMovies,
             showSearchMovieInput,
             searchMovieOnChange,
             setSearchMovieOnChange,
-            randomMovieTrailer,
+            // randomMovieTrailer,
             triggerRandomTrailer,
             setTriggerRandomTrailer,
             }}>

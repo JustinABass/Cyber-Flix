@@ -1,46 +1,58 @@
 import React, { useState, useContext } from 'react'
+import { UserContext } from '../context/user'
 import { ReplyContext } from '../context/reply'
 import CommentCard from './CommentCard'
 import AddComment from './AddComment'
 
 export default function ReplyCard({ reply }) {
+    const { isAuthenticated, user } = useContext( UserContext )
     const { replies } = useContext(ReplyContext)
-    const selectedReply = replies.find((r) => r.id === reply.id)
     const [ showCommentInput, setShowCommentInput ] = useState( true )
     const [ showComments, setShowComments] = useState ( true )
 
-    const renderSelectedReplyComments = selectedReply.comments.map((comment) => (
-      <CommentCard
-      key={ comment.id }
-      comment={ comment }
-      />
-  ))
+  if( isAuthenticated ){
+    const selectedReply = replies.find((r) => r.id === reply.id)
 
-
-  return (
-    <>
-    <div className='replyCardParentDiv'>
-        <img src={ reply.user_avatar } alt='userAvatar' />
-        <div className='replyCardChildTextDiv'>
-            <h3 className='replyCardText'> { reply.username } </h3>
-            <p className='replyCardText'> { reply.reply } </p>
-            <br/>
-            <div className='replyCardChildCommentBtnDiv'>
-                <h5 onClick={ () => setShowCommentInput((show) => !show)}> Comment </h5>
-            </div>
-            <br/>
-            { showCommentInput ? null : <AddComment /> }
-            <br/>
-            { showComments ?
-            <h5 onClick={() => setShowComments((show) => !show)}> View comments </h5>
-            :
-              <h5 onClick={() => setShowComments((show) => !show)}> Hide comments </h5>
+    const renderSelectedReplyComments = () => {
+        if( reply.comments <= 0 ){
+            return <h5> There are no comments </h5>
+        } else {
+            return selectedReply.comments.map((comment) => (
+                <CommentCard
+                key={ comment.id }
+                comment={ comment }
+                />
+                ))
             }
-            <hr/>
+        }
+    return (
+        <>
+        <div className='replyCardParentDiv'>
+            <img src={ reply.user_avatar } alt='userAvatar' />
+            <div className='replyCardChildTextDiv'>
+                <h3 className='replyCardText'> { reply.username } </h3>
+                <p className='replyCardText'> { reply.reply } </p>
+                <br/>
+                <div className='replyCardChildCommentBtnDiv'>
+                    { user.id === reply.user_id ? null : <h5 onClick={ () => setShowCommentInput((show) => !show)}> Comment </h5>}
+                    { showComments ?
+                        <h5 onClick={() => setShowComments((show) => !show)}> View comments </h5>
+                    :
+                        <h5 onClick={() => setShowComments((show) => !show)}> Hide comments </h5>
+                    }
+                </div>
+                { showCommentInput ? null : <AddComment /> }
+                <br/>
+            </div>
         </div>
-    </div>
-    <br/>
-    {  showComments ? null : renderSelectedReplyComments }
-    </>
-  )
+        <hr className='replyHr'/>
+        <br/>
+        {  showComments ?
+            null
+        :
+            renderSelectedReplyComments()
+        }
+        </>
+      )
+  }
 }

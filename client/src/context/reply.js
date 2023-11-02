@@ -14,9 +14,33 @@ function ReplyProvider({ children }) {
     }, [])
 
 
+    const addReply= ( reply, reviews, setReviews ) => {
+        fetch('/replies',{
+            method: 'POST',
+            headers:{ 'Content-Type' : 'application/json'},
+            body: JSON.stringify( reply )
+        })
+        .then((r) => r.json())
+        .then(( newReply ) => {
+            const reviewReplyMatch = reviews.map((review) => {
+                if( review.id === newReply.review_id ){
+                    const updateReviewReplies = {
+                        ...review,
+                        replies: [ ...review.replies, newReply]
+                    };
+                    return updateReviewReplies
+                } else {
+                    return review
+                }
+            });
+            setReviews( reviewReplyMatch )
+        })
+    }
+
+
     return(
         <ReplyContext.Provider
-        value={{ replies}}>
+        value={{ replies, setReplies, addReply }}>
             {children}
         </ReplyContext.Provider>
     )

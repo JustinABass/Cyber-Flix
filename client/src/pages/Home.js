@@ -11,10 +11,17 @@ export default function Home() {
     const { movies, randomMovieTrailer, triggerRandomTrailer } = useContext( MovieContext )
 
 
+    console.log(Array.isArray(movies))
+
+
          if( isAuthenticated ) {
+            const randomMovieTrailer = Math.floor(Math.random() * movies.length)
+
+
             const popularMovies = movies.filter((movie) => movie.popular ? true : false)
 
             const newMovies = movies.filter((movie) => movie.new_release? true : false)
+
 
             const trendingMovies = movies.filter((movie) => movie.trending_now ? true : false)
 

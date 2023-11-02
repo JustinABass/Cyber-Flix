@@ -58,24 +58,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-.navBarParentDiv{
-  display: flex;
-  position: absolute;
-  gap: 1%;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  width: 100%;
-  height: 50px;
-}
-.navBarParentDiv img{
-  height: 65px;
-  width: 65px;
-  border-radius: 50%;
-  margin-left: 10px;
-  margin-top: 5px;
-}
-.navBarParentDivTwo{
+
+
+
+.navBarParentDiv {
   display: flex;
   position: fixed;
   gap: 1%;
@@ -86,7 +72,7 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   height: 75px;
 }
-.navBarParentDivTwo img{
+.navBarParentDiv img{
   height: 65px;
   width: 65px;
   border-radius: 50%;
@@ -94,8 +80,24 @@ body::-webkit-scrollbar-thumb {
   margin-top: 5px;
 }
 .navSettings{
-  margin-left: 525px;
+  display: flex;
+  margin-left: 450px;
   margin-top: 20px;
+}
+.settingIconLink{
+  text-decoration: none;
+}
+.navSettingsLogoutDiv{
+  margin-left: 1px;
+  margin-top: -4px;
+}
+.navSettingsLogoutDiv button{
+  background-color: #11111100;
+  font-size: large;
+  color: white;
+  border: none;
+  width: 100px;
+  height: 50px;
 }
 .searchBarParentDiv{
   margin-left: 50px;
@@ -135,6 +137,77 @@ body::-webkit-scrollbar-thumb {
 
 .searchInput[type=text]:focus {
    outline: none;
+   border: 1px solid #000000;
+   color: #ffffff;
+}
+
+
+
+
+.userProfileParentDiv{
+  width: auto;;
+  height: 500px;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(0, 0, 0) 10%,
+    red 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.userProfileGridContainer{
+  margin-left: 270px;
+  display: grid;
+  grid-template-columns: repeat(2, 0fr);
+  grid-gap: 50px;
+  margin-top: 60px;
+}
+.userProfileChildDiv{
+  background-color: #151515ad;
+  border-radius: 15%;
+  height: 300px;
+  width: 400px;
+  margin-top: 100px;
+}
+.userProfileChildDiv:hover{
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(247, 247, 247);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 255, 255);
+}
+.userProfileSettingInputs[type=text]{
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+   border-radius: 20px;
+   border: 0px solid #000000;
+   color: #000000;
+   background-color: #504d4d95;
+   width: 300px;
+   height: 30px;
+   padding-left: 10px;
+   font-size: larger;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(247, 247, 247);
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 15px rgb(255, 255, 255);
+}
+.userProfileSettingInputs[type=text]:focus{
+  outline: none;
+   border: 1px solid #000000;
+   color: #ffffff;
+}
+.userProfileSettingInputs[type=password]{
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+   border-radius: 20px;
+   border: 0px solid #000000;
+   color: #000000;
+   background-color: #504d4d95;
+   width: 300px;
+   height: 30px;
+   padding-left: 10px;
+   font-size: larger;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(247, 247, 247);
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 15px rgb(255, 255, 255);
+}
+.userProfileSettingInputs[type=password]:focus{
+  outline: none;
    border: 1px solid #000000;
    color: #ffffff;
 }
@@ -771,3 +844,18 @@ body::-webkit-scrollbar-thumb {
   box-shadow: 0 0 30px rgb(255, 255, 255);
 }
 
+.reviewHr{
+  background-color: rgba(255, 0, 0, 0.143);
+  height: 4px;
+  border: none;
+}
+.replyHr{
+  background-color: rgba(61, 61, 61, 0.732);
+  height: 4px;
+  border: none;
+}
+.commentHr{
+  background-color: red;
+  height: 4px;
+  border: none;
+}
