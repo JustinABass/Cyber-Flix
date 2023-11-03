@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users, only: [ :update ]
+  resources :users, only: [ :update, :destroy ]
   resources :movies, only: [ :index ]
   resources :actors, only: [ :index ]
   resources :reviews, only: [ :index, :create ]

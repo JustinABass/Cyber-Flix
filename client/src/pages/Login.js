@@ -3,11 +3,11 @@ import { UserContext } from '../context/user'
 import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
+  const { login } = useContext( UserContext )
+  const navigate = useNavigate()
   const [ username, setUsername ] = useState( '' )
   const [ password, setPassword ] = useState( '' )
   const [ error, setError ] = useState( '' )
-  const { login } = useContext( UserContext )
-  const navigate = useNavigate()
 
 
   function handleSubmit(e) {

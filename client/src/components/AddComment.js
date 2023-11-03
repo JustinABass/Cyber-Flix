@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { CommentContext } from '../context/comment'
 import { ReplyContext } from '../context/reply'
 
-export default function AddComment({ reply, showCommentInput }) {
+export default function AddComment({ reply, setShowCommentInput }) {
   const { addComment } = useContext( CommentContext )
   const { replies, setReplies } = useContext( ReplyContext )
   const [ commentData, setCommentData ] = useState( { comment: '' } )
@@ -14,7 +14,7 @@ export default function AddComment({ reply, showCommentInput }) {
       reply_id: reply.id
     }
     addComment( submitComment, replies, setReplies )
-    
+    setShowCommentInput( true )
   }
 
   const handleChange = (e) => {

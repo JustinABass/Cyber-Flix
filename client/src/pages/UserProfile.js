@@ -1,14 +1,16 @@
 import React, { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../context/user'
 import { MovieContext } from '../context/movie'
 import { ReviewContext } from '../context/review'
 import { ReplyContext } from '../context/reply'
 
 export default function UserProfile() {
-    const { isAuthenticated, user, updateUsername, updateUserPassword } = useContext( UserContext )
+    const { isAuthenticated, setIsAuthenticated, user, updateUsername, updateUserPassword } = useContext( UserContext )
     const { movies } = useContext( MovieContext )
     const { reviews } = useContext( ReviewContext )
     const { replies } = useContext( ReplyContext )
+    const navigate = useNavigate()
     const [ usernameData, setUsernameData ] = useState( { username: '' } )
     const [ userPasswordData, setUserPasswordData ] = useState ({
         password: '',
@@ -47,28 +49,16 @@ export default function UserProfile() {
         });
     };
 
-
-    // const handleAvatarSubmit = (e) => {
-    //     e.preventDefault()
-    //     const data = new FormData();
-
-    //     data.append("user[avatar]", e.target.image.files[0]);
-    //     handleAPISubmit(data);
-
-    // }
-
-    // const handleAPISubmit = (data) => {
-    //     fetch(`/users/${user.id}`, {
-    //         method: 'PATCH',
-    //         body: JSON.stringify(data)
-    //     })
-    //     .then((r) => r.json())
-    //     .then((data) => {
-    //         setLastestAvatar(data.avatar_url)
-    //     })
-    //     .catch((error) => console.error(error))
-    // }
-
+    const deactivate = () => {
+        fetch(`/users/${user.id}`,{
+            method: 'DELETE',
+            headers: { 'Content-Type' : 'application/json'}
+        })
+        .then(() =>{
+          setIsAuthenticated(false)
+          navigate('/')
+        })
+        }
 
     if( isAuthenticated ){
         return (
@@ -89,11 +79,11 @@ export default function UserProfile() {
                                 />
                             </div>
 
-                            <button type='submit'> UPDATE </button>
+                            <button className='updateBtn' type='submit'> UPDATE </button>
                         </form>
-                        <br/>
-                        <br/>
-                        <h1> HELLO { user.username.toUpperCase()} </h1>
+                        <div className='userProfileSettingNameDiv'>
+                            <h1> HELLO { user.username.toUpperCase()} </h1>
+                        </div>
                     </div>
 
 
@@ -112,7 +102,6 @@ export default function UserProfile() {
 
                             <div>
                                 <br/>
-                                <br/>
                                 <input
                                 className='userProfileSettingInputs'
                                 name='password_confirmation'
@@ -121,7 +110,7 @@ export default function UserProfile() {
                                 onChange={ handleUserPasswordChange }
                                 />
                             </div>
-                            <button type='submit'> UPDATE </button>
+                            <button className='updateBtn' type='submit'> UPDATE </button>
                         </form>
                     </div>
 
@@ -144,9 +133,34 @@ export default function UserProfile() {
                     <div className='userProfileChildDiv'>
                         <br/>
                         <h1> DEACTIVATE ACCOUNT </h1>
+                        <div className='deactivateBtnDiv'>
+                            <button className='deactivateBtn' onClick={ () => deactivate()}> CLICK TO DEACTIVATE</button>
+                        </div>
                     </div>
                 </div>
+                <br/>
             </div>
           )
     }
 }
+
+ // const handleAvatarSubmit = (e) => {
+    //     e.preventDefault()
+    //     const data = new FormData();
+
+    //     data.append("user[avatar]", e.target.image.files[0]);
+    //     handleAPISubmit(data);
+
+    // }
+
+    // const handleAPISubmit = (data) => {
+    //     fetch(`/users/${user.id}`, {
+    //         method: 'PATCH',
+    //         body: JSON.stringify(data)
+    //     })
+    //     .then((r) => r.json())
+    //     .then((data) => {
+    //         setLastestAvatar(data.avatar_url)
+    //     })
+    //     .catch((error) => console.error(error))
+    // }
