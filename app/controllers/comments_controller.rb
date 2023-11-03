@@ -1,5 +1,9 @@
 class CommentsController < ApplicationController
 
+    def index
+      render json: Review.all, status: :ok 
+    end
+
     def create
         review = @current_user.reviews.create!(reviews_params)
         render json: review, status: :created
