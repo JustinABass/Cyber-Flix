@@ -41,7 +41,7 @@ export default function ReplyCard({ reply }) {
                         <h5 onClick={() => setShowComments((show) => !show)}> Hide comments </h5>
                     }
                 </div>
-                { showCommentInput ? null : <AddComment /> }
+                { showCommentInput ? null : <AddComment reply={ reply } /> }
                 <br/>
             </div>
         </div>

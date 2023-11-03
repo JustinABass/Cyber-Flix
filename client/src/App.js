@@ -4,6 +4,7 @@ import { MovieProvider } from "./context/movie";
 import { ActorProvider } from "./context/actor";
 import { ReviewProvider } from "./context/review";
 import { ReplyProvider } from "./context/reply";
+import { CommentProvider } from "./context/comment";
 import NavBar from "./components/NavBar";
 import Signup from "./pages/Signup";
 import UserProfile from "./pages/UserProfile";
@@ -30,10 +31,11 @@ function App() {
     <UserProvider>
       <MovieProvider>
         <ActorProvider>
-          <ReviewProvider>
+         <ReviewProvider>
           <ReplyProvider>
+           <CommentProvider>
             <BrowserRouter>
-            <NavBar />
+             <NavBar />
               <div className="App">
                 <Routes>
                   <Route path="/signup" element={ <Signup /> } />
@@ -52,12 +54,13 @@ function App() {
                   <Route path="/actors_page" element={ <ActorsPage />} />
                 </Routes>
             </div>
-          </BrowserRouter>
+            </BrowserRouter>
+           </CommentProvider>
           </ReplyProvider>
-        </ReviewProvider>
+         </ReviewProvider>
         </ActorProvider>
-      </MovieProvider>
-    </UserProvider>
+       </MovieProvider>
+     </UserProvider>
   );
 }
 
