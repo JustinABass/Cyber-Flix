@@ -1,17 +1,13 @@
 class CommentsController < ApplicationController
 
-    def index
-      render json: Review.all, status: :ok 
-    end
-
     def create
-        review = @current_user.reviews.create!(reviews_params)
-        render json: review, status: :created
+        comment = @current_user.comments.create!(comment_params)
+        render json: comment, status: :created
       end
 
       private
 
-      def reply_params
+      def comment_params
         params.permit( :comment, :reply_id )
       end
 

@@ -38,7 +38,7 @@ function UserProvider({ children }) {
 
 
 
-    const updateUsername = (username, movies, reviews) => {
+    const updateUsername = (username, movies, reviews, replies) => {
         fetch(`/users/${user.id}`, {
             method: 'PATCH',
             headers: { 'Content-Type' : 'application/json'},
@@ -65,7 +65,14 @@ function UserProvider({ children }) {
                     }
                 })
 
-                console.log(movieReviews)
+                const replyComments = replies.flatMap((reply) => reply.comments)
+                console.log('aye', replyComments)
+
+                replyComments.filter((comment) => {
+                    if( comment.user_id === updateUsername.id ){
+                        return comment.username = updateUsername.username
+                    }
+                })
             }
         })
     }

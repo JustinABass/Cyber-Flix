@@ -41,7 +41,6 @@ export default function ReviewCard( { review }) {
             <ReplyCard
             key={ reply.id }
             reply={ reply }
-            review={ review }
             />
             ))
         }

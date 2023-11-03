@@ -2,17 +2,19 @@ import React, { useContext, useState } from 'react'
 import { UserContext } from '../context/user'
 import { MovieContext } from '../context/movie'
 import { ReviewContext } from '../context/review'
+import { ReplyContext } from '../context/reply'
 
 export default function UserProfile() {
     const { isAuthenticated, user, updateUsername, lastestAvatar, setLastestAvatar } = useContext( UserContext )
     const { movies } = useContext( MovieContext )
     const { reviews } = useContext( ReviewContext )
+    const { replies } = useContext( ReplyContext )
     const [ usernameData, setUsernameData ] = useState( { username: '' } )
 
     const handleUsernameSubmit = (e) => {
         e.preventDefault();
         const update = { ...usernameData }
-        updateUsername( update, movies, reviews )
+        updateUsername( update, movies, reviews, replies )
         setUsernameData( { username: '' } )
     }
 

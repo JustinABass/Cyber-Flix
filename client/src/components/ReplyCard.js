@@ -12,19 +12,6 @@ export default function ReplyCard({ reply }) {
 
   if( isAuthenticated ){
     const selectedReply = replies.find((r) => r.id === reply.id)
-
-    const renderSelectedReplyComments = () => {
-        if( reply.comments <= 0 ){
-            return <h5> There are no comments </h5>
-        } else {
-            return selectedReply.comments.map((comment) => (
-                <CommentCard
-                key={ comment.id }
-                comment={ comment }
-                />
-                ))
-            }
-        }
     return (
         <>
         <div className='replyCardParentDiv'>
@@ -41,16 +28,19 @@ export default function ReplyCard({ reply }) {
                         <h5 onClick={() => setShowComments((show) => !show)}> Hide comments </h5>
                     }
                 </div>
-                { showCommentInput ? null : <AddComment reply={ reply } /> }
+                { showCommentInput ? null : <AddComment reply={ reply } showCommentInput={ showCommentInput } /> }
                 <br/>
             </div>
         </div>
         <hr className='replyHr'/>
         <br/>
-        {  showComments ?
-            null
-        :
-            renderSelectedReplyComments()
+        {  showComments ? null : reply.comments <= 0 || selectedReply.comments <= 0 ? <h5> There are no comments </h5> :
+            selectedReply.comments.map((comment) => (
+            <CommentCard
+            key={ comment.id }
+            comment={ comment }
+            />
+            ))
         }
         </>
       )

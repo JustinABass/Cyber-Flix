@@ -14,7 +14,7 @@ function ReplyProvider({ children }) {
     }, [])
 
 
-    const addReply= ( reply, reviews, setReviews ) => {
+    const addReply = ( reply, reviews, setReviews ) => {
         fetch('/replies',{
             method: 'POST',
             headers:{ 'Content-Type' : 'application/json'},
