@@ -7,6 +7,11 @@ function UserProvider({ children }) {
     const [ user, setUser ] = useState( null )
     const [ userError, setUserError ] = useState( '' )
 
+    const login = (user) => {
+        setUser( user )
+        setIsAuthenticated( true )
+    }
+
     const signup = (user) => {
         setUser( user )
         setIsAuthenticated( true )
@@ -75,13 +80,30 @@ function UserProvider({ children }) {
                 })
             }
         })
-    }
+    };
+
+
+
+
+    function updateUserPassword(password){
+        fetch(`/users/${user.id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type' :'application/json'},
+            body: JSON.stringify( password )
+        })
+        .then((r) => r.json())
+        .then((updatedPassword) => {
+            if( !updatedPassword.errors ){
+                setUser( updatedPassword );
+            }
+        });
+    };
 
 
 
     return(
         <UserContext.Provider
-        value={{ isAuthenticated, user, signup, logout, userError, updateUsername }}>
+        value={{ isAuthenticated, user, login, signup, logout, userError, updateUsername }}>
             {children}
         </UserContext.Provider>
     )

@@ -534,9 +534,15 @@ export default function NavBar() {
         }
     } else {
         return(
+            <div>
+                <NavLink to='/login'>
+                <button> Login </button>
+            </NavLink>
+
             <NavLink to='/signup'>
                 <button> Signup </button>
             </NavLink>
+            </div>
         )
     }
 }

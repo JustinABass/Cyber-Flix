@@ -43,8 +43,8 @@ export default function Signup() {
 
 
   return (
-    <div className='signupFormParentDiv'>
-      <h1 className='homeLogo'> CYBERFLIX</h1>
+    <div>
+      <h1> CYBERFLIX SIGNUP 🎬 </h1>
       <form onSubmit={ handleSubmit }>
         <div>
           <input

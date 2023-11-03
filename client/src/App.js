@@ -7,6 +7,7 @@ import { ReplyProvider } from "./context/reply";
 import { CommentProvider } from "./context/comment";
 import NavBar from "./components/NavBar";
 import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 import UserProfile from "./pages/UserProfile";
 import Home from "./pages/Home";
 import MoviePage from "./pages/MoviePage";
@@ -39,6 +40,7 @@ function App() {
               <div className="App">
                 <Routes>
                   <Route path="/signup" element={ <Signup /> } />
+                  <Route path="/login" element={ <Login /> } />
                   <Route path="/" element={ <Home /> } />
                   <Route path="/user_profile" element={ <UserProfile /> } />
                   <Route path="/movies/:movie_id" element={ <MoviePage /> } />

@@ -76,12 +76,8 @@ export default function UserProfile() {
                         <h1> HELLO { user.username.toUpperCase()} </h1>
                     </div>
 
-                    <div className='userProfileChildDiv'>
-                        <br/>
-                        <h1> UPDATE USER AVATAR </h1>
-                    </div>
 
-                    {/* <div className='userProfileChildDiv'>
+                    <div className='userProfileChildDiv'>
                         <br/>
                         <h1> UPDATE USER PASSWORD </h1>
                         <br/>
@@ -107,7 +103,7 @@ export default function UserProfile() {
                             </div>
                             <button type='UPDATE'> UPDATE </button>
                         </form>
-                    </div> */}
+                    </div>
 
                     <div className='userProfileChildDiv'>
                         <br/>
@@ -124,8 +120,12 @@ export default function UserProfile() {
                             <button type='submit' > UPDATE AVATAR </button>
                         </form>
                     </div>
-                </div>
 
+                    <div className='userProfileChildDiv'>
+                        <br/>
+                        <h1> DEACTIVATE ACCOUNT </h1>
+                    </div>
+                </div>
             </div>
           )
     }
