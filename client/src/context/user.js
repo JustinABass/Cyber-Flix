@@ -103,7 +103,7 @@ function UserProvider({ children }) {
 
     return(
         <UserContext.Provider
-        value={{ isAuthenticated, user, login, signup, logout, userError, updateUsername }}>
+        value={{ isAuthenticated, user, login, signup, logout, userError, updateUsername, updateUserPassword }}>
             {children}
         </UserContext.Provider>
     )

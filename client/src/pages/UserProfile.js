@@ -5,11 +5,15 @@ import { ReviewContext } from '../context/review'
 import { ReplyContext } from '../context/reply'
 
 export default function UserProfile() {
-    const { isAuthenticated, user, updateUsername, lastestAvatar, setLastestAvatar } = useContext( UserContext )
+    const { isAuthenticated, user, updateUsername, updateUserPassword } = useContext( UserContext )
     const { movies } = useContext( MovieContext )
     const { reviews } = useContext( ReviewContext )
     const { replies } = useContext( ReplyContext )
     const [ usernameData, setUsernameData ] = useState( { username: '' } )
+    const [ userPasswordData, setUserPasswordData ] = useState ({
+        password: '',
+        password_confirmation: '',
+    })
 
     const handleUsernameSubmit = (e) => {
         e.preventDefault();
@@ -23,6 +27,22 @@ export default function UserProfile() {
         const value = e.target.value
         setUsernameData({
             ...usernameData,
+            [name]: value
+        });
+    };
+
+    const handleUserPasswordSubmit = (e) => {
+        e.preventDefault();
+        const update = { ...userPasswordData }
+        updateUserPassword( update )
+        setUserPasswordData( { password: '', password_confirmation: '' } )
+    }
+
+    const handleUserPasswordChange = (e) => {
+        const name = e.target.name;
+        const value = e.target.value
+        setUserPasswordData({
+            ...userPasswordData,
             [name]: value
         });
     };
@@ -81,13 +101,13 @@ export default function UserProfile() {
                         <br/>
                         <h1> UPDATE USER PASSWORD </h1>
                         <br/>
-                        <form>
+                        <form onSubmit={ handleUserPasswordSubmit }>
                             <input
                             className='userProfileSettingInputs'
                             name='password'
                             type='password'
-                            value=''
-                            onChange=''
+                            value={ userPasswordData.password }
+                            onChange={ handleUserPasswordChange }
                             />
 
                             <div>
@@ -97,11 +117,11 @@ export default function UserProfile() {
                                 className='userProfileSettingInputs'
                                 name='password_confirmation'
                                 type='password'
-                                value=''
-                                onChange=''
+                                value={ userPasswordData.password_confirmation }
+                                onChange={ handleUserPasswordChange }
                                 />
                             </div>
-                            <button type='UPDATE'> UPDATE </button>
+                            <button type='submit'> UPDATE </button>
                         </form>
                     </div>
 
