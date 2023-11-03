@@ -1,5 +1,5 @@
 class Reply < ApplicationRecord
+    has_many :comments 
     belongs_to :user
     belongs_to :review
-    has_many :comments 
 end
