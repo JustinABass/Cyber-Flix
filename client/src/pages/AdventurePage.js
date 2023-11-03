@@ -5,14 +5,9 @@ import MovieCard from '../components/MovieCard'
 
 export default function AdventurePage() {
     const { isAuthenticated, userError } = useContext( UserContext )
-    const { movies, searchMovieOnChange } = useContext( MovieContext )
+    const { adventureMovies } = useContext( MovieContext )
 
     if( isAuthenticated ){
-      const adventureMovies = movies.filter((movie) => {
-        if( movie.genre === 'Adventure' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
-            return true
-          }
-       })
       return (
         <div className='genreMovieListParentDiv'>
           <br/>

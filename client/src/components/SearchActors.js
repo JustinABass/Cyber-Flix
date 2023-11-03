@@ -3,6 +3,7 @@ import { ActorContext } from '../context/actor'
 
 export default function SearchActors() {
   const { searchActors, setSearchActors } = useContext( ActorContext )
+  
   return (
     <form>
     <input

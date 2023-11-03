@@ -5,14 +5,9 @@ import MovieCard from '../components/MovieCard'
 
 export default function CrimePage() {
   const { isAuthenticated, userError } = useContext( UserContext )
-  const { movies, searchMovieOnChange } = useContext( MovieContext )
+  const { crimeMovies } = useContext( MovieContext )
 
   if ( isAuthenticated ){
-    const crimeMovies = movies.filter((movie) => {
-      if( movie.genre === 'Crime' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
-          return true
-      }
-  })
     return (
       <div className='genreMovieListParentDiv'>
         <br/>

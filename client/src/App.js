@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserProvider } from "./context/user";
 import { MovieProvider } from "./context/movie";
@@ -20,7 +19,10 @@ import CrimePage from "./pages/CrimePage";
 import HorrorPage from "./pages/HorrorPage";
 import ActorPage from "./pages/ActorPage";
 import ActorsPage from "./pages/ActorsPage";
+
 import './App.css';
+
+
 
 function App() {
 

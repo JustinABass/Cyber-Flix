@@ -13,9 +13,6 @@ function UserProvider({ children }) {
     }
 
 
-
-
-
     useEffect(() => {
         fetch('/user_profile')
         .then((r) => r.json())
@@ -30,9 +27,6 @@ function UserProvider({ children }) {
             }
         })
     }, [])
-
-
-
 
 
     const logout = () => {
@@ -72,7 +66,6 @@ function UserProvider({ children }) {
                 })
 
                 console.log(movieReviews)
-
             }
         })
     }

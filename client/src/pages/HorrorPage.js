@@ -5,18 +5,10 @@ import MovieCard from '../components/MovieCard'
 
 export default function HorrorPage() {
     const { isAuthenticated, userError} = useContext( UserContext )
-    const { movies, searchMovieOnChange } = useContext( MovieContext )
+    const { horrorMovies } = useContext( MovieContext )
 
-    console.log('m', movies)
-
-
-
+    
     if( isAuthenticated ){
-      const horrorMovies = movies.filter((movie) => {
-        if( movie.genre === 'Horror' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
-            return true
-        }
-    })
       return (
         <div className='genreMovieListParentDiv'>
           <br/>

@@ -7,13 +7,13 @@ export default function ActorsPage() {
   const { isAuthenticated, userError } = useContext( UserContext )
   const { actors, searchActors} = useContext( ActorContext )
 
+  const filterActors = actors.filter((actor) => {
+    if( actor.actor.toLowerCase().includes(searchActors.toLowerCase()) ){
+        return true
+    }
+})
 
   if( isAuthenticated ){
-    const filterActors = actors.filter((actor) => {
-      if( actor.actor.toLowerCase().includes(searchActors.toLowerCase()) ){
-          return true
-      }
-  })
     return (
       <div className='actorsPageParentDiv'>
         <br/>

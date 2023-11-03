@@ -6,14 +6,9 @@ import MovieCard from '../components/MovieCard'
 
 export default function RomancePage() {
     const { isAuthenticated, userError } = useContext( UserContext )
-    const { movies, searchMovieOnChange } = useContext( MovieContext )
+    const { romanceMovies } = useContext( MovieContext )
 
     if( isAuthenticated ){
-      const romanceMovies = movies.filter((movie) => {
-        if( movie.genre === 'Romance' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
-            return true
-        }
-    })
       return (
         <div className='genreMovieListParentDiv'>
           <br/>

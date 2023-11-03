@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize, only: :create
+    skip_before_action :authorize, only: [:create]
 
 
     def create
@@ -17,6 +17,7 @@ class UsersController < ApplicationController
         @current_user.update!(user_params)
         render json: @current_user, status: :accepted
     end
+
 
 
     private

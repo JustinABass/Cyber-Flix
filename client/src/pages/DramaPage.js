@@ -5,14 +5,9 @@ import MovieCard from '../components/MovieCard'
 
 export default function DramaPage() {
     const { isAuthenticated, userError } = useContext( UserContext )
-    const {  movies, searchMovieOnChange } = useContext( MovieContext )
+    const { dramaMovies } = useContext( MovieContext )
 
     if( isAuthenticated ){
-      const dramaMovies = movies.filter((movie) => {
-        if ( movie.genre === 'Drama' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
-            return true
-        }
-    })
       return (
         <div className='genreMovieListParentDiv'>
           <br/>

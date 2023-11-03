@@ -4,7 +4,7 @@ import { MovieContext } from '../context/movie'
 import { ReviewContext } from '../context/review'
 
 export default function UserProfile() {
-    const { isAuthenticated, user, updateUsername } = useContext( UserContext )
+    const { isAuthenticated, user, updateUsername, lastestAvatar, setLastestAvatar } = useContext( UserContext )
     const { movies } = useContext( MovieContext )
     const { reviews } = useContext( ReviewContext )
     const [ usernameData, setUsernameData ] = useState( { username: '' } )
@@ -24,6 +24,29 @@ export default function UserProfile() {
             [name]: value
         });
     };
+
+
+    // const handleAvatarSubmit = (e) => {
+    //     e.preventDefault()
+    //     const data = new FormData();
+
+    //     data.append("user[avatar]", e.target.image.files[0]);
+    //     handleAPISubmit(data);
+
+    // }
+
+    // const handleAPISubmit = (data) => {
+    //     fetch(`/users/${user.id}`, {
+    //         method: 'PATCH',
+    //         body: JSON.stringify(data)
+    //     })
+    //     .then((r) => r.json())
+    //     .then((data) => {
+    //         setLastestAvatar(data.avatar_url)
+    //     })
+    //     .catch((error) => console.error(error))
+    // }
+
 
     if( isAuthenticated ){
         return (
@@ -86,7 +109,18 @@ export default function UserProfile() {
 
                     <div className='userProfileChildDiv'>
                         <br/>
-                        <h1> DEACTIVATE ACCOUNT </h1>
+                        <h1> UPDATE AVATAR </h1>
+                        <br/>
+                        <form>
+                            <input
+                            type='file'
+                            name='image'
+                            id='image'
+                            />
+                            <br/>
+                            <br/>
+                            <button type='submit' > UPDATE AVATAR </button>
+                        </form>
                     </div>
                 </div>
 

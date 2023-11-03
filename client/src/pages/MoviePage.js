@@ -12,12 +12,10 @@ export default function MoviePage() {
     const { isAuthenticated, userError } = useContext( UserContext )
     const { movies } = useContext( MovieContext )
 
-
-    if( isAuthenticated ){
         const selectedMovie = movies.find((movie) => movie.id == movie_id)
         if( !selectedMovie ){
-            return <h1><b>LOADING...</b></h1>
-        };
+                return <h1><b>LOADING...</b></h1>
+            };
 
         const selectedMovieReviews = () => {
             if( selectedMovie.reviews <= 0 ){
@@ -32,9 +30,11 @@ export default function MoviePage() {
                 }
             };
 
-
         const movieGenreMatch = movies.filter((movie) => movie.genre === selectedMovie.genre);
         const setMovieGenreMatch = movieGenreMatch.filter((movie) => movie.id !== selectedMovie.id);
+
+
+    if( isAuthenticated ){
         return (
             <>
             <div className='selectedMovieTrailerDiv'>

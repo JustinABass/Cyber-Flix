@@ -11,7 +11,7 @@ import SearchActors from './SearchActors'
 export default function NavBar() {
     const location = useLocation()
     const navigate = useNavigate()
-    const { user, isAuthenticated, logout } = useContext( UserContext );
+    const { user, isAuthenticated, logout} = useContext( UserContext );
     const { showSearchActors } = useContext( ActorContext )
     const { setTriggerRandomTrailer, showSearchMovieInput, setSearchMovieOnChange } = useContext( MovieContext )
 
@@ -26,13 +26,13 @@ export default function NavBar() {
         });
       };
 
-    
+
 
     if( isAuthenticated ) {
         if( location.pathname === '/' ){
             return (
                 <div className='navBarParentDiv'>
-                    <img src={user.user_avatar } alt='user_avatar' />
+                    <img src={ user.user_avatar } alt='user_avatar' />
 
                     <NavLink to='/'
                         style={({ isActive }) => ({
@@ -162,7 +162,7 @@ export default function NavBar() {
             ) {
             return (
                 <div className='navBarParentDiv'>
-                    <img src={user.user_avatar }alt='user_avatar' />
+                    <img src={ user.user_avatar } alt='user_avatar' />
 
                     <NavLink to='/'
                         style={({ isActive }) => ({
@@ -307,7 +307,7 @@ export default function NavBar() {
         } else if( location.pathname === '/actors_page'){
             return (
                 <div className='navBarParentDiv'>
-                    <img src={user.user_avatar }alt='user_avatar' />
+                    <img src={ user.user_avatar } alt='user_avatar' />v
 
                     <NavLink to='/'
                         style={({ isActive }) => ({
@@ -426,7 +426,7 @@ export default function NavBar() {
         } else {
             return (
                 <div className='navBarParentDiv'>
-                    <img src={user.user_avatar } alt='user_avatar' />
+                    <img src={ user.user_avatar } alt='user_avatar' />
 
                     <NavLink to='/'
                         style={({ isActive }) => ({

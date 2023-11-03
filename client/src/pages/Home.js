@@ -8,23 +8,13 @@ import MovieCard from '../components/MovieCard'
 
 export default function Home() {
     const { isAuthenticated, userError } = useContext( UserContext )
-    const { movies, randomMovieTrailer, triggerRandomTrailer } = useContext( MovieContext )
+    const { movies, randomMovieTrailer, triggerRandomTrailer, popularMovies, newMovies, trendingMovies } = useContext( MovieContext )
 
 
     console.log(Array.isArray(movies))
 
 
-         if( isAuthenticated ) {
-            const randomMovieTrailer = Math.floor(Math.random() * movies.length)
-
-
-            const popularMovies = movies.filter((movie) => movie.popular ? true : false)
-
-            const newMovies = movies.filter((movie) => movie.new_release? true : false)
-
-
-            const trendingMovies = movies.filter((movie) => movie.trending_now ? true : false)
-
+         if( isAuthenticated ){
             return (
                 <div>
                 <div className='homepageTrailerDiv'>

@@ -4,7 +4,6 @@ import { MovieContext } from '../context/movie'
 export default function SearchMovies() {
 const { searchMovieOnChange, setSearchMovieOnChange } = useContext( MovieContext )
 
-
   return (
     <form>
         <input

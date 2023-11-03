@@ -20,8 +20,6 @@ function ActorProvider({ children }) {
 
 
 
-
-
     return(
         <ActorContext.Provider
         value={{ actors, showSearchActors, searchActors, setSearchActors}}>
