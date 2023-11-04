@@ -10,7 +10,7 @@ export default function ReviewCard( { review }) {
     const [ showReplyInput, setShowReplyInput ] = useState( true )
     const [ showReplies, setShowReplies] = useState ( true )
 
-    if( isAuthenticated, user ){
+    if( isAuthenticated ){
       const selectedReview = reviews.find((r) => r.id === review.id)
 
       return (
@@ -41,6 +41,7 @@ export default function ReviewCard( { review }) {
             <ReplyCard
             key={ reply.id }
             reply={ reply }
+            review={ review }
             />
             ))
         }
