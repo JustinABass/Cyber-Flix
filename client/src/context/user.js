@@ -10,6 +10,7 @@ function UserProvider({ children }) {
     const [ usernameErrors, setUsernameErrors ] = useState( '' )
     const [ passwordErrors, setPasswordErrors ] = useState( '' )
 
+
     console.log('u', users)
 
 
@@ -96,6 +97,7 @@ function UserProvider({ children }) {
         .then((updatedPassword) => {
             if( !updatedPassword.errors ){
                 setUser( updatedPassword );
+                alert( 'Password updated')
             } else {
                 const errorsList = updatedPassword.errors.map((error) => <li> { error }</li>)
                 setPasswordErrors( errorsList )
@@ -104,7 +106,7 @@ function UserProvider({ children }) {
     };
 
 
-    const updateUserImage = (imageData, userImage, movies, reviews, replies ) => {
+    const updateUserImage = (imageData, userImage, movies, reviews ) => {
         if( !userImage ){
             alert('No image was chosen.')
         } else {
