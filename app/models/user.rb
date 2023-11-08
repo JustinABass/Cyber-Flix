@@ -6,5 +6,5 @@ class User < ApplicationRecord
     has_many :replies, dependent: :destroy
 
     validates :username, presence: true
-    validates :image, attached: true
+    # validates :image, attached: true
 end
