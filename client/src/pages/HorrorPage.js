@@ -2,12 +2,13 @@ import React, { useContext } from 'react'
 import { UserContext } from '../context/user'
 import { MovieContext } from '../context/movie'
 import MovieCard from '../components/MovieCard'
+import UnauthenticatedMessage from '../components/UnauthenticatedMessage'
 
 export default function HorrorPage() {
-    const { isAuthenticated, userError} = useContext( UserContext )
+    const { isAuthenticated } = useContext( UserContext )
     const { horrorMovies } = useContext( MovieContext )
 
-    
+
     if( isAuthenticated ){
       return (
         <div className='genreMovieListParentDiv'>
@@ -24,10 +25,12 @@ export default function HorrorPage() {
       )
     } else {
       return (
-        <div className='genreMovieListParentDiv' >
-          <div>
-            <h1> { userError }</h1>
-          </div>
+        <div className='userErrorParentDiv' >
+          <center>
+              <div className='userErrorChildDiv'>
+                <UnauthenticatedMessage />
+              </div>
+          </center>
         </div>
       )
     }

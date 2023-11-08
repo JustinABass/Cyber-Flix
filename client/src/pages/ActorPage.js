@@ -3,9 +3,10 @@ import { useParams } from 'react-router-dom';
 import { UserContext } from '../context/user'
 import { ActorContext } from '../context/actor';
 import ActorMovies from '../components/ActorMovies';
+import UnauthenticatedMessage from '../components/UnauthenticatedMessage';
 
 export default function ActorPage() {
-    const { isAuthenticated, userError } = useContext( UserContext )
+    const { isAuthenticated } = useContext( UserContext )
     const { actors } = useContext( ActorContext )
     const { actor_id } = useParams()
 
@@ -56,11 +57,13 @@ export default function ActorPage() {
           )
     } else {
         return (
-            <div className='actorPageParentDivThree'>
-                <div>
-                    <h1>{ userError }</h1>
+            <div className='userErrorParentDiv' >
+                    <center>
+                        <div className='userErrorChildDiv'>
+                          <UnauthenticatedMessage />
+                        </div>
+                    </center>
                 </div>
-            </div>
           )
     }
 

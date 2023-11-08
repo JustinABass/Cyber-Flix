@@ -12,7 +12,7 @@ export default function NavBar() {
     const location = useLocation()
     const navigate = useNavigate()
     const { user, isAuthenticated, logout} = useContext( UserContext );
-    const { showSearchActors } = useContext( ActorContext )
+    const { showSearchActors, setSearchActorsOnChange } = useContext( ActorContext )
     const { setTriggerRandomTrailer, showSearchMovieInput, setSearchMovieOnChange } = useContext( MovieContext )
 
     const logoutUser = () => {
@@ -32,7 +32,7 @@ export default function NavBar() {
         if( location.pathname === '/' ){
             return (
                 <div className='navBarParentDiv'>
-                    <img src={ user.user_avatar } alt='user_avatar' />
+                    <img src={ user.image } alt='user_avatar' />
 
                     <NavLink to='/'
                         style={({ isActive }) => ({
@@ -42,7 +42,7 @@ export default function NavBar() {
                             marginTop: isActive ? 30 : 30,
                             })}
 
-                            onClick={ () => setTriggerRandomTrailer((trigger) => !trigger)}
+                            onClick={ () => setTriggerRandomTrailer((trigger) => !trigger) }
                     >
                         <h4> HOME </h4>
                     </NavLink>
@@ -162,7 +162,7 @@ export default function NavBar() {
             ) {
             return (
                 <div className='navBarParentDiv'>
-                    <img src={ user.user_avatar } alt='user_avatar' />
+                    <img src={ user.image } alt='user_avatar' />
 
                     <NavLink to='/'
                         style={({ isActive }) => ({
@@ -291,6 +291,7 @@ export default function NavBar() {
                             textDecoration: isActive ? 'none' : 'none',
                             marginTop: isActive ? 30 : 30,
                             })}
+                            onClick={() => setSearchMovieOnChange('')}
                     >
                         <h4> ACTORS </h4>
                     </NavLink>
@@ -307,7 +308,7 @@ export default function NavBar() {
         } else if( location.pathname === '/actors_page'){
             return (
                 <div className='navBarParentDiv'>
-                    <img src={ user.user_avatar } alt='user_avatar' />v
+                      <img src={ user.image } alt='user_avatar' />
 
                     <NavLink to='/'
                         style={({ isActive }) => ({
@@ -316,7 +317,10 @@ export default function NavBar() {
                             marginTop: isActive ? null : 30 ,
                             })}
 
-                            onClick={ () => setTriggerRandomTrailer((trigger) => !trigger)}
+                            onClick={ () => {
+                                setTriggerRandomTrailer((trigger) => !trigger)
+                                setSearchActorsOnChange('')
+                            }}
                     >
                         <h4> HOME </h4>
                     </NavLink>
@@ -327,6 +331,8 @@ export default function NavBar() {
                             textDecoration: isActive ? null : 'none',
                             marginTop: isActive ? null : 30 ,
                             })}
+
+                            onClick={ () => setSearchActorsOnChange('') }
                     >
                         <h4> ACTION </h4>
                     </NavLink>
@@ -337,6 +343,8 @@ export default function NavBar() {
                             textDecoration: isActive ? null : 'none',
                             marginTop: isActive ? null : 30 ,
                             })}
+
+                            onClick={ () => setSearchActorsOnChange('') }
                     >
                         <h4> COMEDY </h4>
                     </NavLink>
@@ -347,6 +355,8 @@ export default function NavBar() {
                             textDecoration: isActive ? null : 'none',
                             marginTop: isActive ? null : 30 ,
                             })}
+
+                            onClick={ () => setSearchActorsOnChange('') }
                     >
                         <h4> ROMANCE </h4>
                     </NavLink>
@@ -357,6 +367,8 @@ export default function NavBar() {
                             textDecoration: isActive ? null : 'none',
                             marginTop: isActive ? null : 30 ,
                             })}
+
+                            onClick={ () => setSearchActorsOnChange('') }
                     >
                         <h4> DRAMA </h4>
                     </NavLink>
@@ -367,6 +379,8 @@ export default function NavBar() {
                             textDecoration: isActive ? null : 'none',
                             marginTop: isActive ? null : 30 ,
                             })}
+
+                            onClick={ () => setSearchActorsOnChange('') }
                     >
                         <h4> THRILLER </h4>
                     </NavLink>
@@ -378,7 +392,7 @@ export default function NavBar() {
                             marginTop: isActive ? null : 30 ,
                             })}
 
-                            onClick={(e) => setSearchMovieOnChange(e.target.value = null)}
+                            onClick={ () => setSearchActorsOnChange('') }
                     >
                         <h4> ADVENTURE </h4>
                     </NavLink>
@@ -389,6 +403,8 @@ export default function NavBar() {
                             textDecoration: isActive ? null : 'none',
                             marginTop: isActive ? null : 30 ,
                             })}
+
+                            onClick={ () => setSearchActorsOnChange('') }
                     >
                         <h4> CRIME </h4>
                     </NavLink>
@@ -399,6 +415,8 @@ export default function NavBar() {
                             textDecoration: isActive ? null : 'none',
                             marginTop: isActive ? null : 30 ,
                             })}
+
+                            onClick={ () => setSearchActorsOnChange('') }
                     >
                         <h4> HORROR </h4>
                     </NavLink>
@@ -410,6 +428,8 @@ export default function NavBar() {
                             textDecoration: isActive ? 'none' : 'none',
                             marginTop: isActive ? 30 : 30 ,
                             })}
+
+                            onClick={ () => setSearchActorsOnChange('') }
                     >
                         <h4> ACTORS </h4>
                     </NavLink>
@@ -426,7 +446,7 @@ export default function NavBar() {
         } else {
             return (
                 <div className='navBarParentDiv'>
-                    <img src={ user.user_avatar } alt='user_avatar' />
+                      <img src={ user.image } alt='user_avatar' />
 
                     <NavLink to='/'
                         style={({ isActive }) => ({
@@ -532,17 +552,5 @@ export default function NavBar() {
                 </div>
             )
         }
-    } else {
-        return(
-            <div>
-                <NavLink to='/login'>
-                <button> Login </button>
-            </NavLink>
-
-            <NavLink to='/signup'>
-                <button> Signup </button>
-            </NavLink>
-            </div>
-        )
     }
 }

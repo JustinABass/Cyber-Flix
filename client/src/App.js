@@ -5,6 +5,7 @@ import { ActorProvider } from "./context/actor";
 import { ReviewProvider } from "./context/review";
 import { ReplyProvider } from "./context/reply";
 import { CommentProvider } from "./context/comment";
+import ScrollTopPage from "./components/ScrollTopPage";
 import NavBar from "./components/NavBar";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
@@ -38,6 +39,7 @@ function App() {
             <BrowserRouter>
              <NavBar />
               <div className="App">
+                <ScrollTopPage />
                 <Routes>
                   <Route path="/signup" element={ <Signup /> } />
                   <Route path="/login" element={ <Login /> } />

@@ -36,12 +36,12 @@ export default function Login() {
   }
 
   return (
-      <div>
+      <div className='loginDiv'>
         <h1> CYBERFLIX LOGIN 🎬 </h1>
          <form onSubmit={ handleSubmit }>
           <div>
             <input
-            className='loginFormInput'
+            className='loginFormInput1'
             type="text"
             id="username"
             placeholder='username...'
@@ -49,9 +49,10 @@ export default function Login() {
             onChange={ (e) => setUsername(e.target.value) }
             autoFocus/>
           </div>
+          <br/>
 
             <input
-              className='loginFormInput'
+              className='loginFormInput2'
               type="password"
               id="password"
               placeholder='password...'
@@ -61,12 +62,10 @@ export default function Login() {
 
           <div>
             <br/>
-            <input
-              className='loginFormInput'
-              type="submit"
-            />
+            <input className='loginFormInputButton' type="submit" />
           </div>
           </form>
+          <br/>
 
           <h3 className='loginErrors'>{ error }</h3>
       </div>

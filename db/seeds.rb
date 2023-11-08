@@ -1,9 +1,22 @@
 puts 'Seeding Users...💦'
-user1 = User.create!(username: 'KayleeSunShine16', user_avatar: 'https://ew.com/thmb/w0yv_xh0salv6SlHxGuykFQ71Kg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Harley-Quinn-Poison-Ivy-01-120622-3234cbfe62244022a6d7aa6a6e4c1523.jpg', password_digest: '$2a$10$1Dz/251TJFnPrNJg6/r5DuBR4L.ElGhX7ykI6zl3G7PZjftjHcGsC')#sun
-user2 = User.create!(username: 'JBass6036', user_avatar: 'https://www.nova.ie/wp-content/uploads/2022/11/Johnny-Depp-Is-Reportedly-Returning-To-Pirates-Of-The-Caribbean-as-Captain-Jack-Sparrow.jpg', password_digest: '$2a$10$E.GJwq/huOR0QnSsY.Fybe1PjMrsp5Y8tR.gnDEnMfdlHrDkViVnS')#pirate
-user3 = User.create!(username: 'WonderGal6789', user_avatar: 'https://cdn.theatlantic.com/thumbor/7wN7JaU-dQLMpzzaM2KMIn6TaUk=/269x0:1675x1406/540x540/media/img/mt/2020/12/rev_1_WW84_16249r_High_Res_JPEG/original.jpg', password_digest: '$2a$10$3KbGD/m5mNlECPzFcMcjb.mjSWdEitxRoyOnA1GDbbaCY38TxYAb.')#wonder
-user4 = User.create!(username: 'Doom6036', user_avatar: 'https://miro.medium.com/v2/resize:fit:1358/1*0A_vQMoMGQT-1d_g6ScjaA.jpeg', password_digest: '$2a$10$ZFjFesh0XsF4YtxchGWPs.vT.JASfCGYLWoK29oZ/3ylViaMirisy')#joke
+user1 = User.create!(username: 'KayleeSunShine16', password: 'quinn', password_confirmation: 'quinn')
+user2 = User.create!(username: 'JBass6036', password: 'pirate', password_confirmation: 'pirate')
+user3 = User.create!(username: 'WonderGal6789', password: 'wonder', password_confirmation: 'wonder')
+user4 = User.create!(username: 'Doom6036', password: 'joker', password_confirmation: 'joker')
 
+
+puts 'Seeding User Images...💦'
+user1.image.attach( io: File.open(Rails.root.join('db/images/harley.webp')),
+filename: 'harley.webp')
+
+user2.image.attach( io: File.open(Rails.root.join('db/images/jacksparrow.webp')),
+filename: 'jacksparrow.webp')
+
+user3.image.attach( io: File.open(Rails.root.join('db/images/wonder-woman.png')),
+filename: 'wonder-woman.png')
+
+user4.image.attach( io: File.open(Rails.root.join('db/images/joker.webp')),
+filename: 'db/images/joker.webp')
 
 
 
@@ -556,12 +569,6 @@ reply1 = Reply.create!( reply: 'Same it will never get old', review_id: review1.
 reply2 = Reply.create!( reply: 'Same it will never get old', review_id: review2.id, user_id: user3.id)
 reply3 = Reply.create!( reply: 'Same it will never get old', review_id: review3.id, user_id: user2.id)
 reply4 = Reply.create!( reply: 'Same it will never get old', review_id: review4.id, user_id: user1.id)
-
-comment1 = Comment.create!( comment: 'I agree!', reply_id: reply1.id, user_id: user2.id)
-comment2 = Comment.create!( comment: 'I agree!', reply_id: reply2.id, user_id: user1.id)
-comment3 = Comment.create!( comment: 'I agree!', reply_id: reply3.id, user_id: user4.id)
-comment4 = Comment.create!( comment: 'I agree!', reply_id: reply4.id, user_id: user3.id)
-
 
 
 puts 'Done Seeding...🌷'

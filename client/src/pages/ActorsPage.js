@@ -2,16 +2,11 @@ import React, { useContext } from 'react'
 import { UserContext } from '../context/user'
 import { ActorContext } from '../context/actor'
 import ActorsCard from '../components/ActorsCard'
+import UnauthenticatedMessage from '../components/UnauthenticatedMessage'
 
 export default function ActorsPage() {
-  const { isAuthenticated, userError } = useContext( UserContext )
-  const { actors, searchActors} = useContext( ActorContext )
-
-  const filterActors = actors.filter((actor) => {
-    if( actor.actor.toLowerCase().includes(searchActors.toLowerCase()) ){
-        return true
-    }
-})
+  const { isAuthenticated } = useContext( UserContext )
+  const { filterActors } = useContext( ActorContext )
 
   if( isAuthenticated ){
     return (
@@ -30,9 +25,13 @@ export default function ActorsPage() {
     )
   } else {
     return (
-      <div className='actorsPageParentDiv'>
-        <h1> { userError } </h1>
-      </div>
+      <div className='userErrorParentDiv' >
+        <center>
+            <div className='userErrorChildDiv'>
+              <UnauthenticatedMessage />
+            </div>
+        </center>
+    </div>
     )
   }
 }

@@ -59,6 +59,191 @@ body::-webkit-scrollbar-thumb {
 
 
 
+.userErrorParentDiv{
+  height: 240px;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(0, 0, 0) 10%,
+    red 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.userErrorChildDiv{
+  width: 600px;
+  height: 200px;
+  border-radius: 10%;
+  background-color: #1111119b;
+  margin-top: 200px;
+}
+.userErrorButtons{
+  width: 200px;
+  font-size: larger;
+  background-color: #ffffffa9;
+  border: 0px;
+  border-radius: 5%;
+}
+.userErrorButtons:hover{
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 0, 0);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 0, 0);
+}
+
+
+
+.homeSignupDiv{
+  width: auto;;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(0, 0, 0) 10%,
+    red 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.signupDiv{
+  margin-top: 200px;
+}
+.signupFormInput1[type=text]{
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+   border-radius: 20px;
+   border: 1px solid #000000;
+   color: #000000;
+   background-color: #504d4d95;
+   width: 710px;
+   height: 30px;
+   padding-left: 10px;
+   font-size: larger;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(179, 11, 11);
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 15px rgb(142, 3, 3);
+}
+.signupFormInput1[type=text]:focus{
+  outline: none;
+   border: 1px solid #000000;
+   color: #ffffff;
+}
+.signupFormInput1:hover{
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 255, 255);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 255, 255);
+}
+.signupFormInput2[type=password]{
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+   border-radius: 20px;
+   border: 1px solid #000000;
+   color: #000000;
+   background-color: #504d4d95;
+   width: 710px;
+   height: 30px;
+   padding-left: 10px;
+   font-size: larger;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(179, 11, 11);
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 15px rgb(142, 3, 3);
+}
+.signupFormInput2[type=password]:focus{
+  outline: none;
+   border: 1px solid #000000;
+   color: #ffffff;
+}
+.signupFormInput2:hover{
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 255, 255);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 255, 255);
+}
+.signupLoginLink{
+  color: #ffffff;
+}
+.signupFormInputButton{
+  width: 200px;
+  font-size: larger;
+  background-color: #ffffffa9;
+  border: 0px;
+  border-radius: 5%;
+}
+.signupFormInputButton:hover{
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 255, 255);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 255, 255);
+}
+
+
+
+.loginFormInput1[type=text]{
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+   border-radius: 20px;
+   border: 1px solid #000000;
+   color: #000000;
+   background-color: #504d4d95;
+   width: 710px;
+   height: 30px;
+   padding-left: 10px;
+   font-size: larger;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(179, 11, 11);
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 15px rgb(142, 3, 3);
+}
+.loginFormInput1[type=text]:focus{
+  outline: none;
+   border: 1px solid #000000;
+   color: #ffffff;
+}
+.loginFormInput1:hover{
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 255, 255);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 255, 255);
+}
+.loginFormInput2[type=password]{
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+   border-radius: 20px;
+   border: 1px solid #000000;
+   color: #000000;
+   background-color: #504d4d95;
+   width: 710px;
+   height: 30px;
+   padding-left: 10px;
+   font-size: larger;
+   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(179, 11, 11);
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 15px rgb(142, 3, 3);
+}
+.loginFormInput2[type=password]:focus{
+  outline: none;
+   border: 1px solid #000000;
+   color: #ffffff;
+}
+.loginFormInput2:hover{
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 255, 255);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 255, 255);
+}
+.loginFormInputButton{
+  width: 200px;
+  font-size: larger;
+  background-color: #ffffffa9;
+  border: 0px;
+  border-radius: 5%;
+}
+.loginFormInputButton:hover{
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 255, 255);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(255, 255, 255);
+}
+
+
+
+
+.loginDiv{
+  width: auto;;
+  margin-top: 200px;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(0, 0, 0) 10%,
+    red 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+
+
+
+
+
 
 
 .navBarParentDiv {
@@ -395,6 +580,7 @@ body::-webkit-scrollbar-thumb {
   align-items:flex-start;
   height: 40px;
   margin-left: 70px;
+  margin-top: 50px;
 }
 .movieCastImgsParentDiv{
   display: grid;
@@ -438,6 +624,7 @@ body::-webkit-scrollbar-thumb {
 }
 .moviePageGridContainer{
   margin-left: 64px;
+  margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(5, 0fr);
   grid-gap: 50px
@@ -558,7 +745,9 @@ body::-webkit-scrollbar-thumb {
 
 
 
-
+.replyForm{
+  margin-right: 20px;
+}
 .addReplyInput[type=text]{
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -566,12 +755,12 @@ body::-webkit-scrollbar-thumb {
    border: 1px solid #000000;
    color: #000000;
    background-color: #504d4d95;
-   width: 530px;
+   width: 710px;
    height: 30px;
    padding-left: 10px;
    font-size: larger;
-   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(247, 247, 247);
-   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 15px rgb(255, 255, 255);
+   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 20px rgb(179, 11, 11);
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 15px rgb(142, 3, 3);
 }
 .addReplyInput[type=text]:focus{
   outline: none;
@@ -618,7 +807,9 @@ body::-webkit-scrollbar-thumb {
 
 
 
-
+.reviewForm{
+  margin-right: 20px;
+}
 .reviewInput[type=text]{
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -626,7 +817,7 @@ body::-webkit-scrollbar-thumb {
    border: 1px solid #000000;
    color: #000000;
    background-color: #504d4d95;
-   width: 730px;
+   width: 710px;
    height: 30px;
    padding-left: 10px;
    font-size: larger;

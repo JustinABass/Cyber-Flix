@@ -4,9 +4,10 @@ import { UserContext } from '../context/user'
 import { MovieContext } from '../context/movie'
 import { ReviewContext } from '../context/review'
 import { ReplyContext } from '../context/reply'
+import UnauthenticatedMessage from '../components/UnauthenticatedMessage'
 
 export default function UserProfile() {
-    const { isAuthenticated, setIsAuthenticated, user, updateUsername, updateUserPassword } = useContext( UserContext )
+    const { isAuthenticated, setIsAuthenticated, user, updateUsername, updateUserPassword, updateUserImage, usernameErrors, passwordErrors } = useContext( UserContext )
     const { movies } = useContext( MovieContext )
     const { reviews } = useContext( ReviewContext )
     const { replies } = useContext( ReplyContext )
@@ -16,6 +17,8 @@ export default function UserProfile() {
         password: '',
         password_confirmation: '',
     })
+    const [ userImage, setUserImage ] = useState( null )
+
 
     const handleUsernameSubmit = (e) => {
         e.preventDefault();
@@ -49,14 +52,22 @@ export default function UserProfile() {
         });
     };
 
+    const handleUserImageSubmit = (e) =>{
+        e.preventDefault()
+        const imageData = new FormData()
+        imageData.append('image', userImage)
+        updateUserImage( imageData, userImage, movies, reviews, replies )
+    }
+
+
     const deactivate = () => {
         fetch(`/users/${user.id}`,{
             method: 'DELETE',
             headers: { 'Content-Type' : 'application/json'}
         })
         .then(() =>{
-          setIsAuthenticated(false)
-          navigate('/')
+            setIsAuthenticated(false)
+            navigate('/')
         })
         }
 
@@ -83,6 +94,8 @@ export default function UserProfile() {
                         </form>
                         <div className='userProfileSettingNameDiv'>
                             <h1> HELLO { user.username.toUpperCase()} </h1>
+                            <br/>
+                            { usernameErrors }
                         </div>
                     </div>
 
@@ -112,17 +125,22 @@ export default function UserProfile() {
                             </div>
                             <button className='updateBtn' type='submit'> UPDATE </button>
                         </form>
+                        <br/>
+                        { passwordErrors }
                     </div>
 
                     <div className='userProfileChildDiv'>
                         <br/>
-                        <h1> UPDATE AVATAR </h1>
+                        <h1> UPDATE IMAGE </h1>
                         <br/>
-                        <form>
+                        <form onSubmit={ handleUserImageSubmit }>
                             <input
+                            className='signupFormInput'
                             type='file'
+                            accept='/image/*'
                             name='image'
                             id='image'
+                            onChange={ (e) => setUserImage(e.target.files[0]) }
                             />
                             <br/>
                             <br/>
@@ -134,33 +152,22 @@ export default function UserProfile() {
                         <br/>
                         <h1> DEACTIVATE ACCOUNT </h1>
                         <div className='deactivateBtnDiv'>
-                            <button className='deactivateBtn' onClick={ () => deactivate()}> CLICK TO DEACTIVATE</button>
+                            <button className='deactivateBtn' onClick={ () => deactivate() }> CLICK TO DEACTIVATE</button>
                         </div>
                     </div>
                 </div>
                 <br/>
             </div>
           )
+    } else {
+        return(
+            <div className='userErrorParentDiv' >
+                <center>
+                    <div className='userErrorChildDiv'>
+                        <UnauthenticatedMessage />
+                    </div>
+                </center>
+            </div>
+        )
     }
 }
-
- // const handleAvatarSubmit = (e) => {
-    //     e.preventDefault()
-    //     const data = new FormData();
-
-    //     data.append("user[avatar]", e.target.image.files[0]);
-    //     handleAPISubmit(data);
-
-    // }
-
-    // const handleAPISubmit = (data) => {
-    //     fetch(`/users/${user.id}`, {
-    //         method: 'PATCH',
-    //         body: JSON.stringify(data)
-    //     })
-    //     .then((r) => r.json())
-    //     .then((data) => {
-    //         setLastestAvatar(data.avatar_url)
-    //     })
-    //     .catch((error) => console.error(error))
-    // }

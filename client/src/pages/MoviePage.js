@@ -6,10 +6,11 @@ import MovieCast from '../components/MovieCast';
 import MovieCard from '../components/MovieCard';
 import ReviewCard from '../components/ReviewCard';
 import AddReview from '../components/AddReview';
+import UnauthenticatedMessage from '../components/UnauthenticatedMessage';
 
 export default function MoviePage() {
     const { movie_id } = useParams()
-    const { isAuthenticated, userError } = useContext( UserContext )
+    const { isAuthenticated } = useContext( UserContext )
     const { movies } = useContext( MovieContext )
 
         const selectedMovie = movies.find((movie) => movie.id == movie_id)
@@ -25,6 +26,7 @@ export default function MoviePage() {
                         <ReviewCard
                         key={ review.id }
                         review={ review }
+                        selectedMovie={ selectedMovie}
                         />
                     ))
                 }
@@ -80,7 +82,7 @@ export default function MoviePage() {
                     </div>
                     <br/>
 
-                    <AddReview movie={ selectedMovie }/>
+                    <AddReview selectedMovie={ selectedMovie }/>
                 </div>
 
                 <div className='reviewFeaturedMovieChildDiv'>
@@ -108,8 +110,12 @@ export default function MoviePage() {
           )
     } else {
         return (
-            <div className='selectedMovieErrorDiv'>
-              <h1> { userError } </h1>
+            <div className='userErrorParentDiv' >
+                <center>
+                    <div className='userErrorChildDiv'>
+                     <UnauthenticatedMessage />
+                    </div>
+                </center>
             </div>
           )
     }

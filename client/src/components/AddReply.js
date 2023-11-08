@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react'
 import { ReplyContext } from '../context/reply'
 import { ReviewContext } from '../context/review'
 
-export default function AddReply({ review, setShowReplyInput }) {
-  const { addReply } = useContext( ReplyContext )
+export default function AddReply({ selectedReview }) {
+  const { addReply, replyErrors, setReplyErrors} = useContext( ReplyContext )
   const { reviews, setReviews } = useContext( ReviewContext )
   const [ replyData, setReplyData ] = useState( { reply: '' } )
 
@@ -11,10 +11,11 @@ export default function AddReply({ review, setShowReplyInput }) {
     e.preventDefault()
     const submitReply = {
       ...replyData,
-      review_id: review.id
+      review_id: selectedReview.id
     }
     addReply( submitReply, reviews, setReviews)
-    setShowReplyInput( true )
+    setReplyErrors( '' )
+    setReplyData( { reply: '' } )
   }
 
   const handleChange = (e) => {
@@ -28,7 +29,7 @@ export default function AddReply({ review, setShowReplyInput }) {
 
   return (
     <>
-    <form onSubmit={ handleSubmit }>
+    <form className='replyForm' onSubmit={ handleSubmit }>
         <input
         className='addReplyInput'
         name='reply'
@@ -38,8 +39,13 @@ export default function AddReply({ review, setShowReplyInput }) {
         onChange={ handleChange }
         />
 
-        <button className='replySubmitBtn' type='submit'> <b> Submit </b> </button>
+        <div>
+          <br/>
+          <button className='replySubmitBtn' type='submit'> <b> Submit </b> </button>
+        </div>
     </form>
+    <br/>
+    { replyErrors }
     <br/>
     </>
   )

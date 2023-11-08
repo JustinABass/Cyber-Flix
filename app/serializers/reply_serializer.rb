@@ -1,9 +1,9 @@
 class ReplySerializer < ActiveModel::Serializer
-  attributes :id, :reply, :user_id, :review_id, :user_avatar, :username
-  has_many :comments
+  include Rails.application.routes.url_helpers
+  attributes :id, :reply, :user_id, :review_id, :user_image, :username
 
-  def user_avatar
-    object.user.user_avatar
+  def user_image
+    rails_blob_path(object.user.image, only_path: true) if object.user.image.attached?
   end
 
   def username

@@ -2,9 +2,10 @@ import React, { useContext } from 'react'
 import { UserContext } from '../context/user'
 import { MovieContext } from '../context/movie'
 import MovieCard from '../components/MovieCard'
+import UnauthenticatedMessage from '../components/UnauthenticatedMessage'
 
 export default function AdventurePage() {
-    const { isAuthenticated, userError } = useContext( UserContext )
+    const { isAuthenticated } = useContext( UserContext )
     const { adventureMovies } = useContext( MovieContext )
 
     if( isAuthenticated ){
@@ -23,8 +24,12 @@ export default function AdventurePage() {
       )
     } else {
       return (
-        <div className='genreMovieListParentDiv'>
-          <h1> { userError } </h1>
+        <div className='userErrorParentDiv' >
+          <center>
+              <div className='userErrorChildDiv'>
+                <UnauthenticatedMessage />
+              </div>
+          </center>
         </div>
       )
     }

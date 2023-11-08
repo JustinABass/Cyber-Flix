@@ -1,47 +1,55 @@
 import React, { useState, useContext } from 'react'
 import { UserContext } from '../context/user'
-import { ReplyContext } from '../context/reply'
-import CommentCard from './CommentCard'
-import AddComment from './AddComment'
+import { ReviewContext } from '../context/review'
+import EditReply from './EditReply'
 
-export default function ReplyCard({ reply }) {
+export default function ReplyCard({ reply, selectedReview }) {
     const { isAuthenticated, user } = useContext( UserContext )
-    const { replies } = useContext(ReplyContext)
-    const [ showCommentInput, setShowCommentInput ] = useState( true )
-    const [ showComments, setShowComments] = useState ( true )
+    const { reviews, setReviews } = useContext( ReviewContext )
+    const [ showEditReplyInput, setShowEditReplyInput ] = useState( true )
+
+    const deleteReply = () => {
+        fetch(`/replies/${reply.id}`,{
+            method: 'DELETE',
+            headers: { 'Content-Type' : 'application/json'}
+        })
+        .then(() =>{
+          const filterSelectedReviewReplies = selectedReview.replies.filter((r) => r.id !== reply.id);
+          const updateSlectedReviewReplies = reviews.map((review) => {
+            if( review.id === selectedReview.id ){
+              return {
+                ...selectedReview,
+                replies: filterSelectedReviewReplies
+              }
+            } else {
+              return review
+            }
+          });
+          setReviews( updateSlectedReviewReplies )
+        })
+      };
+
 
   if( isAuthenticated ){
-    const selectedReply = replies.find((r) => r.id === reply.id)
     return (
         <>
+        <br/>
         <div className='replyCardParentDiv'>
-            <img src={ reply.user_avatar } alt='userAvatar' />
+            <img src={ reply.user_image } alt='userAvatar' />
             <div className='replyCardChildTextDiv'>
                 <h3 className='replyCardText'> { reply.username } </h3>
                 <p className='replyCardText'> { reply.reply } </p>
                 <br/>
                 <div className='replyCardChildCommentBtnDiv'>
-                    { user.id === reply.user_id ? null : <h5 onClick={ () => setShowCommentInput((show) => !show)}> Comment </h5>}
-                    { showComments ?
-                        <h5 onClick={() => setShowComments((show) => !show)}> View comments </h5>
-                    :
-                        <h5 onClick={() => setShowComments((show) => !show)}> Hide comments </h5>
-                    }
+                    { user.id !== reply.user_id ? null : <h5 onClick={ () => setShowEditReplyInput( false ) }> Edit Reply </h5> }
+                    <br/>
+                    { user.id !== reply.user_id ? null : <h5 onClick={ () => deleteReply() }> Delete Reply </h5> }
                 </div>
-                { showCommentInput ? null : <AddComment reply={ reply } setShowCommentInput={ setShowCommentInput } /> }
                 <br/>
+                { showEditReplyInput ? null : <EditReply reply={ reply }  selectedReview={ selectedReview } setShowEditReplyInput={ setShowEditReplyInput } />}
             </div>
         </div>
         <hr className='replyHr'/>
-        <br/>
-        {  showComments ? null : reply.comments <= 0 || selectedReply.comments <= 0 ? <h5> There are no comments </h5> :
-            selectedReply.comments.map((comment) => (
-            <CommentCard
-            key={ comment.id }
-            comment={ comment }
-            />
-            ))
-        }
         </>
       )
   }

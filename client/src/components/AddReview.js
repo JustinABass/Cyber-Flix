@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react'
 import { ReviewContext } from '../context/review'
 import { MovieContext } from '../context/movie'
 
-export default function AddReview({ movie }) {
-  const { addReview } = useContext( ReviewContext )
+export default function AddReview({ selectedMovie }) {
+  const { addReview, reviewErrors, setReviewErrors} = useContext( ReviewContext )
   const { movies, setMovies } = useContext( MovieContext )
   const [ reviewData, setReviewData ] = useState( { review: ''})
 
@@ -11,10 +11,11 @@ export default function AddReview({ movie }) {
     e.preventDefault()
     const submitReview = {
       ...reviewData,
-      movie_id: movie.id
+      movie_id: selectedMovie.id
     }
     addReview( submitReview, movies, setMovies)
     setReviewData( { review: '' } )
+    setReviewErrors( '' )
   }
 
   const handleChange = (e) => {
@@ -27,18 +28,24 @@ export default function AddReview({ movie }) {
   }
 
   return (
-    <form onSubmit={ handleSubmit }>
+    <>
+     <form onSubmit={ handleSubmit }>
         <input
         className='reviewInput'
         name='review'
         type='text'
-        placeholder='Leave A Review'
+        placeholder='Leave A Review...'
         value={ reviewData.review }
         onChange={ handleChange }
         />
 
-        <br/>
-        <button className='reviewSubmitBtn' type='submit'> <b> Submit </b> </button>
+        <div>
+          <br/>
+          <button className='reviewSubmitBtn' type='submit'> <b> Submit </b> </button>
+        </div>
     </form>
+    <br/>
+    { reviewErrors }
+    </>
   )
 }

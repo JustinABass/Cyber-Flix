@@ -5,18 +5,23 @@ const UserContext = React.createContext()
 function UserProvider({ children }) {
     const [ isAuthenticated, setIsAuthenticated ] = useState( false )
     const [ user, setUser ] = useState( null )
+    const [ users, setUsers ] = useState( [] )
     const [ userError, setUserError ] = useState( '' )
+    const [ usernameErrors, setUsernameErrors ] = useState( '' )
+    const [ passwordErrors, setPasswordErrors ] = useState( '' )
+
+    console.log('u', users)
+
 
     const login = (user) => {
         setUser( user )
         setIsAuthenticated( true )
-    }
+    };
 
     const signup = (user) => {
         setUser( user )
         setIsAuthenticated( true )
-    }
-
+    };
 
     useEffect(() => {
         fetch('/user_profile')
@@ -31,16 +36,20 @@ function UserProvider({ children }) {
                 setIsAuthenticated( true );
             }
         })
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        fetch('/users')
+        .then((r) => r.json())
+        .then((users) => setUsers( users ))
+    }, []);
+
 
 
     const logout = () => {
         setUser( null )
         setIsAuthenticated( false )
-    }
-
-
-
+    };
 
 
     const updateUsername = (username, movies, reviews, replies) => {
@@ -60,7 +69,7 @@ function UserProvider({ children }) {
                     if( review.user_id === updateUsername.id ){
                         return review.username = updateUsername.username
                     }
-                })
+                });
 
                 const reviewReplies = reviews.flatMap((review) => review.replies)
 
@@ -68,24 +77,16 @@ function UserProvider({ children }) {
                     if( reply.user_id === updateUsername.id ){
                         return reply.username = updateUsername.username
                     }
-                })
-
-                const replyComments = replies.flatMap((reply) => reply.comments)
-                console.log('aye', replyComments)
-
-                replyComments.filter((comment) => {
-                    if( comment.user_id === updateUsername.id ){
-                        return comment.username = updateUsername.username
-                    }
-                })
+                });
+            } else {
+                const errorsList = updateUsername.errors.map((error) => <li> { error }</li>)
+                setUsernameErrors( errorsList )
             }
         })
     };
 
 
-
-
-    function updateUserPassword(password){
+    const updateUserPassword = (password) => {
         fetch(`/users/${user.id}`, {
             method: 'PATCH',
             headers: { 'Content-Type' :'application/json'},
@@ -95,15 +96,53 @@ function UserProvider({ children }) {
         .then((updatedPassword) => {
             if( !updatedPassword.errors ){
                 setUser( updatedPassword );
+            } else {
+                const errorsList = updatedPassword.errors.map((error) => <li> { error }</li>)
+                setPasswordErrors( errorsList )
             }
         });
     };
 
 
+    const updateUserImage = (imageData, userImage, movies, reviews, replies ) => {
+        if( !userImage ){
+            alert('No image was chosen.')
+        } else {
+            fetch(`/users/${user.id}`,{
+                method: 'PATCH',
+                body: imageData
+            })
+            .then((r) => {
+                if(r.ok){
+                    r.json().then((imageData) => {
+                        setUser( imageData )
+
+                        const movieReviews = movies.flatMap((movie) => movie.reviews)
+
+                        movieReviews.filter((review) => {
+                            if( review.user_id === imageData.id ){
+                                return review.user_image = imageData.image
+                            }
+                        });
+
+                        const reviewReplies = reviews.flatMap((review) => review.replies)
+
+                        reviewReplies.filter((reply) => {
+                            if( reply.user_id === imageData.id ){
+                                return reply.user_image = imageData.image
+                            }
+                        });
+                    })
+                }
+            })
+        }
+    };
+
 
     return(
         <UserContext.Provider
-        value={{ isAuthenticated, setIsAuthenticated, user, login, signup, logout, userError, updateUsername, updateUserPassword }}>
+        value={{ isAuthenticated, setIsAuthenticated, user, login, signup, logout, userError, updateUsername, updateUserPassword, updateUserImage,
+                 usernameErrors, passwordErrors }}>
             {children}
         </UserContext.Provider>
     )

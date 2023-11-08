@@ -4,6 +4,7 @@ const ReplyContext = React.createContext()
 
 function ReplyProvider({ children }) {
     const [ replies, setReplies ] = useState( [] )
+    const [ replyErrors, setReplyErrors ] = useState( '' )
 
     useEffect(() => {
         fetch('/replies')
@@ -22,25 +23,30 @@ function ReplyProvider({ children }) {
         })
         .then((r) => r.json())
         .then(( newReply ) => {
-            const reviewReplyMatch = reviews.map((review) => {
-                if( review.id === newReply.review_id ){
-                    const updateReviewReplies = {
-                        ...review,
-                        replies: [ ...review.replies, newReply]
-                    };
-                    return updateReviewReplies
-                } else {
-                    return review
-                }
-            });
-            setReviews( reviewReplyMatch )
+            if( !newReply.errors ){
+                const reviewReplyMatch = reviews.map((review) => {
+                    if( review.id === newReply.review_id ){
+                        const updateReviewReplies = {
+                            ...review,
+                            replies: [ ...review.replies, newReply]
+                        };
+                        return updateReviewReplies
+                    } else {
+                        return review
+                    }
+                });
+                setReviews( reviewReplyMatch )
+            } else {
+                const errorsList = newReply.errors.map((error) => <li> { error } </li>)
+                setReplyErrors( errorsList )
+            }
         })
     }
 
 
     return(
         <ReplyContext.Provider
-        value={{ replies, setReplies, addReply }}>
+        value={{ replies, setReplies, addReply, replyErrors, setReplyErrors }}>
             {children}
         </ReplyContext.Provider>
     )

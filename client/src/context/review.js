@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 const ReviewContext = React.createContext()
 
 function ReviewProvider({ children }) {
     const [ reviews, setReviews ] = useState( [] )
+    const [ reviewErrors, setReviewErrors ] = useState( '' )
 
     useEffect(() => {
         fetch('/reviews')
@@ -22,25 +23,30 @@ function ReviewProvider({ children }) {
         })
         .then((r) => r.json())
         .then(( newReview ) => {
-            const movieReviewMatch = movies.map((movie) => {
-                if( movie.id === newReview.movie_id ){
-                    const updateMovieReviews = {
-                        ...movie,
-                        reviews: [ ...movie.reviews, newReview]
-                    };
-                    return updateMovieReviews
-                } else {
-                    return movie
-                }
-            });
-            setMovies(movieReviewMatch)
+            if( !newReview.errors ){
+                const movieReviewMatch = movies.map((movie) => {
+                    if( movie.id === newReview.movie_id ){
+                        const updateMovieReviews = {
+                            ...movie,
+                            reviews: [ ...movie.reviews, newReview]
+                        };
+                        return updateMovieReviews
+                    } else {
+                        return movie
+                    }
+                });
+                setMovies(movieReviewMatch)
+            } else {
+                const errorsList = newReview.errors.map((error) => <li> {error} </li>)
+                setReviewErrors( errorsList )
+            }
         })
     }
 
 
     return(
         <ReviewContext.Provider
-        value={{ reviews, setReviews, addReview }}>
+        value={{ reviews, setReviews, addReview, reviewErrors, setReviewErrors }}>
             {children}
         </ReviewContext.Provider>
     )

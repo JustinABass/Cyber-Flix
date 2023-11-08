@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 import { UserContext } from '../context/user'
 import { MovieContext } from '../context/movie'
 import MovieCard from '../components/MovieCard'
+import Signup from './Signup'
+import Login from './Login'
 
 
 
 export default function Home() {
-    const { isAuthenticated, userError } = useContext( UserContext )
+    const { isAuthenticated } = useContext( UserContext )
     const { movies, randomMovieTrailer, triggerRandomTrailer, popularMovies, newMovies, trendingMovies } = useContext( MovieContext )
 
 
@@ -94,8 +96,10 @@ export default function Home() {
               )
          } else {
             return(
-                <div className='genreMovieListParentDiv' >
-                    <h1> { userError } </h1>
+                <div className='homeSignupDiv'>
+                    <Signup />
+                    <h5> ALREADY HAVE AN ACCOUNT?</h5>
+                    <Link to='/login' className='signupLoginLink'> Click to login </Link>
                 </div>
             )
          }
