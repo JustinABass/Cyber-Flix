@@ -53,7 +53,7 @@ function UserProvider({ children }) {
     };
 
 
-    const updateUsername = (username, movies, reviews, replies) => {
+    const updateUsername = (username, movies, reviews ) => {
         fetch(`/users/${user.id}`, {
             method: 'PATCH',
             headers: { 'Content-Type' : 'application/json'},
@@ -134,6 +134,7 @@ function UserProvider({ children }) {
                                 return reply.user_image = imageData.image
                             }
                         });
+                        alert( 'User image updated')
                     })
                 }
             })

@@ -57,6 +57,7 @@ export default function UserProfile() {
         const imageData = new FormData()
         imageData.append('image', userImage)
         updateUserImage( imageData, userImage, movies, reviews, replies )
+        setUserImage( null )
     }
 
 

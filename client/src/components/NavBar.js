@@ -549,6 +549,17 @@ export default function NavBar() {
                     >
                         <h4> ACTORS </h4>
                     </NavLink>
+
+                    <div className='navSettings'>
+                        <Link className='settingIconLink' to='/user_profile'>
+                            <h1>⚙️</h1>
+                        </Link>
+                        <div className='navSettingsLogoutDiv'>
+                            <NavLink to='/'>
+                                <button onClick={ logoutUser }> <b> <h4> Logout </h4> </b> </button>
+                            </NavLink>
+                        </div>
+                    </div>
                 </div>
             )
         }

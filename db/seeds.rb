@@ -93,6 +93,8 @@ movie58 = Movie.create!(title: 'Mother', poster: 'https://m.media-amazon.com/ima
 movie59 = Movie.create!(title: 'American Hustle', poster: 'https://flxt.tmsimg.com/assets/p10016553_p_v10_al.jpg', trailer: 'https://www.youtube.com/embed/NqgjPRNRDSY?vq=hd1080&autoplay=1&loop=1&rel=0&playlist=NqgjPRNRDSY', year: '2013', genre: 'Crime', new_release: false, trending_now: true, popular: false)
 movie60 = Movie.create!(title: 'JOY', poster: 'https://i.ebayimg.com/images/g/UgIAAOSwegljDJ~u/s-l1600.jpg', trailer: 'https://www.youtube.com/embed/uR-2TiQVY-k?vq=hd1080&autoplay=1&loop=1&rel=0&playlist=uR-2TiQVY-k', year: '2015', genre: 'Drama', new_release: false, trending_now: false, popular: true)
 
+movie61 = Movie.create!(title: 'Mean Girls', poster: 'https://image.tmdb.org/t/p/original/2ZkuQXvVhh45uSvkBej4S7Ix1NJ.jpg', trailer: 'https://www.youtube.com/embed/EMzEmGfTuM4?vq=hd1080&autoplay=1&loop=1&rel=0&playlist=EMzEmGfTuM4', year: '2004', genre: 'Comedy', new_release: true, trending_now: false, popular: false)
+
 puts 'Seeding Actors...💦'
 #brad fight
 actor1 = Actor.create!(actor: 'Brad Pitt', image: 'https://e00-marca.uecdn.es/assets/multimedia/imagenes/2023/05/01/16829651070526.jpg')
@@ -314,6 +316,16 @@ actor107 = Actor.create!(actor: 'Robert De Niro', image: 'https://cdn.britannica
 #jennifer mother
 actor108 = Actor.create!(actor: 'Javier Bardem', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Premios_Goya_2018_-_Javier_Bardem_%28cropped%29.jpg/800px-Premios_Goya_2018_-_Javier_Bardem_%28cropped%29.jpg')
 actor109 = Actor.create!(actor: 'Michelle Pfeiffer', image: 'https://flxt.tmsimg.com/assets/1341_v9_bc.jpg')
+
+#lindsay lohan
+actor110 = Actor.create!(actor: 'Lindsay Lohan', image: 'https://m.media-amazon.com/images/M/MV5BYTU3ZmUzMjYtNWU4MC00NDg1LTk5MzEtMjZmNTk5ZTEzMWYwXkEyXkFqcGdeQXVyMTExNDQ2MTI@._V1_.jpg')
+actor111 = Actor.create!(actor: 'Rachel McAdams', image: 'https://www.patriotledger.com/gcdn/authoring/2010/11/11/NPAL/ghows-WL-84a6fb5a-decd-4ed8-b35f-bf3466202a11-6e8a2058.jpeg')
+
+
+
+
+
+
 
 
 
@@ -558,6 +570,10 @@ Connection.create!(movie_id: movie59.id, actor_id: actor21.id)
 Connection.create!(movie_id: movie60.id, actor_id: actor101.id)
 Connection.create!(movie_id: movie60.id, actor_id: actor106.id)
 Connection.create!(movie_id: movie60.id, actor_id: actor107.id)
+
+Connection.create!(movie_id: movie61.id, actor_id: actor110.id)
+Connection.create!(movie_id: movie61.id, actor_id: actor111.id)
+Connection.create!(movie_id: movie61.id, actor_id: actor93.id)
 
 
 review1 = Review.create!(review: 'I can watch this movie over and over again! It\'s a ten out of ten!', user_id: user1.id, movie_id: movie1.id )

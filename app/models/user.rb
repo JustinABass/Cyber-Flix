@@ -5,6 +5,6 @@ class User < ApplicationRecord
     has_many :reviews, dependent: :destroy
     has_many :replies, dependent: :destroy
 
-    validates :username, presence: true
+    validates :username, presence: true, uniqueness: true
     validates :image, attached: true
 end

@@ -4,7 +4,6 @@ import { MovieProvider } from "./context/movie";
 import { ActorProvider } from "./context/actor";
 import { ReviewProvider } from "./context/review";
 import { ReplyProvider } from "./context/reply";
-import { CommentProvider } from "./context/comment";
 import ScrollTopPage from "./components/ScrollTopPage";
 import NavBar from "./components/NavBar";
 import Signup from "./pages/Signup";
@@ -35,7 +34,6 @@ function App() {
         <ActorProvider>
          <ReviewProvider>
           <ReplyProvider>
-           <CommentProvider>
             <BrowserRouter>
              <NavBar />
               <div className="App">
@@ -59,7 +57,6 @@ function App() {
                 </Routes>
             </div>
             </BrowserRouter>
-           </CommentProvider>
           </ReplyProvider>
          </ReviewProvider>
         </ActorProvider>
@@ -69,3 +66,5 @@ function App() {
 }
 
 export default App;
+
+
