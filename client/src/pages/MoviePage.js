@@ -40,7 +40,7 @@ export default function MoviePage() {
         return (
             <>
             <div className='selectedMovieTrailerDiv'>
-                <iframe className='iframeMovieTrailer' src={selectedMovie.trailer} width="1425" height="720" allow="fullscreen" title="A YouTube video" frameborder="0" allowfullscreen></iframe>
+                <iframe className='iframeMovieTrailer' src={ selectedMovie.trailer } width="1425" height="720" allow="fullscreen" title="A YouTube video" frameborder="0" allowfullscreen></iframe>
             </div>
 
             <div className='selectedMovieInfoParentDiv'>
