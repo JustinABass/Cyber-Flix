@@ -5,10 +5,8 @@ class MoviesController < ApplicationController
     render json: Movie.all.order('title ASC'), status: :ok
   end
 
-  def random
+  def shuffle
     random_trailer = Movie.order("RANDOM()").limit(1)
-    # trailer_list = Movie.all.map(&:trailer)
-    # random = trailer_list.order("RANDOM()").limit(1)
     render json: random_trailer
   end
 

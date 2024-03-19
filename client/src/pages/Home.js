@@ -9,20 +9,14 @@ import Signup from './Signup'
 
 export default function Home() {
     const { isAuthenticated } = useContext( UserContext )
-    const { movies, randomMovieTrailer, triggerRandomTrailer, popularMovies, newMovies, trendingMovies, movieShuffle } = useContext( MovieContext )
+    const { popularMovies, newMovies, trendingMovies, movieShuffle } = useContext( MovieContext )
 
 
          if( isAuthenticated ){
             return (
                 <div>
                 <div className='homepageTrailerDiv'>
-                    {/* { toggleR || toggleR2 ?
-                        <iframe src={ random } width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen></iframe>
-                      :
-                        <iframe src={ random2 } width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen></iframe>
-                    } */}
                      <iframe src={movieShuffle.trailer} width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen ></iframe>
-
                 </div>
 
                     <div className='homepageParentDiv'>

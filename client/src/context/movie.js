@@ -10,16 +10,9 @@ function MovieProvider({ children }) {
         trailer: '',
         title: '',
     } )
-    const [randomTitle, setRandomTitle ] = useState( '' )
-
-    const [d, setD ] = useState('')
-    const [toggleR, setToggleR ] = useState( true )
-    const [ random2, setRandom2 ] = useState ( '' )
-    const [toggleR2, setToggleR2 ] = useState( false )
     const [ triggerRandomTrailer, setTriggerRandomTrailer ] = useState( true )
     const [ showSearchMovieInput, setShowSearchMovieInput ] = useState( true )
     const [ searchMovieOnChange, setSearchMovieOnChange ] = useState( '' )
-    let trailerDuration = useRef(null)
 
 
 
@@ -36,61 +29,18 @@ function MovieProvider({ children }) {
     }, []);
 
     useEffect(() => {
-        fetch('/trailer')
+        fetch('/movie_shuffle')
         .then((r) => r.json())
         .then((randomMovie) => {
             randomMovie.map((m) => {
-                setMovieShuffle({ id: m.id, trailer: m.trailer, title: m.title})
-                // setRandomTitle(m.title)
-            })
-
-            // let randomMDuration = getVideoDuration(randomM)
-            // setD(randomMDuration)
+                return setMovieShuffle({
+                    id: m.id,
+                    trailer: m.trailer,
+                    title: m.title
+                })
+                });
         })
     }, [triggerRandomTrailer])
-
-    // const handleLoadedMetadata = () => {
-    //     const trailer = trailerDuration.current;
-    //     if (!trailer) return;
-    //     setD(trailer.duration)
-    //   };
-
-    // useEffect(() => {
-    //     let randomMovieTrailer = Math.floor(Math.random() * movies.length)
-    //     setRandom(movies[randomMovieTrailer]?.trailer)
-    //     setToggleR2( false )
-    //     // setTimeout(() => setRandom(movies[randomMovieTrailer]?.trailer), movies[randomMovieTrailer]?.trailer.duration)
-    //     }, [toggleR])
-
-        // useEffect(() => {
-
-        //         let randomMovieTrailer = Math.floor(Math.random() * movies.length)
-        //         if( toggleR ){
-        //             setRandom(movies[randomMovieTrailer]?.trailer)
-        //             setToggleR( false )
-        //         } else if( !toggleR ){
-        //             setRandom2(movies[randomMovieTrailer]?.trailer)
-        //         }
-
-        //     // let randomMovieTrailer = Math.floor(Math.random() * movies.length)
-        //     // let randomMovieTrailer2 = Math.floor(Math.random() * movies.length)
-        //     }, [])
-
-
-            // let randomTrailer = () => {
-            //     let randomMovieTrailer = Math.floor(Math.random() * movies.length)
-            //     if( toggleR ){
-            //         setToggleR(false)
-            //         setRandom(movies[randomMovieTrailer]?.trailer)
-            //         return random
-            //     } else if ( !toggleR )
-            //     setToggleR2(false)
-            //     setRandom2(movies[randomMovieTrailer]?.trailer)
-            //     return random2
-            // }
-
-
-
 
 
     //filter popular movies
@@ -107,7 +57,6 @@ function MovieProvider({ children }) {
         if( movie.genre === 'Thriller' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
             return true
         }
-        return movie
     })
 
     //filter romance movies
@@ -115,7 +64,6 @@ function MovieProvider({ children }) {
         if( movie.genre === 'Romance' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
             return true
         }
-        return movie
     })
 
     //filter horror movies
@@ -123,7 +71,6 @@ function MovieProvider({ children }) {
         if( movie.genre === 'Horror' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
             return true
         }
-        return movie
     })
 
     //filter drama movies
@@ -131,7 +78,6 @@ function MovieProvider({ children }) {
         if ( movie.genre === 'Drama' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
             return true
         }
-        return movie
     })
 
     //filter crime movies
@@ -139,7 +85,6 @@ function MovieProvider({ children }) {
         if( movie.genre === 'Crime' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
             return true
         }
-        return movie
     })
 
     //filter comedy movies
@@ -147,7 +92,6 @@ function MovieProvider({ children }) {
         if( movie.genre === 'Comedy' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
             return true
         }
-        return movie
       })
 
       //filter adventure movies
@@ -155,7 +99,6 @@ function MovieProvider({ children }) {
         if( movie.genre === 'Adventure' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
             return true
           }
-          return movie
        })
 
        //filter action movies
@@ -163,7 +106,6 @@ function MovieProvider({ children }) {
         if( movie.genre === 'Action' && movie.title.toLowerCase().includes(searchMovieOnChange.toLowerCase()) ){
             return true
          }
-         return movie
       })
 
     return(

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get '/user_profile', to: 'users#show'
 
-  get '/trailer', to: 'movies#random'
+  get '/movie_shuffle', to: 'movies#shuffle'
 
 
 
