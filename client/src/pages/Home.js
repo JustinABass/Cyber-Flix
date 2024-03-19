@@ -9,7 +9,7 @@ import Signup from './Signup'
 
 export default function Home() {
     const { isAuthenticated } = useContext( UserContext )
-    const { movies, randomMovieTrailer, triggerRandomTrailer, popularMovies, newMovies, trendingMovies, randomTest, random, toggleR, random2, randomTrailer, toggleR2, handleLoadedMetadata, trailerDuration } = useContext( MovieContext )
+    const { movies, randomMovieTrailer, triggerRandomTrailer, popularMovies, newMovies, trendingMovies, movieShuffle } = useContext( MovieContext )
 
 
          if( isAuthenticated ){
@@ -21,7 +21,7 @@ export default function Home() {
                       :
                         <iframe src={ random2 } width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen></iframe>
                     } */}
-                     <iframe src={random} width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen ref={trailerDuration} onLoadedMetadata={handleLoadedMetadata()}></iframe>
+                     <iframe src={movieShuffle.trailer} width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen ></iframe>
 
                 </div>
 
@@ -31,8 +31,8 @@ export default function Home() {
                     <div>
                         <div className='homepageHeaders'>
                             <h1> Check Out
-                                <Link className='checkOutLinkh1' to={ `/movies/${movies[randomMovieTrailer]?.id}`}>
-                                    <b className='checkOutLink2'> { movies[randomMovieTrailer]?.title } </b>
+                                <Link className='checkOutLinkh1' to={ `/movies/${movieShuffle.id}`}>
+                                    <b className='checkOutLink2'> { movieShuffle.title } </b>
                                 </Link>
                             </h1>
                         </div>

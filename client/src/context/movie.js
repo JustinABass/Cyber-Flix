@@ -1,11 +1,17 @@
 import React, { useState, useEffect, useRef} from "react";
-// import { getVideoDuration } from 'react-native-video-duration';
+
 
 const MovieContext = React.createContext()
 
 function MovieProvider({ children }) {
     const [ movies, setMovies ] = useState( [] )
-    const [ random, setRandom ] = useState ( '' )
+    const [ movieShuffle, setMovieShuffle ] = useState ( {
+        id: null,
+        trailer: '',
+        title: '',
+    } )
+    const [randomTitle, setRandomTitle ] = useState( '' )
+
     const [d, setD ] = useState('')
     const [toggleR, setToggleR ] = useState( true )
     const [ random2, setRandom2 ] = useState ( '' )
@@ -15,7 +21,9 @@ function MovieProvider({ children }) {
     const [ searchMovieOnChange, setSearchMovieOnChange ] = useState( '' )
     let trailerDuration = useRef(null)
 
-    console.log('test2', d)
+
+
+    console.log('test2', movieShuffle)
 
 
 
@@ -31,21 +39,21 @@ function MovieProvider({ children }) {
         fetch('/trailer')
         .then((r) => r.json())
         .then((randomMovie) => {
-            let randomM = randomMovie.map((m) => {
-                return m.trailer
+            randomMovie.map((m) => {
+                setMovieShuffle({ id: m.id, trailer: m.trailer, title: m.title})
+                // setRandomTitle(m.title)
             })
-            setRandom(randomM)
 
             // let randomMDuration = getVideoDuration(randomM)
             // setD(randomMDuration)
         })
     }, [triggerRandomTrailer])
 
-    const handleLoadedMetadata = () => {
-        const trailer = trailerDuration.current;
-        if (!trailer) return;
-        setD(trailer.duration)
-      };
+    // const handleLoadedMetadata = () => {
+    //     const trailer = trailerDuration.current;
+    //     if (!trailer) return;
+    //     setD(trailer.duration)
+    //   };
 
     // useEffect(() => {
     //     let randomMovieTrailer = Math.floor(Math.random() * movies.length)
@@ -163,7 +171,7 @@ function MovieProvider({ children }) {
         value={{ movies, setMovies, showSearchMovieInput, searchMovieOnChange, setSearchMovieOnChange,
             triggerRandomTrailer, setTriggerRandomTrailer, popularMovies, newMovies,
             trendingMovies, thrillerMovies, romanceMovies, horrorMovies, dramaMovies, crimeMovies, comedyMovies,
-            adventureMovies, actionMovies, random, toggleR, toggleR2, random2, handleLoadedMetadata, trailerDuration
+            adventureMovies, actionMovies, movieShuffle
 
             }}>
             {children}
