@@ -11,8 +11,6 @@ function UserProvider({ children }) {
     const [ passwordErrors, setPasswordErrors ] = useState( '' )
 
 
-    console.log('u', users)
-
 
     const login = (user) => {
         setUser( user )

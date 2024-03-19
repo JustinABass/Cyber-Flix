@@ -17,6 +17,9 @@ export default function ActorPage() {
             return <h1><b>LOADING...</b></h1>
         }
 
+        console.log('acotors', actors)
+
+
         return (
             <>
             <div className='actorPageParentDiv'>

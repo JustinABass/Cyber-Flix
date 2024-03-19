@@ -150,7 +150,7 @@ export default function NavBar() {
 
                 </div>
             )
-        } else if(
+        } else if (
             location.pathname === '/action_movies'
             || location.pathname === '/comedy_movies'
             || location.pathname === '/romance_movies'

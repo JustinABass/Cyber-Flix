@@ -6,8 +6,8 @@ user4 = User.create!(username: 'Doom6036', password: 'joker', password_confirmat
 
 
 puts 'Seeding User Images...💦'
-# user1.image.attach( io: File.open(Rails.root.join('db/images/harley.webp')),
-# filename: 'harley.webp')
+user1.image.attach( io: File.open(Rails.root.join('db/images/harley.webp')),
+filename: 'harley.webp')
 
 user2.image.attach( io: File.open(Rails.root.join('db/images/jacksparrow.webp')),
 filename: 'jacksparrow.webp')
