@@ -6,31 +6,10 @@ const MovieContext = React.createContext()
 function MovieProvider({ children }) {
     const [ movies, setMovies ] = useState( [] )
     const [ movieShuffle, setMovieShuffle ] = useState ({})
-
-
-
-
-    const [isLoaded, setIsLoaded] = useState(false)
-
-    const [ triggerRandomTrailer, setTriggerRandomTrailer ] = useState( true )
+    // const [isLoaded, setIsLoaded] = useState(false)
+    const [ triggerShuffleTrailer, setTriggerShuffleTrailer ] = useState( true )
     const [ showSearchMovieInput, setShowSearchMovieInput ] = useState( true )
     const [ searchMovieOnChange, setSearchMovieOnChange ] = useState( '' )
-
-
-
-    // let handleMovieShuffle = () => {
-    //     fetch('/movie_shuffle')
-    //     .then((r) => r.json())
-    //     .then((randomMovie) => {
-    //         randomMovie.map((rM) => {
-    //             return setMovieShuffle({
-    //                         id: rM.id,
-    //                         trailer: rM.trailer,
-    //                         title: rM.title
-    //             })
-    //         })
-    //     })
-    // }
 
 
 
@@ -47,7 +26,7 @@ function MovieProvider({ children }) {
     useEffect(() => {
         fetch('/movie_shuffle')
         .then((r) => r.json())
-        .then((randomMovie) => {t
+        .then((randomMovie) => {
             randomMovie.map((rM) => {
                     return setMovieShuffle({
                                 id: rM.id,
@@ -56,28 +35,24 @@ function MovieProvider({ children }) {
                     })
                 })
         })
-    }, [triggerRandomTrailer])
+    }, [triggerShuffleTrailer])
 
 
 
-    // const handleShuffleClick = () =>{
-    //     fetch('/movie_shuffle')
-    //     .then((r) => r.json())
-    //     .then((randomMovie) => {
+    const handleShuffleClick = () =>{
+        fetch('/movie_shuffle')
+        .then((r) => r.json())
+        .then((randomMovie) => {
 
-    //         randomMovie.map((rM) => {
-    //                 return setMovieShuffle({
-    //                             id: rM.id,
-    //                             trailer: rM.trailer,
-    //                             title: rM.title
-    //                 })
-    //             })
-    //     })
-    // }
-
-    // if(!isLoaded){
-    //     return <h1 className="loading">Loading...</h1>
-    // }
+            randomMovie.map((rM) => {
+                    return setMovieShuffle({
+                                id: rM.id,
+                                trailer: rM.trailer,
+                                title: rM.title
+                    })
+                })
+        })
+    }
 
 
 
@@ -149,11 +124,9 @@ function MovieProvider({ children }) {
     return(
         <MovieContext.Provider
         value={{ movies, setMovies, showSearchMovieInput, searchMovieOnChange, setSearchMovieOnChange,
-            triggerRandomTrailer, setTriggerRandomTrailer, popularMovies, newMovies,
-            trendingMovies, thrillerMovies, romanceMovies, horrorMovies, dramaMovies, crimeMovies, comedyMovies,
-            adventureMovies, actionMovies, movieShuffle, isLoaded
-
-            }}>
+             setTriggerShuffleTrailer, popularMovies, newMovies, trendingMovies, thrillerMovies, romanceMovies,
+             horrorMovies, dramaMovies, crimeMovies, comedyMovies, adventureMovies, actionMovies, movieShuffle, handleShuffleClick
+             }}>
             {children}
         </MovieContext.Provider>
     )

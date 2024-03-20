@@ -22,7 +22,7 @@ export default function Home() {
             return (
                 <div>
                 <div className='homepageTrailerDiv'>
-                     <iframe onchange="go()" src={movieShuffle.trailer} width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen ></iframe>
+                     <iframe src={movieShuffle.trailer} width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen ></iframe>
                 </div>
 
                     <div className='homepageParentDiv'>
@@ -35,7 +35,8 @@ export default function Home() {
                                     <b className='checkOutLink2'> { movieShuffle.title } </b>
                                 </Link>
                             </h1>
-                            <button> NEXT TRAILER </button>
+                            <h1>|</h1>
+                            <button className='hompageNxtBttn' onClick={ handleShuffleClick }> NEXT TRAILER </button>
                         </div>
                     </div>
                     <br/>

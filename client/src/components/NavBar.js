@@ -13,7 +13,7 @@ export default function NavBar() {
     const navigate = useNavigate()
     const { user, isAuthenticated, logout} = useContext( UserContext );
     const { showSearchActors, setSearchActorsOnChange } = useContext( ActorContext )
-    const { setTriggerRandomTrailer, showSearchMovieInput, setSearchMovieOnChange } = useContext( MovieContext )
+    const { setTriggerShuffleTrailer, showSearchMovieInput, setSearchMovieOnChange } = useContext( MovieContext )
 
     const logoutUser = () => {
         fetch('/logout', {
@@ -42,7 +42,7 @@ export default function NavBar() {
                             marginTop: isActive ? 30 : 30,
                             })}
 
-                            onClick={ () => setTriggerRandomTrailer((trigger) => !trigger) }
+                            onClick={ () => setTriggerShuffleTrailer((trigger) => !trigger) }
                     >
                         <h4> HOME </h4>
                     </NavLink>
@@ -172,7 +172,7 @@ export default function NavBar() {
                             })}
 
                             onClick={ () => {
-                                setTriggerRandomTrailer((trigger) => !trigger)
+                                setTriggerShuffleTrailer((trigger) => !trigger)
                                 setSearchMovieOnChange('')
                             } }
                     >
@@ -318,7 +318,7 @@ export default function NavBar() {
                             })}
 
                             onClick={ () => {
-                                setTriggerRandomTrailer((trigger) => !trigger)
+                                setTriggerShuffleTrailer((trigger) => !trigger)
                                 setSearchActorsOnChange('')
                             }}
                     >
@@ -455,7 +455,7 @@ export default function NavBar() {
                             marginTop: isActive ? null : 30 ,
                             })}
 
-                            onClick={ () => setTriggerRandomTrailer((trigger) => !trigger)}
+                            onClick={ () => setTriggerShuffleTrailer((trigger) => !trigger)}
                     >
                         <h4> HOME </h4>
                     </NavLink>
