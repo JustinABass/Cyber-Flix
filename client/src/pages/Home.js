@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../context/user'
 import { MovieContext } from '../context/movie'
@@ -9,14 +9,20 @@ import Signup from './Signup'
 
 export default function Home() {
     const { isAuthenticated } = useContext( UserContext )
-    const { popularMovies, newMovies, trendingMovies, movieShuffle } = useContext( MovieContext )
+    const { popularMovies, newMovies, trendingMovies, movieShuffle, handleShuffleClick, isLoaded } = useContext( MovieContext )
+    const movieShuffleRef = useRef()
 
 
          if( isAuthenticated ){
+
+            // if(!isLoaded){
+            //     return <h1 className="loading">Loading...</h1>
+            // }
+
             return (
                 <div>
                 <div className='homepageTrailerDiv'>
-                     <iframe src={movieShuffle.trailer} width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen ></iframe>
+                     <iframe onchange="go()" src={movieShuffle.trailer} width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen ></iframe>
                 </div>
 
                     <div className='homepageParentDiv'>
@@ -29,6 +35,7 @@ export default function Home() {
                                     <b className='checkOutLink2'> { movieShuffle.title } </b>
                                 </Link>
                             </h1>
+                            <button> NEXT TRAILER </button>
                         </div>
                     </div>
                     <br/>

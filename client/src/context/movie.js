@@ -5,18 +5,33 @@ const MovieContext = React.createContext()
 
 function MovieProvider({ children }) {
     const [ movies, setMovies ] = useState( [] )
-    const [ movieShuffle, setMovieShuffle ] = useState ( {
-        id: null,
-        trailer: '',
-        title: '',
-    } )
+    const [ movieShuffle, setMovieShuffle ] = useState ({})
+
+
+
+
+    const [isLoaded, setIsLoaded] = useState(false)
+
     const [ triggerRandomTrailer, setTriggerRandomTrailer ] = useState( true )
     const [ showSearchMovieInput, setShowSearchMovieInput ] = useState( true )
     const [ searchMovieOnChange, setSearchMovieOnChange ] = useState( '' )
 
 
 
-    console.log('test2', movieShuffle)
+    // let handleMovieShuffle = () => {
+    //     fetch('/movie_shuffle')
+    //     .then((r) => r.json())
+    //     .then((randomMovie) => {
+    //         randomMovie.map((rM) => {
+    //             return setMovieShuffle({
+    //                         id: rM.id,
+    //                         trailer: rM.trailer,
+    //                         title: rM.title
+    //             })
+    //         })
+    //     })
+    // }
+
 
 
 
@@ -28,19 +43,42 @@ function MovieProvider({ children }) {
         })
     }, []);
 
+
     useEffect(() => {
         fetch('/movie_shuffle')
         .then((r) => r.json())
-        .then((randomMovie) => {
-            randomMovie.map((m) => {
-                return setMovieShuffle({
-                    id: m.id,
-                    trailer: m.trailer,
-                    title: m.title
+        .then((randomMovie) => {t
+            randomMovie.map((rM) => {
+                    return setMovieShuffle({
+                                id: rM.id,
+                                trailer: rM.trailer,
+                                title: rM.title
+                    })
                 })
-                });
         })
     }, [triggerRandomTrailer])
+
+
+
+    // const handleShuffleClick = () =>{
+    //     fetch('/movie_shuffle')
+    //     .then((r) => r.json())
+    //     .then((randomMovie) => {
+
+    //         randomMovie.map((rM) => {
+    //                 return setMovieShuffle({
+    //                             id: rM.id,
+    //                             trailer: rM.trailer,
+    //                             title: rM.title
+    //                 })
+    //             })
+    //     })
+    // }
+
+    // if(!isLoaded){
+    //     return <h1 className="loading">Loading...</h1>
+    // }
+
 
 
     //filter popular movies
@@ -113,7 +151,7 @@ function MovieProvider({ children }) {
         value={{ movies, setMovies, showSearchMovieInput, searchMovieOnChange, setSearchMovieOnChange,
             triggerRandomTrailer, setTriggerRandomTrailer, popularMovies, newMovies,
             trendingMovies, thrillerMovies, romanceMovies, horrorMovies, dramaMovies, crimeMovies, comedyMovies,
-            adventureMovies, actionMovies, movieShuffle
+            adventureMovies, actionMovies, movieShuffle, isLoaded
 
             }}>
             {children}
