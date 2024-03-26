@@ -59,12 +59,14 @@ function MovieProvider({ children }) {
         if(toggleTrailerIndex > 0){
             setToggleTrailerIndex(toggleTrailerIndex - 1)
         }
+        setTriggerTrailerNavShuffle( false )
     }
 
     function handleNextTrailer(){
         if(toggleTrailerIndex < movies.length - 1){
             setToggleTrailerIndex(toggleTrailerIndex + 1)
         }
+        setTriggerTrailerNavShuffle( false )
     }
 
 
