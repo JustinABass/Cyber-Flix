@@ -13,7 +13,7 @@ export default function NavBar() {
     const navigate = useNavigate()
     const { user, isAuthenticated, logout} = useContext( UserContext );
     const { showSearchActors, setSearchActorsOnChange } = useContext( ActorContext )
-    const { setTriggerShuffleTrailer, showSearchMovieInput, setSearchMovieOnChange } = useContext( MovieContext )
+    const { navTrailerShuffle, showSearchMovieInput, setSearchMovieOnChange } = useContext( MovieContext )
 
     const logoutUser = () => {
         fetch('/logout', {
@@ -41,8 +41,6 @@ export default function NavBar() {
                             textDecoration: isActive ? 'none' : 'none',
                             marginTop: isActive ? 30 : 30,
                             })}
-
-                            onClick={ () => setTriggerShuffleTrailer((trigger) => !trigger) }
                     >
                         <h4> HOME </h4>
                     </NavLink>
@@ -172,7 +170,7 @@ export default function NavBar() {
                             })}
 
                             onClick={ () => {
-                                setTriggerShuffleTrailer((trigger) => !trigger)
+                                navTrailerShuffle()
                                 setSearchMovieOnChange('')
                             } }
                     >
@@ -318,7 +316,7 @@ export default function NavBar() {
                             })}
 
                             onClick={ () => {
-                                setTriggerShuffleTrailer((trigger) => !trigger)
+                                navTrailerShuffle()
                                 setSearchActorsOnChange('')
                             }}
                     >
@@ -455,7 +453,7 @@ export default function NavBar() {
                             marginTop: isActive ? null : 30 ,
                             })}
 
-                            onClick={ () => setTriggerShuffleTrailer((trigger) => !trigger)}
+                            onClick={ navTrailerShuffle }
                     >
                         <h4> HOME </h4>
                     </NavLink>

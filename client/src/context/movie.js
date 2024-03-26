@@ -5,10 +5,10 @@ const MovieContext = React.createContext()
 
 function MovieProvider({ children }) {
     const [ movies, setMovies ] = useState( [] )
-    const [trailerRerender, setTrailerRerender] = useState({})
     const [toggleTrailerIndex, setToggleTrailerIndex ] = useState(0)
+    const [trailerShuffleObj, setTrailerShuffleObj] = useState({})
     // const [isLoaded, setIsLoaded] = useState(false)
-    const [ triggerShuffleTrailer, setTriggerShuffleTrailer ] = useState( true )
+    const [ triggerTrailerNavShuffle, setTriggerTrailerNavShuffle] = useState( null )
     const [ showSearchMovieInput, setShowSearchMovieInput ] = useState( true )
     const [ searchMovieOnChange, setSearchMovieOnChange ] = useState( '' )
 
@@ -37,6 +37,23 @@ function MovieProvider({ children }) {
 
     // })
     // }, [triggerShuffleTrailer])
+
+    function navTrailerShuffle(){
+        fetch('/movie_shuffle')
+        .then((r) => r.json())
+        .then((sM) => {
+            sM.map((m) => {
+                setTrailerShuffleObj({
+                    id: m.id,
+                    trailer: m.trailer,
+                    title: m.title
+                })
+            })
+            setTriggerTrailerNavShuffle( true )
+        })
+    }
+
+
 
     function handlePrevTrailer(){
         if(toggleTrailerIndex > 0){
@@ -120,8 +137,9 @@ function MovieProvider({ children }) {
     return(
         <MovieContext.Provider
         value={{ movies, setMovies, showSearchMovieInput, searchMovieOnChange, setSearchMovieOnChange,
-             setTriggerShuffleTrailer, popularMovies, newMovies, trendingMovies, thrillerMovies, romanceMovies,
-             horrorMovies, dramaMovies, crimeMovies, comedyMovies, adventureMovies, actionMovies, trailerRerender, toggleTrailerIndex, handlePrevTrailer, handleNextTrailer
+            popularMovies, newMovies, trendingMovies, thrillerMovies, romanceMovies, horrorMovies, dramaMovies,
+            crimeMovies, comedyMovies, adventureMovies, actionMovies, toggleTrailerIndex, handlePrevTrailer,
+            handleNextTrailer, navTrailerShuffle, triggerTrailerNavShuffle, trailerShuffleObj
              }}>
             {children}
         </MovieContext.Provider>

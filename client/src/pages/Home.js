@@ -10,7 +10,7 @@ import ReviewCard from '../components/ReviewCard'
 
 export default function Home() {
     const { isAuthenticated } = useContext( UserContext )
-    const { movies, popularMovies, newMovies, trendingMovies, isLoaded, toggleTrailerIndex, handlePrevTrailer, handleNextTrailer} = useContext( MovieContext )
+    const { movies, popularMovies, newMovies, trendingMovies, isLoaded, toggleTrailerIndex, handlePrevTrailer, handleNextTrailer,  triggerTrailerNavShuffle, trailerShuffleObj} = useContext( MovieContext )
     const movieShuffleRef = useRef()
 
 
@@ -22,7 +22,7 @@ export default function Home() {
             return (
                 <div>
                 <div className='homepageTrailerDiv'>
-                     <iframe src={ movies[toggleTrailerIndex]?.trailer} width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen ></iframe>
+                     <iframe src={ triggerTrailerNavShuffle ? trailerShuffleObj.trailer : movies[toggleTrailerIndex]?.trailer} width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen ></iframe>
                 </div>
 
                     <div className='homepageParentDiv'>
@@ -31,13 +31,17 @@ export default function Home() {
                     <div>
                         <div className='homepageHeaders'>
                             <h1> Check Out
-                                <Link className='checkOutLinkh1' to={`/movies/${movies[toggleTrailerIndex]?.id}`}>
-                                    <b className='checkOutLink2'>{ movies[toggleTrailerIndex]?.title }</b>
+                                <Link className='checkOutLinkh1' to={ triggerTrailerNavShuffle ? `/movies/${trailerShuffleObj.id}` : `/movies/${movies[toggleTrailerIndex]?.id}` }>
+                                    <b className='checkOutLink2'>{ triggerTrailerNavShuffle ? trailerShuffleObj.title : movies[toggleTrailerIndex]?.title }</b>
                                 </Link>
                             </h1>
                             <h1>|</h1>
+
                             <button className='hompageNxtBttn' onClick={ handlePrevTrailer }> PREVIOUS TRAILER </button>
                             <button className='hompageNxtBttn' onClick={ handleNextTrailer}> NEXT TRAILER </button>
+                        </div>
+                        <div className='homepageHeaders'>
+                            <h3>Add</h3>
                         </div>
                     </div>
                     <br/>

@@ -52,7 +52,11 @@ export default function MoviePage() {
                     <div className='selectedMovieInfoChildTextDiv'>
                         <h3>{ selectedMovie.genre } - { selectedMovie.year}</h3>
                     </div>
+                    <div className='selectedMovieInfoChildTextDiv'>
+                        <h4> ADD </h4>
+                    </div>
                 </div>
+
 
                 <div className='selectedMovieInfoChildDiv'>
                     <div className='selectedMovieInfoChildTextDivTwo'>
