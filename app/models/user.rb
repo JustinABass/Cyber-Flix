@@ -5,7 +5,7 @@ class User < ApplicationRecord
     has_many :reviews, dependent: :destroy
     has_many :replies, dependent: :destroy
     has_many :lists
-    has_many :movies, through: :lists 
+    has_many :movies, through: :lists
 
     validates :username, presence: true, uniqueness: true
     validates :image, attached: true

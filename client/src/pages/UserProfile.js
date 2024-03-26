@@ -4,6 +4,7 @@ import { UserContext } from '../context/user'
 import { MovieContext } from '../context/movie'
 import { ReviewContext } from '../context/review'
 import { ReplyContext } from '../context/reply'
+import WatchList from '../components/WatchList'
 import UnauthenticatedMessage from '../components/UnauthenticatedMessage'
 
 export default function UserProfile() {
@@ -158,6 +159,12 @@ export default function UserProfile() {
                     </div>
                 </div>
                 <br/>
+                { user.lists.map((l) => (
+                    <WatchList
+                    key={l.id}
+                    list={l}
+                    />
+                ))}
             </div>
           )
     } else {

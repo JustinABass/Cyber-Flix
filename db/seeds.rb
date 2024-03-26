@@ -576,6 +576,9 @@ Connection.create!(movie_id: movie61.id, actor_id: actor111.id)
 Connection.create!(movie_id: movie61.id, actor_id: actor93.id)
 
 
+puts 'Seeding Lists...💦'
+List.create!(user_id: user1.id, movie_id: movie60.id)
+
 review1 = Review.create!(review: 'I can watch this movie over and over again! It\'s a ten out of ten!', user_id: user1.id, movie_id: movie1.id )
 review2 = Review.create!(review: 'I can watch this movie over and over again! It\'s a ten out of ten!', user_id: user2.id, movie_id: movie2.id )
 review3 = Review.create!(review: 'I can watch this movie over and over again! It\'s a ten out of ten!', user_id: user3.id, movie_id: movie3.id )
