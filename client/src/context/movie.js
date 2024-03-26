@@ -5,12 +5,12 @@ const MovieContext = React.createContext()
 
 function MovieProvider({ children }) {
     const [ movies, setMovies ] = useState( [] )
-    const [ movieShuffle, setMovieShuffle ] = useState ({})
+    const [trailerRerender, setTrailerRerender] = useState({})
+    const [toggleTrailerIndex, setToggleTrailerIndex ] = useState(0)
     // const [isLoaded, setIsLoaded] = useState(false)
     const [ triggerShuffleTrailer, setTriggerShuffleTrailer ] = useState( true )
     const [ showSearchMovieInput, setShowSearchMovieInput ] = useState( true )
     const [ searchMovieOnChange, setSearchMovieOnChange ] = useState( '' )
-
 
 
 
@@ -23,35 +23,31 @@ function MovieProvider({ children }) {
     }, []);
 
 
-    useEffect(() => {
-        fetch('/movie_shuffle')
-        .then((r) => r.json())
-        .then((randomMovie) => {
-            randomMovie.map((rM) => {
-                    return setMovieShuffle({
-                                id: rM.id,
-                                trailer: rM.trailer,
-                                title: rM.title
-                    })
-                })
-        })
-    }, [triggerShuffleTrailer])
+    // useEffect(() => {
+    //     fetch('/movie_shuffle')
+    //     .then((r) => r.json())
+    //     .then((sM) => {
+    //     sM.map((m) => {
+    //         return setTrailerRerender({
+    //             id: m.id,
+    //             trailer: m.trailer,
+    //             title: m.title
+    //         })
+    //     })
 
+    // })
+    // }, [triggerShuffleTrailer])
 
+    function handlePrevTrailer(){
+        if(toggleTrailerIndex > 0){
+            setToggleTrailerIndex(toggleTrailerIndex - 1)
+        }
+    }
 
-    const handleShuffleClick = () =>{
-        fetch('/movie_shuffle')
-        .then((r) => r.json())
-        .then((randomMovie) => {
-
-            randomMovie.map((rM) => {
-                    return setMovieShuffle({
-                                id: rM.id,
-                                trailer: rM.trailer,
-                                title: rM.title
-                    })
-                })
-        })
+    function handleNextTrailer(){
+        if(toggleTrailerIndex < movies.length - 1){
+            setToggleTrailerIndex(toggleTrailerIndex + 1)
+        }
     }
 
 
@@ -125,7 +121,7 @@ function MovieProvider({ children }) {
         <MovieContext.Provider
         value={{ movies, setMovies, showSearchMovieInput, searchMovieOnChange, setSearchMovieOnChange,
              setTriggerShuffleTrailer, popularMovies, newMovies, trendingMovies, thrillerMovies, romanceMovies,
-             horrorMovies, dramaMovies, crimeMovies, comedyMovies, adventureMovies, actionMovies, movieShuffle, handleShuffleClick
+             horrorMovies, dramaMovies, crimeMovies, comedyMovies, adventureMovies, actionMovies, trailerRerender, toggleTrailerIndex, handlePrevTrailer, handleNextTrailer
              }}>
             {children}
         </MovieContext.Provider>

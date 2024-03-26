@@ -13,7 +13,7 @@ export default function MoviePage() {
     const { isAuthenticated } = useContext( UserContext )
     const { movies } = useContext( MovieContext )
 
-        const selectedMovie = movies.find((movie) => movie.id == movie_id)
+        const selectedMovie = movies?.find((movie) => movie.id == movie_id)
         if( !selectedMovie ){
                 return <h1><b>LOADING...</b></h1>
             };
