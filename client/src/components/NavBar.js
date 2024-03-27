@@ -135,6 +135,16 @@ export default function NavBar() {
                         <h4> ACTORS </h4>
                     </NavLink>
 
+                    <NavLink to='/watch_list'
+                        style={({ isActive }) => ({
+                            color: isActive ? null : '#fff',
+                            textDecoration: isActive ? null : 'none',
+                            marginTop: isActive ? null : 30 ,
+                            })}
+                    >
+                        <h4> WATCHLIST </h4>
+                    </NavLink>
+
                     <div className='navSettings'>
                         <Link className='settingIconLink' to='/user_profile'>
                             <h1>⚙️</h1>

@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
   end
 
   def shuffle
-    random_trailer = Movie.order("RANDOM()").limit(61)
+    random_trailer = Movie.order("RANDOM()").limit(1)
     render json: random_trailer
   end
 

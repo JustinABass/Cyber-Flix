@@ -1,24 +1,34 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../context/user'
 import { MovieContext } from '../context/movie'
+import { ListContext } from '../context/list'
 import MovieCard from '../components/MovieCard'
 import Signup from './Signup'
-import ReviewCard from '../components/ReviewCard'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusMinus } from '@fortawesome/free-solid-svg-icons'
 
 
 
 export default function Home() {
-    const { isAuthenticated } = useContext( UserContext )
+    const { user, setUser, isAuthenticated } = useContext( UserContext )
     const { movies, popularMovies, newMovies, trendingMovies, isLoaded, toggleTrailerIndex, handlePrevTrailer, handleNextTrailer,  triggerTrailerNavShuffle, trailerShuffleObj} = useContext( MovieContext )
-    const movieShuffleRef = useRef()
+    const { addToUserList, watchListItms, setWatchListItms } = useContext(ListContext)
 
+    const handleAddToWatchList = (o) => {
+        const objExist = watchListItms.find((item) => item.id === o.id)
+        if( objExist ){
+            return null
+        } else {
+            setWatchListItms([...watchListItms, o])
+            
+        }
+    }
+
+    console.log('tsob', trailerShuffleObj)
+    console.log('[]', movies[toggleTrailerIndex])
 
          if( isAuthenticated ){
-
-            // if(!isLoaded){
-            //     return <h1 className="loading">Loading...</h1>
-            // }
             return (
                 <div>
                 <div className='homepageTrailerDiv'>
@@ -41,7 +51,8 @@ export default function Home() {
                             <button className='hompageNxtBttn' onClick={ handleNextTrailer}> NEXT TRAILER </button>
                         </div>
                         <div className='homepageHeaders'>
-                            <h3>Add</h3>
+                            <button  onClick={() => handleAddToWatchList(trailerShuffleObj)} >Add</button>
+                            {/* <FontAwesomeIcon onClick={handleAddToWatchList(triggerTrailerNavShuffle ? trailerShuffleObj : movies[toggleTrailerIndex])} icon={faPlusMinus} /> */}
                         </div>
                     </div>
                     <br/>

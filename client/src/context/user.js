@@ -9,6 +9,7 @@ function UserProvider({ children }) {
     const [ userError, setUserError ] = useState( '' )
     const [ usernameErrors, setUsernameErrors ] = useState( '' )
     const [ passwordErrors, setPasswordErrors ] = useState( '' )
+    const [userWatchlist, setUserWatchList] = useState([])
 
 
 
@@ -142,7 +143,7 @@ function UserProvider({ children }) {
 
     return(
         <UserContext.Provider
-        value={{ isAuthenticated, setIsAuthenticated, user, login, signup, logout, userError, updateUsername, updateUserPassword, updateUserImage,
+        value={{ isAuthenticated, setIsAuthenticated, user, setUser, login, signup, logout, userError, updateUsername, updateUserPassword, updateUserImage,
                  usernameErrors, passwordErrors }}>
             {children}
         </UserContext.Provider>

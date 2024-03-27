@@ -23,21 +23,6 @@ function MovieProvider({ children }) {
     }, []);
 
 
-    // useEffect(() => {
-    //     fetch('/movie_shuffle')
-    //     .then((r) => r.json())
-    //     .then((sM) => {
-    //     sM.map((m) => {
-    //         return setTrailerRerender({
-    //             id: m.id,
-    //             trailer: m.trailer,
-    //             title: m.title
-    //         })
-    //     })
-
-    // })
-    // }, [triggerShuffleTrailer])
-
     function navTrailerShuffle(){
         fetch('/movie_shuffle')
         .then((r) => r.json())
@@ -46,7 +31,8 @@ function MovieProvider({ children }) {
                 setTrailerShuffleObj({
                     id: m.id,
                     trailer: m.trailer,
-                    title: m.title
+                    title: m.title,
+                    poster: m.poster
                 })
             })
             setTriggerTrailerNavShuffle( true )
