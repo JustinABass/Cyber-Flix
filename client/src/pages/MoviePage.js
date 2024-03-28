@@ -7,6 +7,7 @@ import MovieCard from '../components/MovieCard';
 import ReviewCard from '../components/ReviewCard';
 import AddReview from '../components/AddReview';
 import UnauthenticatedMessage from '../components/UnauthenticatedMessage';
+import WListCard from '../components/WListCard';
 
 export default function MoviePage() {
     const { movie_id } = useParams()

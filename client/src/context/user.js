@@ -5,11 +5,11 @@ const UserContext = React.createContext()
 function UserProvider({ children }) {
     const [ isAuthenticated, setIsAuthenticated ] = useState( false )
     const [ user, setUser ] = useState( null )
-    const [ users, setUsers ] = useState( [] )
+    // const [ users, setUsers ] = useState( null )
     const [ userError, setUserError ] = useState( '' )
     const [ usernameErrors, setUsernameErrors ] = useState( '' )
     const [ passwordErrors, setPasswordErrors ] = useState( '' )
-    const [userWatchlist, setUserWatchList] = useState([])
+
 
 
 
@@ -38,11 +38,11 @@ function UserProvider({ children }) {
         })
     }, []);
 
-    useEffect(() => {
-        fetch('/users')
-        .then((r) => r.json())
-        .then((users) => setUsers( users ))
-    }, []);
+    // useEffect(() => {
+    //     fetch('/users')
+    //     .then((r) => r.json())
+    //     .then((users) => setUsers( users ))
+    // }, []);
 
 
 

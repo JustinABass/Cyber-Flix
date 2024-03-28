@@ -6,9 +6,7 @@ const MovieContext = React.createContext()
 function MovieProvider({ children }) {
     const [ movies, setMovies ] = useState( [] )
     const [toggleTrailerIndex, setToggleTrailerIndex ] = useState(0)
-    const [trailerShuffleObj, setTrailerShuffleObj] = useState({})
     // const [isLoaded, setIsLoaded] = useState(false)
-    const [ triggerTrailerNavShuffle, setTriggerTrailerNavShuffle] = useState( null )
     const [ showSearchMovieInput, setShowSearchMovieInput ] = useState( true )
     const [ searchMovieOnChange, setSearchMovieOnChange ] = useState( '' )
 
@@ -23,36 +21,18 @@ function MovieProvider({ children }) {
     }, []);
 
 
-    function navTrailerShuffle(){
-        fetch('/movie_shuffle')
-        .then((r) => r.json())
-        .then((sM) => {
-            sM.map((m) => {
-                setTrailerShuffleObj({
-                    id: m.id,
-                    trailer: m.trailer,
-                    title: m.title,
-                    poster: m.poster
-                })
-            })
-            setTriggerTrailerNavShuffle( true )
-        })
-    }
-
 
 
     function handlePrevTrailer(){
         if(toggleTrailerIndex > 0){
             setToggleTrailerIndex(toggleTrailerIndex - 1)
         }
-        setTriggerTrailerNavShuffle( false )
     }
 
     function handleNextTrailer(){
         if(toggleTrailerIndex < movies.length - 1){
             setToggleTrailerIndex(toggleTrailerIndex + 1)
         }
-        setTriggerTrailerNavShuffle( false )
     }
 
 
@@ -127,7 +107,7 @@ function MovieProvider({ children }) {
         value={{ movies, setMovies, showSearchMovieInput, searchMovieOnChange, setSearchMovieOnChange,
             popularMovies, newMovies, trendingMovies, thrillerMovies, romanceMovies, horrorMovies, dramaMovies,
             crimeMovies, comedyMovies, adventureMovies, actionMovies, toggleTrailerIndex, handlePrevTrailer,
-            handleNextTrailer, navTrailerShuffle, triggerTrailerNavShuffle, trailerShuffleObj
+            handleNextTrailer
              }}>
             {children}
         </MovieContext.Provider>

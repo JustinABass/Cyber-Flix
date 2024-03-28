@@ -12,27 +12,26 @@ import { faPlusMinus } from '@fortawesome/free-solid-svg-icons'
 
 export default function Home() {
     const { user, setUser, isAuthenticated } = useContext( UserContext )
-    const { movies, popularMovies, newMovies, trendingMovies, isLoaded, toggleTrailerIndex, handlePrevTrailer, handleNextTrailer,  triggerTrailerNavShuffle, trailerShuffleObj} = useContext( MovieContext )
-    const { addToUserList, watchListItms, setWatchListItms } = useContext(ListContext)
+    const { movies, popularMovies, newMovies, trendingMovies, isLoaded, toggleTrailerIndex, handlePrevTrailer, handleNextTrailer} = useContext( MovieContext )
+    const { addToUserList } = useContext(ListContext)
 
-    const handleAddToWatchList = (o) => {
-        const objExist = watchListItms.find((item) => item.id === o.id)
-        if( objExist ){
-            return null
-        } else {
-            setWatchListItms([...watchListItms, o])
-            
+
+    const handleAddWatchListClick = (e) => {
+        e.preventDefault()
+        const newWatchListObj = {
+            user_id: user.id,
+            movie_id: movies[toggleTrailerIndex]?.id
         }
+
+        addToUserList(newWatchListObj, user, setUser)
     }
 
-    console.log('tsob', trailerShuffleObj)
-    console.log('[]', movies[toggleTrailerIndex])
 
          if( isAuthenticated ){
             return (
                 <div>
                 <div className='homepageTrailerDiv'>
-                     <iframe src={ triggerTrailerNavShuffle ? trailerShuffleObj.trailer : movies[toggleTrailerIndex]?.trailer} width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen ></iframe>
+                     <iframe src={movies[toggleTrailerIndex]?.trailer} width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen ></iframe>
                 </div>
 
                     <div className='homepageParentDiv'>
@@ -41,8 +40,8 @@ export default function Home() {
                     <div>
                         <div className='homepageHeaders'>
                             <h1> Check Out
-                                <Link className='checkOutLinkh1' to={ triggerTrailerNavShuffle ? `/movies/${trailerShuffleObj.id}` : `/movies/${movies[toggleTrailerIndex]?.id}` }>
-                                    <b className='checkOutLink2'>{ triggerTrailerNavShuffle ? trailerShuffleObj.title : movies[toggleTrailerIndex]?.title }</b>
+                                <Link className='checkOutLinkh1' to={`/movies/${movies[toggleTrailerIndex]?.id}` }>
+                                    <b className='checkOutLink2'>{movies[toggleTrailerIndex]?.title }</b>
                                 </Link>
                             </h1>
                             <h1>|</h1>
@@ -51,8 +50,8 @@ export default function Home() {
                             <button className='hompageNxtBttn' onClick={ handleNextTrailer}> NEXT TRAILER </button>
                         </div>
                         <div className='homepageHeaders'>
-                            <button  onClick={() => handleAddToWatchList(trailerShuffleObj)} >Add</button>
-                            {/* <FontAwesomeIcon onClick={handleAddToWatchList(triggerTrailerNavShuffle ? trailerShuffleObj : movies[toggleTrailerIndex])} icon={faPlusMinus} /> */}
+                            <buttom onClick={handleAddWatchListClick}> Add </buttom>
+                            {/* <FontAwesomeIcon onClick={ handleAddWatchListClick } icon={faPlusMinus} /> */}
                         </div>
                     </div>
                     <br/>
