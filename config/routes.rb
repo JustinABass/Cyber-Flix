@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :reviews, only: [ :index, :create, :update, :destroy ]
   resources :replies, only: [ :index, :create, :update , :destroy ]
   resources :comments, only: [ :create, :update ]
-  resources :archives, only: [ :index, :create ]
+  resources :archives, only: [ :index, :create, :destroy ]
 
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

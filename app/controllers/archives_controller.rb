@@ -9,6 +9,12 @@ class ArchivesController < ApplicationController
         render json: @current_user.archives.create!(archive_params), status: :created
     end
 
+    def destroy
+        saved_movie = @current_user.archives.find(params[:id])
+        saved_movie.destroy
+        head :no_content
+      end
+
 
     private
 
