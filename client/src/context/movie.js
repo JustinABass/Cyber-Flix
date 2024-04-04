@@ -22,7 +22,6 @@ function MovieProvider({ children }) {
 
 
 
-
     function handlePrevTrailer(){
         if(toggleTrailerIndex > 0){
             setToggleTrailerIndex(toggleTrailerIndex - 1)
@@ -34,7 +33,6 @@ function MovieProvider({ children }) {
             setToggleTrailerIndex(toggleTrailerIndex + 1)
         }
     }
-
 
 
     //filter popular movies

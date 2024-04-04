@@ -7,11 +7,11 @@ import MovieCard from '../components/MovieCard';
 import ReviewCard from '../components/ReviewCard';
 import AddReview from '../components/AddReview';
 import UnauthenticatedMessage from '../components/UnauthenticatedMessage';
-import WListCard from '../components/WListCard';
+
 
 export default function MoviePage() {
     const { movie_id } = useParams()
-    const { isAuthenticated } = useContext( UserContext )
+    const { isAuthenticated, addMovieToWatchList } = useContext( UserContext )
     const { movies } = useContext( MovieContext )
 
         const selectedMovie = movies?.find((movie) => movie.id == movie_id)
@@ -54,7 +54,7 @@ export default function MoviePage() {
                         <h3>{ selectedMovie.genre } - { selectedMovie.year}</h3>
                     </div>
                     <div className='selectedMovieInfoChildTextDiv'>
-                        <h4> ADD </h4>
+                        <h4 onClick={() => addMovieToWatchList(selectedMovie)}> ADD </h4>
                     </div>
                 </div>
 

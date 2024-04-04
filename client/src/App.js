@@ -4,7 +4,7 @@ import { MovieProvider } from "./context/movie";
 import { ActorProvider } from "./context/actor";
 import { ReviewProvider } from "./context/review";
 import { ReplyProvider } from "./context/reply";
-import { ListProvider } from "./context/list";
+import { WatchlistProvider } from "./context/watchlist";
 import ScrollTopPage from "./components/ScrollTopPage";
 import NavBar from "./components/NavBar";
 import Signup from "./pages/Signup";
@@ -24,6 +24,7 @@ import ActorPage from "./pages/ActorPage";
 import ActorsPage from "./pages/ActorsPage";
 import WatchList from "./pages/WatchList";
 
+
 import './App.css';
 
 
@@ -37,7 +38,7 @@ function App() {
          <ReviewProvider>
           <ReplyProvider>
             <BrowserRouter>
-              <ListProvider>
+              <WatchlistProvider>
               <NavBar />
                 <div className="App">
                   <ScrollTopPage />
@@ -60,7 +61,7 @@ function App() {
                     <Route path="/watch_list" element={ <WatchList />} />
                   </Routes>
                 </div>
-              </ListProvider>
+              </WatchlistProvider>
             </BrowserRouter>
           </ReplyProvider>
          </ReviewProvider>

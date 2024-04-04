@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_26_173001) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_29_173405) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,16 +49,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_26_173001) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "connections", force: :cascade do |t|
+  create_table "archives", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "movie_id"
-    t.integer "actor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "lists", force: :cascade do |t|
-    t.integer "user_id"
+  create_table "connections", force: :cascade do |t|
     t.integer "movie_id"
+    t.integer "actor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

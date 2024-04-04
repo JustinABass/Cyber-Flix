@@ -270,7 +270,7 @@ body::-webkit-scrollbar-thumb {
 }
 .navSettings{
   display: flex;
-  margin-left: 450px;
+  margin-left: 350px;
   margin-top: 20px;
 }
 .settingIconLink{

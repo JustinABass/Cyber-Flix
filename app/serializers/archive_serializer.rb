@@ -1,5 +1,5 @@
-class ListSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :movie_id, :poster
+class ArchiveSerializer < ActiveModel::Serializer
+  attributes :id, :user_id, :movie_id, :movie
 
   def user_id
     object.user.id
@@ -12,5 +12,4 @@ class ListSerializer < ActiveModel::Serializer
   def poster
     object.movie.poster
   end
-
 end

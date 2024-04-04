@@ -1,18 +1,17 @@
 Rails.application.routes.draw do
   resources :users, only: [ :index, :update, :destroy ]
-  resources :movies, only: [ :index ]
+  resources :movies, only: [ :index, :create ]
   resources :actors, only: [ :index ]
   resources :reviews, only: [ :index, :create, :update, :destroy ]
   resources :replies, only: [ :index, :create, :update , :destroy ]
   resources :comments, only: [ :create, :update ]
-  resources :lists, only: [ :index, :create ]
+  resources :archives, only: [ :index, :create ]
 
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   post '/signup', to: 'users#create'
   get '/user_profile', to: 'users#show'
 
-  get '/movie_shuffle', to: 'movies#shuffle'
 
 
 

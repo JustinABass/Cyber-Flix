@@ -167,6 +167,7 @@ export default function NavBar() {
             || location.pathname === '/adventure_movies'
             || location.pathname === '/crime_movies'
             || location.pathname === '/horror_movies'
+            || location.pathname === '/watchlist'
             ) {
             return (
                 <div className='navBarParentDiv'>
@@ -303,6 +304,7 @@ export default function NavBar() {
                     >
                         <h4> ACTORS </h4>
                     </NavLink>
+                    
 
                     { showSearchMovieInput ?
                         <div className='searchBarParentDiv'>

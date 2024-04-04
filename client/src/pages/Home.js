@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../context/user'
 import { MovieContext } from '../context/movie'
-import { ListContext } from '../context/list'
+import { WatchlistContext } from '../context/watchlist'
 import MovieCard from '../components/MovieCard'
 import Signup from './Signup'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -13,17 +13,15 @@ import { faPlusMinus } from '@fortawesome/free-solid-svg-icons'
 export default function Home() {
     const { user, setUser, isAuthenticated } = useContext( UserContext )
     const { movies, popularMovies, newMovies, trendingMovies, isLoaded, toggleTrailerIndex, handlePrevTrailer, handleNextTrailer} = useContext( MovieContext )
-    const { addToUserList } = useContext(ListContext)
+    const { addToUserWatchlist } = useContext(WatchlistContext)
 
 
-    const handleAddWatchListClick = (e) => {
-        e.preventDefault()
+    const handleAddWatchListClick = () => {
         const newWatchListObj = {
-            user_id: user.id,
-            movie_id: movies[toggleTrailerIndex]?.id
+            movie_id: movies[toggleTrailerIndex]?.id,
         }
 
-        addToUserList(newWatchListObj, user, setUser)
+        addToUserWatchlist(newWatchListObj, user, setUser)
     }
 
 
@@ -50,7 +48,7 @@ export default function Home() {
                             <button className='hompageNxtBttn' onClick={ handleNextTrailer}> NEXT TRAILER </button>
                         </div>
                         <div className='homepageHeaders'>
-                            <buttom onClick={handleAddWatchListClick}> Add </buttom>
+                            <button onClick={handleAddWatchListClick}> Add </button>
                             {/* <FontAwesomeIcon onClick={ handleAddWatchListClick } icon={faPlusMinus} /> */}
                         </div>
                     </div>
