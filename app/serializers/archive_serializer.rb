@@ -8,8 +8,4 @@ class ArchiveSerializer < ActiveModel::Serializer
   def movie_id
     object.movie.id
   end
-
-  def poster
-    object.movie.poster
-  end
 end

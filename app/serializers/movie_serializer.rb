@@ -4,4 +4,6 @@ class MovieSerializer < ActiveModel::Serializer
   has_many :reviews
 
 
+
+
 end

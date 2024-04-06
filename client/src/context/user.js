@@ -9,9 +9,7 @@ function UserProvider({ children }) {
     const [ userError, setUserError ] = useState( '' )
     const [ usernameErrors, setUsernameErrors ] = useState( '' )
     const [ passwordErrors, setPasswordErrors ] = useState( '' )
-    const [ usersWatchList, setUsersWatchList ] = useState(  )
 
-    console.log('user wl', usersWatchList)
 
 
 
@@ -144,26 +142,13 @@ function UserProvider({ children }) {
     };
 
 
-    const addMovieToWatchList = (movie) => {
-        fetch('/movies',{
-            method: 'POST',
-            headers: { 'Content-Type' : 'application/json'},
-            body: JSON.stringify(movie)
-        })
-        .then((r) => r.json())
-        .then((addedMovie) => {
 
-            const setMovieWatchList = [...usersWatchList, addedMovie]
-            setUsersWatchList(setMovieWatchList)
-
-        })
-    }
 
 
     return(
         <UserContext.Provider
         value={{ isAuthenticated, setIsAuthenticated, user, setUser, login, signup, logout, userError, updateUsername, updateUserPassword, updateUserImage,
-                 usernameErrors, passwordErrors, addMovieToWatchList }}>
+                 usernameErrors, passwordErrors }}>
             {children}
         </UserContext.Provider>
     )
