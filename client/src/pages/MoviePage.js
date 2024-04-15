@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { useParams } from "react-router-dom";
 import { UserContext } from '../context/user'
 import { MovieContext } from '../context/movie';
-import { WatchlistContext } from '../context/watchlist';
+import { ArchiveContext } from '../context/archive';
 import MovieCast from '../components/MovieCast';
 import MovieCard from '../components/MovieCard';
 import ReviewCard from '../components/ReviewCard';
@@ -14,7 +14,7 @@ export default function MoviePage() {
     const { movie_id } = useParams()
     const { user, setUser, isAuthenticated } = useContext( UserContext )
     const { movies } = useContext( MovieContext )
-    const { handleAddToArchiveOnclick } = useContext ( WatchlistContext )
+    const { handleAddToArchiveOnclick } = useContext ( ArchiveContext )
 
         const selectedMovie = movies?.find((movie) => movie.id == movie_id)
         if( !selectedMovie ){

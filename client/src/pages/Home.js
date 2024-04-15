@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../context/user'
 import { MovieContext } from '../context/movie'
-import { WatchlistContext } from '../context/watchlist'
+import { ArchiveContext } from '../context/archive'
 import MovieCard from '../components/MovieCard'
 import Signup from './Signup'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,10 +10,11 @@ import { faPlusMinus } from '@fortawesome/free-solid-svg-icons'
 
 
 
+
 export default function Home() {
     const { user, setUser, isAuthenticated } = useContext( UserContext )
-    const { movies, setMovies, popularMovies, newMovies, trendingMovies, isLoaded, toggleTrailerIndex, handlePrevTrailer, handleNextTrailer} = useContext( MovieContext )
-    const { handleAddToArchiveOnclick } = useContext(WatchlistContext)
+    const { movies, popularMovies, newMovies, trendingMovies, isLoaded, toggleTrailerIndex, handlePrevTrailer, handleNextTrailer} = useContext( MovieContext )
+    const { handleAddToArchiveOnclick } = useContext( ArchiveContext )
 
 
          if( isAuthenticated ){

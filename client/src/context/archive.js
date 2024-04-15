@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
 
-const WatchlistContext = React.createContext()
+const ArchiveContext = React.createContext()
 
-function WatchlistProvider({ children }) {
+function ArchiveProvider({ children }) {
     const [ archives, setArchives ] = useState( [] )
     console.log('arch', archives)
 
@@ -16,7 +16,7 @@ function WatchlistProvider({ children }) {
 
 
 
-    function addToUserWatchlist(newArch, user, setUser){
+    function addToUserArchive(newArch, user, setUser){
         fetch('/archives',{
             method: 'POST',
             headers: { 'Content-Type' : 'application/json'},
@@ -25,14 +25,7 @@ function WatchlistProvider({ children }) {
         .then((r) => r.json())
         .then((newArchive) => {
 
-
-
-
-            console.log('new archive movie id', newArchive.movie_id)
-
             const userMovieExist = user.unique_movies.find((archive) => archive.id === newArchive.movie_id)
-
-            console.log('lll', newArchive)
 
             if( !userMovieExist ){
                 const updateUser = {...user, unique_movies:[...user.unique_movies, newArchive.movie]}
@@ -47,18 +40,18 @@ function WatchlistProvider({ children }) {
             movie_id: movieID
         }
 
-        addToUserWatchlist(newArchiveObj, user, setUser)
+        addToUserArchive(newArchiveObj, user, setUser)
     }
 
 
 
     return(
-        <WatchlistContext.Provider
-        value={{  addToUserWatchlist, handleAddToArchiveOnclick }}>
+        <ArchiveContext.Provider
+        value={{  addToUserArchive, handleAddToArchiveOnclick }}>
             {children}
-        </WatchlistContext.Provider>
+        </ArchiveContext.Provider>
     )
 }
 
 
-export { WatchlistContext, WatchlistProvider}
+export { ArchiveContext, ArchiveProvider}

@@ -12,7 +12,8 @@ class MoviesController < ApplicationController
 
 
     def destroy
-        ç@current_user.movies.delete(Movie.find(params[:id]))
+        @current_user.movies.delete(Movie.find(params[:id]))
+        
         head :no_content
     end
 
