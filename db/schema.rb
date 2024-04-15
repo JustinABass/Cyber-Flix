@@ -52,6 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_29_173405) do
   create_table "archives", force: :cascade do |t|
     t.integer "user_id"
     t.integer "movie_id"
+    t.string "poster"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

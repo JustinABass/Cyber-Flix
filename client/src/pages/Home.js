@@ -12,17 +12,8 @@ import { faPlusMinus } from '@fortawesome/free-solid-svg-icons'
 
 export default function Home() {
     const { user, setUser, isAuthenticated } = useContext( UserContext )
-    const { movies, popularMovies, newMovies, trendingMovies, isLoaded, toggleTrailerIndex, handlePrevTrailer, handleNextTrailer} = useContext( MovieContext )
-    const { addToUserWatchlist } = useContext(WatchlistContext)
-
-
-    const handleAddWatchListClick = () => {
-        const newWatchListObj = {
-            movie_id: movies[toggleTrailerIndex]?.id,
-        }
-
-        addToUserWatchlist(newWatchListObj, user, setUser)
-    }
+    const { movies, setMovies, popularMovies, newMovies, trendingMovies, isLoaded, toggleTrailerIndex, handlePrevTrailer, handleNextTrailer} = useContext( MovieContext )
+    const { handleAddToArchiveOnclick } = useContext(WatchlistContext)
 
 
          if( isAuthenticated ){
@@ -48,7 +39,7 @@ export default function Home() {
                             <button className='hompageNxtBttn' onClick={ handleNextTrailer}> NEXT TRAILER </button>
                         </div>
                         <div className='homepageHeaders'>
-                            <button onClick={handleAddWatchListClick}> Add </button>
+                            <button onClick={() => handleAddToArchiveOnclick( movies[toggleTrailerIndex]?.id, user, setUser)}> Add </button>
                             {/* <FontAwesomeIcon onClick={ handleAddWatchListClick } icon={faPlusMinus} /> */}
                         </div>
                     </div>

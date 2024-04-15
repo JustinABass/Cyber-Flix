@@ -7,6 +7,7 @@ class User < ApplicationRecord
     has_many :archives
     has_many :movies, through: :archives
 
+
     # validates :username, presence: true, uniqueness: true
     # validates :image, attached: true
 end

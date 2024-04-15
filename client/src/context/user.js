@@ -31,6 +31,7 @@ function UserProvider({ children }) {
             if( userData.error ){
                 setIsAuthenticated( false );
                 const errorList = userData.error.map((error) => <>{ error }</>)
+                console.log('error', errorList)
                 setUserError( errorList );
             } else {
                 setUser( userData )

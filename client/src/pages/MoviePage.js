@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
 import { useParams } from "react-router-dom";
 import { UserContext } from '../context/user'
-import { MovieContext } from '../context/movie'
+import { MovieContext } from '../context/movie';
+import { WatchlistContext } from '../context/watchlist';
 import MovieCast from '../components/MovieCast';
 import MovieCard from '../components/MovieCard';
 import ReviewCard from '../components/ReviewCard';
@@ -11,13 +12,15 @@ import UnauthenticatedMessage from '../components/UnauthenticatedMessage';
 
 export default function MoviePage() {
     const { movie_id } = useParams()
-    const { isAuthenticated, addMovieToWatchList } = useContext( UserContext )
+    const { user, setUser, isAuthenticated } = useContext( UserContext )
     const { movies } = useContext( MovieContext )
+    const { handleAddToArchiveOnclick } = useContext ( WatchlistContext )
 
         const selectedMovie = movies?.find((movie) => movie.id == movie_id)
         if( !selectedMovie ){
                 return <h1><b>LOADING...</b></h1>
             };
+
 
         const selectedMovieReviews = () => {
             if( selectedMovie.reviews <= 0 ){
@@ -54,7 +57,7 @@ export default function MoviePage() {
                         <h3>{ selectedMovie.genre } - { selectedMovie.year}</h3>
                     </div>
                     <div className='selectedMovieInfoChildTextDiv'>
-                        <h4 onClick={() => addMovieToWatchList(selectedMovie)}> ADD </h4>
+                        <button onClick={() => handleAddToArchiveOnclick( selectedMovie.id, user, setUser )}> Add Movie </button>
                     </div>
                 </div>
 

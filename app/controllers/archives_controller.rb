@@ -5,13 +5,14 @@ class ArchivesController < ApplicationController
         render json: Archive.all, status: :ok
     end
 
+
     def create
         render json: @current_user.archives.create!(archive_params), status: :created
     end
 
     def destroy
-        saved_movie = @current_user.archives.find(params[:id])
-        saved_movie.destroy
+        saved_archive = @current_user.archives.find(params[:id])
+        saved_archive.destroy
         head :no_content
       end
 

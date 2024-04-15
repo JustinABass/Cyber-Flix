@@ -9,7 +9,6 @@ class CreateMovies < ActiveRecord::Migration[7.0]
       t.boolean :new_release
       t.boolean :trending_now
       t.boolean :popular
-
       t.timestamps
     end
   end

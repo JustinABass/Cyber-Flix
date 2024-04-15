@@ -15,6 +15,7 @@ function WatchlistProvider({ children }) {
     }, [])
 
 
+
     function addToUserWatchlist(newArch, user, setUser){
         fetch('/archives',{
             method: 'POST',
@@ -25,29 +26,35 @@ function WatchlistProvider({ children }) {
         .then((newArchive) => {
 
 
-            const archiveExist = archives.find((archive) => archive.movie_id === newArchive.movie_id)
 
-            if( !archiveExist ){
-                const updateArchive = [...archives, newArchive]
-                setArchives( updateArchive )
-            }
-            
-            const userArchiveExist = user.archives.find((archive) => archive.movie_id === newArchive.movie_id)
-            console.log('exist', archiveExist)
 
-            if( !userArchiveExist ){
-                const updateUser = {...user, archives:[...user.archives, newArchive] }
+            console.log('new archive movie id', newArchive.movie_id)
+
+            const userMovieExist = user.unique_movies.find((archive) => archive.id === newArchive.movie_id)
+
+            console.log('lll', newArchive)
+
+            if( !userMovieExist ){
+                const updateUser = {...user, unique_movies:[...user.unique_movies, newArchive.movie]}
                 setUser( updateUser )
             };
 
         })
     }
 
+    const handleAddToArchiveOnclick = (movieID, user, setUser) => {
+        const newArchiveObj = {
+            movie_id: movieID
+        }
+
+        addToUserWatchlist(newArchiveObj, user, setUser)
+    }
+
 
 
     return(
         <WatchlistContext.Provider
-        value={{  addToUserWatchlist, archives, setArchives }}>
+        value={{  addToUserWatchlist, handleAddToArchiveOnclick }}>
             {children}
         </WatchlistContext.Provider>
     )

@@ -1,5 +1,7 @@
 class ArchiveSerializer < ActiveModel::Serializer
   attributes :id, :user_id, :movie_id, :movie
+ 
+
 
   def user_id
     object.user.id
@@ -8,4 +10,7 @@ class ArchiveSerializer < ActiveModel::Serializer
   def movie_id
     object.movie.id
   end
+
+
+
 end
