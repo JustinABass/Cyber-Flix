@@ -6,7 +6,7 @@ import { ArchiveContext } from '../context/archive'
 import MovieCard from '../components/MovieCard'
 import Signup from './Signup'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusMinus } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -15,8 +15,12 @@ export default function Home() {
     const { user, setUser, isAuthenticated } = useContext( UserContext )
     const { movies, popularMovies, newMovies, trendingMovies, isLoaded, toggleTrailerIndex, handlePrevTrailer, handleNextTrailer} = useContext( MovieContext )
     const { handleAddToArchiveOnclick } = useContext( ArchiveContext )
+    const [ toggleAddToWatchList, setToggleAddToWatchList ] = useState( true )
 
 
+    const selectedMovie = movies?.find((movie) => movie.id == movies[toggleTrailerIndex]?.id)
+
+    console.log('this is a selected movie', selectedMovie)
          if( isAuthenticated ){
             return (
                 <div>
@@ -34,14 +38,25 @@ export default function Home() {
                                     <b className='checkOutLink2'>{movies[toggleTrailerIndex]?.title }</b>
                                 </Link>
                             </h1>
+                            <div>
+                                { selectedMovie ?
+                                    <FontAwesomeIcon className='addToWatchListButton' onClick={ () => {
+                                        handleAddToArchiveOnclick( movies[toggleTrailerIndex]?.id, user, setUser)
+                                        if( selectedMovie ){
+                                            setToggleAddToWatchList( false )
+                                        }
+                                    } } icon={(faPlus)} />
+                                :
+                                    <FontAwesomeIcon className='addToWatchListButton' onClick={ () => {
+                                       if( selectedMovie ){
+                                        setToggleAddToWatchList( true )
+                                       }
+                                    } } icon={faMinus} />
+                                }
+                            </div>
                             <h1>|</h1>
-
                             <button className='hompageNxtBttn' onClick={ handlePrevTrailer }> PREVIOUS TRAILER </button>
                             <button className='hompageNxtBttn' onClick={ handleNextTrailer}> NEXT TRAILER </button>
-                        </div>
-                        <div className='homepageHeaders'>
-                            <button onClick={() => handleAddToArchiveOnclick( movies[toggleTrailerIndex]?.id, user, setUser)}> Add </button>
-                            {/* <FontAwesomeIcon onClick={ handleAddWatchListClick } icon={faPlusMinus} /> */}
                         </div>
                     </div>
                     <br/>

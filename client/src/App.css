@@ -469,6 +469,10 @@ body::-webkit-scrollbar-thumb {
 .checkOutLink2:hover{
   color: white;
 }
+.addToWatchListButton{
+  margin-left: 25%;
+  margin-top: 11px;
+}
 .homepageSlideContainer{
   width: 50%;
   position: relative;

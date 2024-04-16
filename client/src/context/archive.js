@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from "react";
+import swal from 'sweetalert';
+
 
 const ArchiveContext = React.createContext()
 
@@ -30,8 +32,10 @@ function ArchiveProvider({ children }) {
             if( !userMovieExist ){
                 const updateUser = {...user, unique_movies:[...user.unique_movies, newArchive.movie]}
                 setUser( updateUser )
+                swal(`${newArchive.movie.title} has been added to your watchlist!`);
+            } else {
+                swal(`${newArchive.movie.title} is already saved to your watchlist!`);
             };
-
         })
     }
 

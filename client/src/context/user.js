@@ -40,12 +40,6 @@ function UserProvider({ children }) {
         })
     }, []);
 
-    // useEffect(() => {
-    //     fetch('/users')
-    //     .then((r) => r.json())
-    //     .then((users) => setUsers( users ))
-    // }, []);
-
 
 
     const logout = () => {

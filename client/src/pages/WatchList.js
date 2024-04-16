@@ -16,10 +16,10 @@ export default function WatchList() {
 
         {/* { user.unique_movies.length === 0 && (<div> No movies have been added to your watchlist</div>) } */}
 
-        { user.unique_movies.map((archive) => (
+        { user.unique_movies.map((movie) => (
           <WListC
-          key={ archive.id }
-          savedArchive={ archive }
+          key={ movie.id }
+          savedMovie={ movie }
           />
         ))}
 
