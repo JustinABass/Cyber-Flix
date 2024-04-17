@@ -33,11 +33,10 @@ function ArchiveProvider({ children }) {
                 const updateUser = {...user, unique_movies:[...user.unique_movies, newArchive.movie]}
                 setUser( updateUser )
                 swal(`${newArchive.movie.title} has been added to your watchlist!`);
-            } else {
-                swal(`${newArchive.movie.title} is already saved to your watchlist!`);
-            };
+            }
         })
     }
+
 
     const handleAddToArchiveOnclick = (movieID, user, setUser) => {
         const newArchiveObj = {
@@ -48,10 +47,25 @@ function ArchiveProvider({ children }) {
     }
 
 
+    const deleteSavedArchive = (savedMovie, user, setUser) => {
+        fetch(`/movies/${savedMovie}`,{
+            method: 'DELETE',
+            headers: { 'Content-Type' : 'application/json'}
+        })
+        .then(() => {
+          const filterUserUniqueMovies = user.unique_movies.filter((movie) => movie.id !== savedMovie)
+          if(filterUserUniqueMovies){
+            setUser( {...user, unique_movies: filterUserUniqueMovies} )
+            swal('The selected movie has been removed from your watchlist.');
+          }
+        })
+      }
+
+
 
     return(
         <ArchiveContext.Provider
-        value={{  addToUserArchive, handleAddToArchiveOnclick }}>
+        value={{  addToUserArchive, handleAddToArchiveOnclick, deleteSavedArchive }}>
             {children}
         </ArchiveContext.Provider>
     )

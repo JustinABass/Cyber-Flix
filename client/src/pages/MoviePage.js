@@ -8,13 +8,15 @@ import MovieCard from '../components/MovieCard';
 import ReviewCard from '../components/ReviewCard';
 import AddReview from '../components/AddReview';
 import UnauthenticatedMessage from '../components/UnauthenticatedMessage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function MoviePage() {
     const { movie_id } = useParams()
     const { user, setUser, isAuthenticated } = useContext( UserContext )
     const { movies } = useContext( MovieContext )
-    const { handleAddToArchiveOnclick } = useContext ( ArchiveContext )
+    const { handleAddToArchiveOnclick, deleteSavedArchive } = useContext ( ArchiveContext )
 
         const selectedMovie = movies?.find((movie) => movie.id == movie_id)
         if( !selectedMovie ){
@@ -39,6 +41,7 @@ export default function MoviePage() {
         const movieGenreMatch = movies.filter((movie) => movie.genre === selectedMovie.genre);
         const setMovieGenreMatch = movieGenreMatch.filter((movie) => movie.id !== selectedMovie.id);
 
+        const selectedUniqueMovie = user.unique_movies?.find((movie) => movie.id === selectedMovie.id)
 
     if( isAuthenticated ){
         return (
@@ -56,9 +59,12 @@ export default function MoviePage() {
                     <div className='selectedMovieInfoChildTextDiv'>
                         <h3>{ selectedMovie.genre } - { selectedMovie.year}</h3>
                     </div>
-                    <div className='selectedMovieInfoChildTextDiv'>
-                        <button onClick={() => handleAddToArchiveOnclick( selectedMovie.id, user, setUser )}> Add Movie </button>
-                    </div>
+                    { selectedUniqueMovie ?
+                            <FontAwesomeIcon className='addToWatchListButton'  onClick={ () => deleteSavedArchive( selectedMovie.id, user, setUser ) } icon={(faMinus)} />
+                        :
+                            <FontAwesomeIcon className='addToWatchListButton' onClick={ () => handleAddToArchiveOnclick( selectedMovie.id, user, setUser )} icon={faPlus} />
+                        }
+
                 </div>
 
 
