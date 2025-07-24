@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from '../context/user'
 import { MovieContext } from '../context/movie'
@@ -7,7 +7,7 @@ import MovieCard from '../components/MovieCard'
 import Signup from './Signup'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
-
+import YouTube from 'react-youtube'
 
 
 
@@ -15,16 +15,72 @@ export default function Home() {
     const { user, setUser, isAuthenticated } = useContext( UserContext )
     const { movies, popularMovies, newMovies, trendingMovies, isLoaded, toggleTrailerIndex, handlePrevTrailer, handleNextTrailer} = useContext( MovieContext )
     const { handleAddToArchiveOnclick, deleteSavedArchive } = useContext( ArchiveContext )
+    const selectedUniqueMovie = user?.unique_movies?.find((movie) => movie.id === movies[toggleTrailerIndex]?.id)
 
 
-    const selectedUniqueMovie = user.unique_movies?.find((movie) => movie.id === movies[toggleTrailerIndex]?.id)
+    let popularMovieScrollRef = useRef(null);
+    let newMovieScrollRef = useRef(null);
+    let trendMovieScrollRef = useRef(null);
+
+    const scrollRight = (movieScrollCategory) => {
+            if (movieScrollCategory.current){
+                movieScrollCategory.current.scrollLeft += 150
+            }
+    };
+
+     const scrollLeft = (movieScrollCategory) => {
+            if (movieScrollCategory.current){
+                movieScrollCategory.current.scrollLeft -= 150;
+        }
+    };
 
 
+
+
+    //https://www.youtube.com/watch?v=oDU84nmSDZY
+    //https://youtu.be/oDU84nmSDZY?si=e7XHgBPOMbD3-K5c
+    //https://pie.yt/?v=https://youtu.be/_nBlN9yp9R8?si=gOMqJvjYxYF3E6KH&pieshare=1
+
+    const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+    const [playlist, setPlaylist] = useState(['oDU84nmSDZY', 'g9pW3B8Ycc4'])
+    console.log('currnent', playlist[currentVideoIndex])
+
+
+    const videoRef = useRef(null)
+
+    const onPlayerReady = (event) => {
+        event.target.playVideo()
+    }
+
+    const onPlayerStateChange = (event) => {
+        if (event.data === YouTube.PlayerState.ENDED){
+            if (currentVideoIndex < playlist.length - 1){
+                setCurrentVideoIndex(currentVideoIndex + 1)
+            } else {
+                console.log('Playlist ended')
+            }
+        }
+    }
+
+    const opts = {
+        height: '720',
+        width: '1425',
+        playerVars: {
+            autoplay: 1,
+            mute: 1,
+        },
+    };
          if( isAuthenticated ){
             return (
                 <div>
                 <div className='homepageTrailerDiv'>
-                     <iframe src={movies[toggleTrailerIndex]?.trailer} width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen ></iframe>
+                     {/* <iframe ref={videoRef} src={movies[toggleTrailerIndex]?.trailer} width="1425" height="720"  allow="fullscreen" title="A YouTube video" frameBorder="0" allowFullScreen ></iframe> */}
+                     <YouTube
+                     videoId={playlist[currentVideoIndex]}
+                     opts={opts}
+                     onReady={onPlayerReady}
+                     onStateChange={onPlayerStateChange}
+                     />
                 </div>
 
                     <div className='homepageParentDiv'>
@@ -38,7 +94,7 @@ export default function Home() {
                                 </Link>
                             </h1>
                             <div>
-                                { selectedUniqueMovie ?
+                                { selectedUniqueMovie  ?
                                     <FontAwesomeIcon className='addToWatchListButton'  onClick={ () => deleteSavedArchive( movies[toggleTrailerIndex]?.id, user, setUser ) } icon={(faMinus)} />
                                 :
                                     <FontAwesomeIcon className='addToWatchListButton' onClick={ () => handleAddToArchiveOnclick( movies[toggleTrailerIndex]?.id, user, setUser )} icon={faPlus} />
@@ -58,9 +114,9 @@ export default function Home() {
                             <h1>Popular On CyberFlix</h1>
                         </div>
                         <section className='homepageSlideContainer'>
-                            <span id="left-arrow" className="arrow">‹</span>
-                            <span id="right-arrow" className="arrow">›</span>
-                                <div className="slider" id="slider">
+                            <span id="left-arrow" className="arrow" onClick={() => scrollLeft(popularMovieScrollRef)}>‹</span>
+                            <span id="right-arrow" className="arrow" onClick={() => scrollRight(popularMovieScrollRef)}>›</span>
+                                <div className="slider" id="slider" ref={popularMovieScrollRef} style={{overflowX: 'auto', whiteSpace: 'nowrap'}}>
                                     { popularMovies.map((movie) => (
                                       <MovieCard
                                       key={ movie.id }
@@ -74,9 +130,9 @@ export default function Home() {
                                 <h1>New Releases On CyberFlix</h1>
                             </div>
                             <section className='homepageSlideContainer'>
-                                <span id="left-arrow" className="arrow">‹</span>
-                                <span id="right-arrow" className="arrow">›</span>
-                                    <div className="slider" id="slider">
+                            <span id="left-arrow" className="arrow" onClick={() => scrollLeft(newMovieScrollRef)}>‹</span>
+                            <span id="right-arrow" className="arrow" onClick={() => scrollRight(newMovieScrollRef)}>›</span>
+                                <div className="slider" id="slider" ref={newMovieScrollRef} style={{overflowX: 'auto', whiteSpace: 'nowrap'}}>
                                         { newMovies.map((movie) => (
                                           <MovieCard
                                           key={ movie.id }
@@ -90,9 +146,9 @@ export default function Home() {
                                 <h1>Trending Now On CyberFlix</h1>
                             </div>
                             <section className='homepageSlideContainer'>
-                                <span id="left-arrow" className="arrow">‹</span>
-                                <span id="right-arrow" className="arrow">›</span>
-                                    <div className="slider" id="slider">
+                            <span id="left-arrow" className="arrow" onClick={() => scrollLeft(trendMovieScrollRef)}>‹</span>
+                            <span id="right-arrow" className="arrow" onClick={() => scrollRight(trendMovieScrollRef)}>›</span>
+                                    <div className="slider" id="slider" ref={trendMovieScrollRef} style={{overflowX: 'auto', whiteSpace: 'nowrap'}}>
                                         {  trendingMovies.map((movie) => (
                                             <MovieCard
                                             key={ movie.id }

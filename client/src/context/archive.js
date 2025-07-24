@@ -32,6 +32,7 @@ function ArchiveProvider({ children }) {
             if( !userMovieExist ){
                 const updateUser = {...user, unique_movies:[...user.unique_movies, newArchive.movie]}
                 setUser( updateUser )
+
                 swal(`${newArchive.movie.title} has been added to your watchlist!`);
             }
         })
@@ -54,9 +55,10 @@ function ArchiveProvider({ children }) {
         })
         .then(() => {
           const filterUserUniqueMovies = user.unique_movies.filter((movie) => movie.id !== savedMovie)
+          const findDeletedMovie = user.unique_movies.filter((movie) => movie.id === savedMovie)
           if(filterUserUniqueMovies){
             setUser( {...user, unique_movies: filterUserUniqueMovies} )
-            swal('The selected movie has been removed from your watchlist.');
+            swal(`The selected movie  has been removed from your watchlist.`);
           }
         })
       }

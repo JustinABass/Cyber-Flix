@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
+import swal from 'sweetalert';
 
 const UserContext = React.createContext()
 
 function UserProvider({ children }) {
     const [ isAuthenticated, setIsAuthenticated ] = useState( false )
     const [ user, setUser ] = useState( {} )
-    // const [ users, setUsers ] = useState( null )
+
     const [ userError, setUserError ] = useState( '' )
     const [ usernameErrors, setUsernameErrors ] = useState( '' )
     const [ passwordErrors, setPasswordErrors ] = useState( '' )
-
-
 
 
 
@@ -39,6 +38,8 @@ function UserProvider({ children }) {
             }
         })
     }, []);
+
+
 
 
 
@@ -74,6 +75,7 @@ function UserProvider({ children }) {
                         return reply.username = updateUsername.username
                     }
                 });
+                swal(`Your username has been updated.`)
             } else {
                 const errorsList = updateUsername.errors.map((error) => <li> { error }</li>)
                 setUsernameErrors( errorsList )
@@ -92,7 +94,7 @@ function UserProvider({ children }) {
         .then((updatedPassword) => {
             if( !updatedPassword.errors ){
                 setUser( updatedPassword );
-                alert( 'Password updated')
+                swal(`Your password has been updated.`)
             } else {
                 const errorsList = updatedPassword.errors.map((error) => <li> { error }</li>)
                 setPasswordErrors( errorsList )
@@ -129,7 +131,7 @@ function UserProvider({ children }) {
                                 return reply.user_image = imageData.image
                             }
                         });
-                        alert( 'User image updated')
+                        swal('Your profile avatar has been updated.')
                     })
                 }
             })
