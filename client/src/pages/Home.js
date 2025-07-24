@@ -35,12 +35,6 @@ export default function Home() {
     };
 
 
-
-
-    //https://www.youtube.com/watch?v=oDU84nmSDZY
-    //https://youtu.be/oDU84nmSDZY?si=e7XHgBPOMbD3-K5c
-    //https://pie.yt/?v=https://youtu.be/_nBlN9yp9R8?si=gOMqJvjYxYF3E6KH&pieshare=1
-
     const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
     const [playlist, setPlaylist] = useState(['oDU84nmSDZY', 'g9pW3B8Ycc4'])
     console.log('currnent', playlist[currentVideoIndex])
